@@ -8,9 +8,10 @@
     font-weight: bold;
     border: none;
     color: #fff;
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
 }
 
-.button-container:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
+
