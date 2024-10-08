@@ -1,7 +1,11 @@
+import './Homepage.scss'
+import Header from '../../components/Header/Header'
+
+
 const Homepage = () => {
     return (
-        <h1>
-            Homepage
-        </h1>
+        <Header />
     )
 }
+
+export default Homepage

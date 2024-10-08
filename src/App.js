@@ -1,11 +1,9 @@
-
+import Homepage from './pages/Homepage/Homepage'
 const App = () => {
 
   return (
     <>
-        <h1>
-          SeiSei
-        </h1>
+        <Homepage />
     </>
   ) 
 
