@@ -6,7 +6,7 @@ const Homepage = () => {
     return (
     <div className='homepage-container'>
         <Header />
-        <div className='home'>
+        <div id = 'home' className='home'>
             <div className='home-imgs'>
                 <img src={homeImg} className='home-img'/>
             </div>

@@ -14,7 +14,7 @@ const Header = () => {
             <div className='header-items'>
                 <ul className="header-menu">
                     <li className="header-menu__item">
-                        <a className='header-menu__item-link' href='/'>Trang chủ</a>
+                        <a className='header-menu__item-link' href='#home'>Trang chủ</a>
                     </li>
                     <li className="header-menu__item">
                         <a className='header-menu__item-link' href='/gioi-thieu'>Giới thiệu</a>
