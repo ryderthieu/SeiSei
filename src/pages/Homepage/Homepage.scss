@@ -1,0 +1,89 @@
+.homepage-container {
+    background-image: url(../../assets/images/hvHome.png);
+    background-size: cover;
+    display: flex;
+}
+
+.home {
+    padding-top: 100px;
+    padding-bottom: 1000px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 120px;
+    justify-content: space-between;
+    .home-imgs{
+        margin-left: 20px;
+
+        .home-img {
+            width: 500px;
+            height: 100%;
+        }
+    }
+
+    .home-content {
+        margin: 20px;
+
+        .home-title {
+            font-size: 70px;
+            color: #004B7D;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .home-slogan {
+            font-size: 30px;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .home-content__content {
+            background-color: #fff;
+            opacity: 0.8;
+            margin: 20px 80px;
+            border-radius: 30px;
+            padding: 20px;
+            font-size: 22px;
+            color: #004777;
+            font-weight: 700;
+            box-shadow: 0px 8px 20px  #0A66A4;
+        }
+
+        .home-content__btn-container {
+            text-align: center;
+            margin-top: 40px;
+            .home-content__btn {
+                display: inline-block;
+                margin: 20px;
+                text-decoration: none;
+                padding: 20px;
+                width: 100px;
+                box-shadow: 0px 8px 18px #A1C5DF;
+                font-size: 26px;
+                border-radius: 20px;
+                min-width: 150px;
+            }
+            .btn--disable {
+                background-color: #D0E2EF;
+                opacity: 0.5;
+                color: #004C7B;
+                font-weight: 900;
+                &:hover {
+                    cursor: default;
+                }
+            }
+            .btn--active {
+                background-color: #fff;
+                color: #5E93BB;
+                font-weight: 900;
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+
+
