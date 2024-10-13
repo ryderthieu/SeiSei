@@ -1,3 +1,4 @@
+
 import './Homepage.scss'
 import Header from '../../components/Header/Header'
 import homeImg from '../../assets/images/Learning-amico.png'
@@ -6,7 +7,7 @@ const Homepage = () => {
     return (
     <div className='homepage-container'>
         <Header />
-        <div id = 'home' className='home'>
+        <div id = 'TrangChu' className='home'>
             <div className='home-imgs'>
                 <img src={homeImg} className='home-img'/>
             </div>

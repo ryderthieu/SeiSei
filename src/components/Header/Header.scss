@@ -47,6 +47,7 @@
     border: none;
     border-radius: 4px;
     margin: 10px;
+    text-decoration: none;
     &:hover {
         opacity: 0.8;
         cursor: pointer;
@@ -54,13 +55,15 @@
 }
 
 .register {
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #fff;
     color: #036FBA;
     font-weight: bold;
     border: none;
     border-radius: 4px;
     margin: 10px;
+    text-decoration: none;
+    min-width: 100px;
     &:hover {
         opacity: 0.8;
         cursor: pointer;
