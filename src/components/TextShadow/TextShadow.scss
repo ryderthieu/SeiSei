@@ -1,0 +1,19 @@
+.text-shadow {
+    position: relative;
+    z-index: 1;
+    color: var(--tColor);
+    font-size: var(--fontSize);
+    font-weight: var(--fontWeight);
+    text-shadow: var(--generatedTextShadow);
+}
+
+.textshadow-sd {
+    width: 100%;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    z-index: -1;
+    opacity: 0.5;
+    color: var(--sColor);
+    text-shadow: var(--generatedTextShadow);
+}

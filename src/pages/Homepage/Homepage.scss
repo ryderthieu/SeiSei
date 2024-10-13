@@ -2,11 +2,12 @@
     background-image: url(../../assets/images/hvHome.png);
     background-size: cover;
     display: flex;
+    flex-direction: column;
 }
 
-.home {
+#TrangChu {
     padding-top: 200px;
-    padding-bottom: 1000px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: row;
 
@@ -85,5 +86,58 @@
     }
 }
 
+#GioiThieu {
+    display: flex;
+    margin-top: 50px;
+    .slider-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+        .slide-img {
+            width: 600px;
+        }
+        .slide-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .slide-title {
+                color:#FF99BA;
+                font-size: 40px;
+                font-weight: bold;
+                -webkit-text-stroke: 27px #83BBE1 outside;
+                   
+            }
+            .slide-content {
+                list-style-image: url(../../assets/images/slide-list.png);
+                list-style-position: inside;
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 20px;
+                .content-item {
+                    margin-bottom: 10px;
+                }
+            }
+            .slide-btn {
+                text-decoration: none;
+                color: #fff;
+                background-color: #83BBE1;
+                width: 65%;
+                padding: 6px;
+                border-radius: 30px;
+                margin: 10px;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
 
+    }
+    .introduce-img {
+        width: 600px;
+        margin-top: 200px;
+        margin-left: 200px
+    }
+    
+}
 
