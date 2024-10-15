@@ -1,0 +1,34 @@
+.boxContent-container {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bColor);
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    margin-top: 40px;
+    .boxContent-imgs {
+        margin: 10px;
+        .boxContent-img {
+            width: 200px;
+        }
+    }
+    .boxContent-content {
+        margin: 10px;
+        .bcContent-title {
+            font-size: 20px;
+            color: #5E93BB;
+            font-weight: bold;
+        }
+        .bcContent-content {
+            margin-bottom: 20px;
+        }
+        .boxContent-btn {
+            background-color: #83BBE1;
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 10px;
+            
+        }
+    }
+}

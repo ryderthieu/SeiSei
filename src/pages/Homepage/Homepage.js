@@ -1,6 +1,5 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
 
 import './Homepage.scss'
 import Header from '../../components/Header/Header'
@@ -8,7 +7,19 @@ import homeImg from '../../assets/images/Learning-amico.png'
 import slideImg from '../../assets/images/line-bottom-bg.png'
 import IntroduceImg from '../../assets/images/Questions-rafiki.png'
 import TextShadow from "../../components/TextShadow/TextShadow";
+import BoxContent from "../../components/BoxContent/BoxContent";
+import imgMath from "../../assets/images/math.png"
+
 const Homepage = () => {
+    const settings = {
+        dots: true, // Hiện dấu chấm
+        infinite: true, // Cuộn vô hạn
+        speed: 500, // Tốc độ chuyển slide
+        slidesToShow: 1, // Số lượng slide hiển thị
+        slidesToScroll: 1, // Số lượng slide cuộn mỗi lần
+        autoplay: true, // Tự động chuyển slide
+        autoplaySpeed: 3000, // Thời gian giữa các lần chuyển slide
+      };
     return (
     <div className='homepage-container'>
         <Header />
@@ -40,7 +51,7 @@ const Homepage = () => {
             </div>
         </div>
         <div id="GioiThieu" className="section">
-            <div className="slider-container">
+            <div className="slider-container">                
                 <div className="slide-imgs">
                     <img src={slideImg} className="slide-img"/>
                 </div>
@@ -70,7 +81,6 @@ const Homepage = () => {
                         <Link className="slide-btn" to={'/register'}>
                             Đăng ký tìm gia sư ngay
                         </Link>
-                        
                     </div>
 
                 </div>
@@ -79,6 +89,36 @@ const Homepage = () => {
             <div>
                 <img src={IntroduceImg} className="introduce-img"/>
             </div>
+        </div>
+        <div id='LopHoc' className="section">
+            <div className="lh-title">
+                <TextShadow 
+                    text={'Các lớp học'}
+                    tColor={'#fff'}
+                    sColor={'#75C1F2'}
+                />
+            </div>
+            {/* <div className="lha-items"> */}
+                <BoxContent 
+                    className = 'lh-item'
+                    title={'LỚP HỌC PHỔ THÔNG'}
+                    img={imgMath}
+                    content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
+                    backgroundColor={'#F8FBFF'}
+                />
+                <BoxContent 
+                    title={'LỚP HỌC PHỔ THÔNG'}
+                    img={imgMath}
+                    content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
+                    backgroundColor={'#E5F4FF'}
+                />
+                <BoxContent 
+                    title={'LỚP HỌC PHỔ THÔNG'}
+                    img={imgMath}
+                    content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
+                    backgroundColor={'#E8F0FA'}
+                />
+            {/* </div> */}
         </div>
     </div>
     )

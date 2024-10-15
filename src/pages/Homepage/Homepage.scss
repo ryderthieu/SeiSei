@@ -129,6 +129,9 @@
                 font-size: 20px;
                 font-weight: bold;
                 text-align: center;
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
 
@@ -141,3 +144,17 @@
     
 }
 
+#LopHoc {
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .lha-items {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+    }
+    
+}
