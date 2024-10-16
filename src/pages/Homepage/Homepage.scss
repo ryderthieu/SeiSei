@@ -158,3 +158,36 @@
     }
     
 }
+
+#DangKyLop {
+    position: relative;
+    padding-top: 200px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 350px;
+    padding-bottom: 1000px;
+    display: flex;
+    justify-content: space-between;
+    .dkl-imgs {
+        .dkl-img1 {
+            width: 650px;
+            margin-left: 20px;
+        }
+        .dkl-img2 {
+            width: 50px;
+            position: absolute;
+            top: 460px;
+            right: 100px;
+        }
+        .dkl-img3 {
+            width: 400px;
+            position: absolute;
+            top: 160px;
+            right: 350px;
+        }
+    }
+    .dkl-content-container {
+        margin-right: 100px;
+        text-align: right;
+    }
+}

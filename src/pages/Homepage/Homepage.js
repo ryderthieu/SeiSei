@@ -9,6 +9,10 @@ import IntroduceImg from '../../assets/images/Questions-rafiki.png'
 import TextShadow from "../../components/TextShadow/TextShadow";
 import BoxContent from "../../components/BoxContent/BoxContent";
 import imgMath from "../../assets/images/math.png"
+import imgQuyTrinh from "../../assets/images/leadership-cuate.png"
+import imgQuyTrinh2 from "../../assets/images/blue-hat-star1.png"
+import imgQuyTrinh3 from "../../assets/images/method-star-bg.png"
+import ListStyle from "../../components/ListStyle/ListStyle";
 
 const Homepage = () => {
     const settings = {
@@ -120,6 +124,53 @@ const Homepage = () => {
                 />
             {/* </div> */}
         </div>
+        <div id='DangKyLop' className="section">
+            <div className="dkl-imgs">
+                <img src={imgQuyTrinh} className="dkl-img1"/>
+                <img src={imgQuyTrinh2} className="dkl-img2"/>
+                <img src={imgQuyTrinh3} className="dkl-img3"/>
+            </div>
+            <div className="dkl-content-container">
+                <div className="dkl-title">
+                    <TextShadow 
+                        text={'Quy trình'}
+                        tColor={'#3E91C7'}
+                        sColor={'#fff'}
+                        fontWeight={900}
+                    />
+                </div>
+                <div className="dkl-content">
+                    <ListStyle 
+                        stt={'01'}
+                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        color={'#000'}
+                    />
+                    <ListStyle 
+                        stt={'02'}
+                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        color={'#83BBE1'}
+                        direction="right"
+                    />
+                    <ListStyle 
+                        stt={'03'}
+                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        color={'#000'}
+                    />
+                    <ListStyle 
+                        stt={'04'}
+                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        color={'#83BBE1'}
+                        direction="right"
+                    />
+                    <ListStyle 
+                        stt={'05'}
+                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        color={'#000'}
+                    />
+                </div>
+            </div>
+        </div>
+        
     </div>
     )
 }
