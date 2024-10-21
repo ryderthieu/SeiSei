@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import './Login.scss'
 import loginImg from '../../assets/images/Login/login.png';
 
-import './Login.scss'
 const Login = () => {
     return (
         <div className="login-container">
@@ -13,29 +12,35 @@ const Login = () => {
                 <img src={loginImg} className='login-img'/>
             </div>
             <div className="login-content">
-                <div className="login-content__header">
-                    <div className="login-content__title1">Đăng nhập</div>
-                    <div className="login-content__title2">Học viên</div>
-                </div>
-                <div className="login-content__form">
-                    <div className="login-content__form__input">
-                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                <form action='#'>
+                    <div className="login-content__header">
+                        <div className="login-content__title1">Đăng nhập</div>
+                        <div className="login-content__title2">Học viên</div>
+                    </div>
+
+                    <div class="input-field">
                         <input type="text" required/>
-                        <label>Email</label>
+                        <label>Enter your email</label>
                     </div>
-                    <div className="login-content__form__input">
-                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <div class="input-field">
                         <input type="password" required/>
-                        <label>Mật khẩu</label>
+                        <label>Enter your password</label>
                     </div>
-                    <div className="login-content__form__btn-container">
-                        <button>Đăng nhập</button>
+                    <div class="forget">
+                        <label for="remember">
+                            <input type="checkbox" id="remember"/>
+                            <p>Remember me</p>
+                        </label>
+                        <a href="#">Forgot password?</a>
                     </div>
-                </div>
-                <div className="login-content__register">
-                    <span>Chưa có tài khoản?</span>
-                    <Link to="/register">Đăng ký</Link>
-                </div>
+                    <button type="submit">Đăng nhập</button>
+                    <div class="register">
+                        <p>
+                            Chưa có tài khoản?
+                            <a href="#">Register</a>
+                        </p>
+                    </div>
+                </form>
             </div>
         </div>
     )
