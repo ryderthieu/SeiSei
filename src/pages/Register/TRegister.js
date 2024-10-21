@@ -17,48 +17,54 @@ const RightArrowIcon = () => (
     </svg>
 );
 
-const FRegister = () => {
+const TRegister = () => {
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [cccd, setCccd] = useState(null);
+    const [avatar, setAvatar] = useState(null);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if (password !== confirmPassword) {
-            alert("Mật khẩu không khớp!");
-            return;
-        }
-        navigate('/sregister'); 
+        e.preventDefault(); // Prevent the default form submission behavior
+        navigate('/tregister'); 
     };
 
     const handleBack = () => {
-        navigate('/login');
+        navigate('/sregister');
+    };
+
+    const handleCccdChange = (e) => {
+        setCccd(e.target.files[0]);
+    };
+
+    const handleAvatarChange = (e) => {
+        setAvatar(e.target.files[0]);
     };
 
     return (
         <div className="register-container">
             <div className='register-imgs'>
-                <img src={loginImg} alt="Login" className='register-img'/>
+                <img src={loginImg} className='register-img' alt="Register" />
             </div>
             <div className="register-content">
                 <form onSubmit={handleSubmit}>
                     <div className="register-content__header">
-                        <h1 className="register-content__title1">Đăng ký</h1>
-                        <h2 className="register-content__title2">Học viên</h2>
+                        <div className="register-content__title1">Đăng ký</div>
+                        <div className="register-content__title2">Học viên</div>
+                    </div>
+                    <div className="input-field">
+                        <input type="file" required id="cccd" accept="image/*" onChange={handleCccdChange} />
+                        <label htmlFor="cccd">Tải lên CCCD</label>
                     </div>
 
                     <div className="input-field">
-                        <input type="text" required value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <label>Email</label>
+                        <input type="file" required id="avatar" accept="image/*" onChange={handleAvatarChange} />
+                        <label htmlFor="avatar">Tải lên Avatar</label>
                     </div>
-                    <div className="input-field">
-                        <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <label>Mật khẩu</label>
-                    </div>
-                    <div className="input-field">
-                        <input type="password" required value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                        <label>Xác nhận mật khẩu</label>
+
+                    <div class="accpect">
+                        <label for="accpect">
+                            <input type="checkbox" id="accpect"/>
+                            <span>Chấp nhận điều khoản sử dụng</span>
+                        </label>
                     </div>
 
                     <div className="button-container">
@@ -75,4 +81,4 @@ const FRegister = () => {
     );
 }
 
-export default FRegister;
+export default TRegister;
