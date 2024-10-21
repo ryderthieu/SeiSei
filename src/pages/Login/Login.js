@@ -31,13 +31,13 @@ const Login = () => {
                             <input type="checkbox" id="remember"/>
                             <p>Remember me</p>
                         </label>
-                        <a href="#">Forgot password?</a>
+                        <Link to={'/register'}>Forgot password?</Link>
                     </div>
                     <button type="submit">Đăng nhập</button>
                     <div class="register">
                         <p>
                             Chưa có tài khoản?
-                            <a href="#">Register</a>
+                            <Link to={'/fregister'}> Register</Link>
                         </p>
                     </div>
                 </form>
