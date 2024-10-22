@@ -114,6 +114,8 @@
                 font-size: 24px;
                 font-weight: bold;
                 margin-top: 20px;
+                display: flex;
+                flex-direction: column;
                 .content-item {
                     margin-bottom: 10px;
                 }
