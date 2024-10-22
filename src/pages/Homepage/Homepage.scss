@@ -89,6 +89,7 @@
 #GioiThieu {
     display: flex;
     margin-top: 50px;
+    margin-bottom: 50px;
     .slider-container {
         display: flex;
         flex-direction: column;
@@ -147,7 +148,7 @@
 }
 
 #LopHoc {
-    padding-top: 100px;
+    padding-top: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,8 +167,7 @@
     padding-top: 200px;
     display: flex;
     flex-direction: row;
-    margin-top: 350px;
-    padding-bottom: 1000px;
+    margin-top: 300px;
     display: flex;
     justify-content: space-between;
     .dkl-imgs {
@@ -191,5 +191,39 @@
     .dkl-content-container {
         margin-right: 100px;
         text-align: right;
+    }
+}
+
+#LuuY {
+    padding-top: 50px;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+    .LY-imgs {
+        #LY-img1 {
+            width: 800px;
+        }
+        #LY-img2 {
+            width: 150px;
+            position: absolute;
+            right: 100px;
+            top: 200px;
+        }
+    }
+    .LY-content-container {
+        margin-top: -150px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        .LY-content-title {
+            margin-bottom: 50px;
+        }
+        .LY-content {
+            width: 70%;
+            display: flex;
+            justify-content: space-around;
+        }
     }
 }

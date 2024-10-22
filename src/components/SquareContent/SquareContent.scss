@@ -1,0 +1,32 @@
+.SquareContent-container {
+    width: var(--width);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding-bottom: 20px;
+    .title {
+        color: var(--tColor);
+        text-align: center;
+        background-color: var(--tBg);
+        width: 80%;
+        font-weight: 900;
+        padding: 10px;
+        margin-bottom: -25px;
+        z-index: 1;
+        border-radius: 20px;
+        font-size: 20px;
+    }
+    .content {
+        color: var(--cColor);
+        background-color: var(--cBg);
+        border-radius: 10%;
+        padding: 20px;
+        padding-top: 30px;
+        box-shadow: 2px 4px 2px rgba(0, 0, 0, 0.5),
+                    -2px 0px rgba(0, 0, 0, 0.1);
+        text-align: justify;
+        font-size: 20px;
+    }
+}

@@ -3,6 +3,7 @@ import Slider from "react-slick";
 
 import './Homepage.scss'
 import Header from '../../components/Header/Header'
+import Footer from "../../components/Footer/Footer";
 import homeImg from '../../assets/images/Learning-amico.png'
 import slideImg from '../../assets/images/line-bottom-bg.png'
 import IntroduceImg from '../../assets/images/Questions-rafiki.png'
@@ -13,7 +14,9 @@ import imgQuyTrinh from "../../assets/images/leadership-cuate.png"
 import imgQuyTrinh2 from "../../assets/images/blue-hat-star1.png"
 import imgQuyTrinh3 from "../../assets/images/method-star-bg.png"
 import ListStyle from "../../components/ListStyle/ListStyle";
-
+import LYImg1 from "../../assets/images/frame-line.png"
+import LYImg2 from "../../assets/images/orange-bulb.png"
+import SquareContent from "../../components/SquareContent/SquareContent";
 const Homepage = () => {
     const settings = {
         dots: true, // Hiện dấu chấm
@@ -170,7 +173,54 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
-        
+        <div id='LuuY' className="section">
+            <div className="LY-imgs">
+                <img id="LY-img1" src={LYImg1} />
+                <img id="LY-img2" src={LYImg2} />
+            </div>
+            <div className="LY-content-container">
+                <div className = 'LY-content-title'>
+                    <TextShadow 
+                        text={'Lưu ý'}
+                        tColor={'#fff'}
+                        sColor={'#FF8DBD'}
+                        fontWeight="900"
+                    />
+                </div>
+                <div className="LY-content">
+                    <SquareContent 
+                        content={'Trong quá trình giảng dạy, nếu có điều chưa hài lòng, phụ huynh cần báo với trung tâm ngay lập tức để đề ra phương án giải quyết ổn thỏa và điều chỉnh, thay đổi gia sư nếu cần thiết.'}
+                        width={'300px'}
+                        tColor={'#0A5192'}
+                        cBg={'#E3F0F9'}
+                        title={'Khi gặp vấn đề'}
+                        tBg={'#BBD9F1'}
+                        cColor={'black'}
+                    />
+                    <SquareContent 
+                        content={'Phụ huynh nên theo dõi buổi đầu để kiểm tra mức độ hài lòng của học sinh, cách giảng dạy, cách truyền đạt kiến thức của gia sư. Hỏi ý kiến của học sinh để đưa ra quyết định hợp tác.'}
+                        width={'300px'}
+                        tColor={'#fff'}
+                        cBg={'#F9E7F0'}
+                        title={'Theo sát buổi học đầu'}
+                        tBg={'#EB9CC3'}
+                        cColor={'black'}
+                    />
+                    <SquareContent 
+                        content={'Trong quá trình giảng dạy, nếu có điều chưa hài lòng, phụ huynh cần báo với trung tâm ngay lập tức để đề ra phương án giải quyết ổn thỏa và điều chỉnh, thay đổi gia sư nếu cần thiết.'}
+                        width={'300px'}
+                        tColor={'#EF8100'}
+                        cBg={'#FFF9E3'}
+                        title={'Góp ý cho gia sư'}
+                        tBg={'#FFD95C'}
+                        cColor={'black'}
+                    />
+                </div>
+            </div>
+        </div>
+        <div id='LienHe'>
+            <Footer/>
+        </div>
     </div>
     )
 }
