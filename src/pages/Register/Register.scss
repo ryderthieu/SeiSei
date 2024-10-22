@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 10px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(../../assets/images/Login/dangnhap.png);
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
+
+    .register-imgs {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+
+        .register-img {
+            margin: 200px 0 0 60px;
+            height: 500px;
+        }
+    }
+
+    .register-content {
+        overflow: auto;
+        width: 40%;
+        margin: 0 auto;
+        padding: 40px;
+        text-align: center;
+        border-radius: 8px;
+        border: 1px solid #004B7D;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(0px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .register-content__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .register-content__title1 {
+            font-size: 30px;
+            color: #004B7D;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .register-content__title2 {
+            font-size: 18px;
+            color: #666666;
+            font-weight: 500;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .input-field {
+            position: relative;
+            margin: 25px 0;
+
+            label {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                font-size: 1.4rem;
+                color: #666666;
+                pointer-events: none;
+                transition: 0.15s ease;
+                transform: translateY(-50%);
+            }
+
+            select {
+                padding: 10px;
+                width: 100%; 
+                height: 40px;
+                border: 2px solid #d9d9d9;
+                border-radius: 4px;
+                background: transparent;
+                font-size: 1.4rem;
+                color: #666666;
+
+                &:focus {
+                    border-color: #076DB2;
+                    outline: none;
+                }
+
+                option {
+                    color: #666666;
+                    background-color: white;
+                }
+            }
+
+            .accpect {
+                font-size: 1.4rem;
+                color: #666666;
+                cursor: pointer;
+    
+                label {
+                    display: flex;
+                    align-items: flex-start;
+                }
+    
+                label span {
+                    margin-left: 20px;
+                }
+            }
+
+            input {
+                padding: 10px 0;
+                width: 100%;
+                height: 20px;
+                border: none;
+                outline: none;
+                background: transparent;
+                font-size: 1.4rem;
+                color: #666666;
+                border-bottom: 2px solid #d9d9d9;
+
+                &:focus {
+                    border-bottom: 2px solid #004B7D;
+                }
+            }
+
+            input[type="date"] {
+                padding: 10px 0;
+                width: 100%;
+                height: 20px;
+                border: none;
+                background: transparent;
+                font-size: 1.4rem;
+                color: transparent;
+                border-bottom: 2px solid #d9d9d9;
+
+                &:focus {
+                    color: #076DB2;
+                    color: #666;
+                }
+
+                &::placeholder {
+                    color: #666;              
+                }
+            }
+
+            input[type="file"] {
+                padding: 10px 0;
+                width: 100%;
+                height: 40px; /* Match the height of other input fields */
+                border: 2px solid #d9d9d9;
+                border-radius: 4px;
+                background: transparent;
+                font-size: 1.4rem;
+                color: #666666;
+                margin-top: 10px; /* Space between label and input */
+
+                &:focus {
+                    border-color: #076DB2;
+                    outline: none;
+                }
+
+                &::file-selector-button {
+                    padding: 0 10px;
+                    background-color: #076DB2;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    margin-left: 5px;
+
+                    &:hover {
+                        background-color: #005c99;
+                    }
+                }
+            }
+
+            input:focus ~ label,
+            input:valid ~ label,
+            select:focus ~ label,
+            select:valid ~ label {
+                top: 10px;
+                transform: translateY(-175%);
+                font-size: 1.2rem;
+                color: #076DB2;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .back {
+                background-color: #f0f0f0;
+                color: #333;
+                border: 2px solid #333;
+
+                &:hover {
+                    background-color: #e0e0e0;
+                    cursor: pointer;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+                }
+            }
+
+            .next {
+                background-color: #076DB2;
+                color: #fff;
+
+                &:hover {
+                    background-color: #005c99;
+                    cursor: pointer;
+                    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+                    text-decoration: none;
+                }
+            }
+
+            .back,
+            .next {
+                font-size: 1.6rem;
+                font-weight: 600;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 3px;
+                border: 2px solid transparent;
+                transition: 0.3s ease;
+                text-decoration: none;
+                margin-top: 40px;
+
+                svg {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
