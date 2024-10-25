@@ -13,7 +13,7 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",
     "sass": "^1.79.4",
-    "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.14",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prettier": "3.3.3"
   }
 }

@@ -1,0 +1,44 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+.slideContainer {
+    display: flex;
+    flex: 1;    
+    .slideItem {
+        padding: 10px
+    }
+}
+.itemContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .itemContent {
+        list-style-image: url(../../assets/images/slide-list.png);
+        list-style-position: inside;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        .content-item {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+    }
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #007AC3;
+    font-weight: 900;
+}
+.swiper-pagination-bullet-active {
+    background-color: #3E91C7;
+    width: 20px;
+    height: 10px;
+    border-radius: 5px;
+}
+.swiper-pagination-bullet {
+    margin-top: 20px;
+}
