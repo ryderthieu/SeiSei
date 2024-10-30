@@ -28,10 +28,10 @@ const data = [
       sColor: "#FFDA5F",
     },
     content: [
-      "Cải thiện điểm số",
-      "Tìm được gia sư giỏi",
-      "Học 1:1 với gia sư kinh nghiệm",
-      "Có giờ học linh hoạt",
+      "Cải thiện điểm số?",
+      "Tìm được gia sư giỏi?",
+      "Học 1:1 với gia sư kinh nghiệm?",
+      "Có giờ học linh hoạt?",
     ],
   },
   {
@@ -80,7 +80,7 @@ const Slider = () => {
       className="slideContainer"
       modules={[Navigation, Pagination, Autoplay]}
       navigation={true}
-      autoplay={true}
+      autoplay={{delay: 2000}}
       pagination={{
         clickable: true,
       }}
@@ -88,7 +88,7 @@ const Slider = () => {
     >
       {data.map((value, index) => {
         return (
-          <SwiperSlide className="slideItem">
+          <SwiperSlide className="slideItem" key={index}>
             <SliderItem data={value} />
           </SwiperSlide>
         );

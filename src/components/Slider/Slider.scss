@@ -1,7 +1,6 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
-
 .slideContainer {
     display: flex;
     flex: 1;    
@@ -13,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform 0.3s ease-in-out;
     .itemContent {
         list-style-image: url(../../assets/images/slide-list.png);
         list-style-position: inside;
@@ -22,6 +22,7 @@
         display: flex;
         flex-direction: column;
         width: fit-content;
+        margin-bottom: 20px;
         .content-item {
             margin-bottom: 10px;
             text-align: left;
@@ -32,6 +33,9 @@
 .swiper-button-next, .swiper-button-prev {
     color: #007AC3;
     font-weight: 900;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 .swiper-pagination-bullet-active {
     background-color: #3E91C7;

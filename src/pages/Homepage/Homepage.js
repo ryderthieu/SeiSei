@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 
-
-
 import './Homepage.scss'
 import Header from '../../components/Header/Header'
 import Footer from "../../components/Footer/Footer";
@@ -19,6 +17,8 @@ import LYImg1 from "../../assets/images/frame-line.png"
 import LYImg2 from "../../assets/images/orange-bulb.png"
 import SquareContent from "../../components/SquareContent/SquareContent";
 import Slider from "../../components/Slider/Slider";
+
+
 const Homepage = () => {
     return (
     <div className='homepage-container'>
@@ -74,7 +74,6 @@ const Homepage = () => {
                     sColor={'#75C1F2'}
                 />
             </div>
-            {/* <div className="lha-items"> */}
                 <BoxContent 
                     className = 'lh-item'
                     title={'LỚP HỌC PHỔ THÔNG'}
@@ -94,7 +93,6 @@ const Homepage = () => {
                     content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
                     backgroundColor={'#E8F0FA'}
                 />
-            {/* </div> */}
         </div>
         <div id='DangKyLop' className="section">
             <div className="dkl-imgs">
