@@ -11,10 +11,11 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-image: url(../../assets/images/dashboard-header.png);
-
+        display: flex;
+        flex-direction: column;
         .dashboard-header-title {
             color: #2E6FA8;
-            font-size: 35px;
+            font-size: 30px;
             font-weight: 1000;
         }
         .dashboard-header-content {
@@ -49,7 +50,7 @@
                     justify-content: space-between;
                     margin-bottom: 10px;
                     .content-left__header__title {
-                        font-size: 30px;
+                        font-size: 24px;
                         color: #0565AD;
                         font-weight: bold;
                     }
@@ -60,7 +61,7 @@
                         border: none;
                         border-radius: 10px;
                         text-decoration: none;
-                        font-size: 18px;
+                        font-size: 16px;
                         font-weight: bold;
                         &:hover {
                             opacity: 0.8;
