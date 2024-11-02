@@ -11,7 +11,8 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-image: url(../../assets/images/dashboard-header.png);
-
+        display: flex;
+        flex-direction: column;
         .dashboard-header-title {
             color: #2E6FA8;
             font-size: 30px;
