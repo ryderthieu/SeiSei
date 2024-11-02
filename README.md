@@ -19,3 +19,9 @@ SeiSei is a web application designed to seamlessly connect students with reliabl
 - Process payments securely within the platform, ensuring safe and reliable transactions.
 
 SeiSei aims to create a supportive environment for both students and tutors, providing a streamlined process to make quality education more accessible and convenient. Join us in building connections that foster knowledge and growth! 🌱📈
+
+![image](https://github.com/user-attachments/assets/a265eb47-bd79-4b47-9ec4-f8f601ae1b8b)
+
+![image](https://github.com/user-attachments/assets/ab0d0d1c-961f-4fc0-b043-8476d94c2820)
+
+
