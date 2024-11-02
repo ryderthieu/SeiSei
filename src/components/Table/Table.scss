@@ -1,0 +1,33 @@
+.table-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  .table-title {
+    background-color: #2e6fa8;
+    .table-title__text {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+  .row:hover {
+    cursor: pointer;
+    background-color: #f7f8fd;
+    transform: scale(1.05);
+  }
+  .table-cell {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .table-cell__0 {
+    color: #df9300;
+  }
+  .table-cell__1 {
+    color: #60009b;
+  }
+  .table-cell__2 {
+    color: #009533;
+  }
+}

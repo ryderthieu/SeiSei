@@ -22,4 +22,27 @@ const BoxContent = ({title, img, content, type, backgroundColor}) => {
     )
 }
 
-export default BoxContent
+const CourseCard = ({data}) => {
+
+    return (
+        <div className="card-container" style={{color: data.color}}>
+            <div className="card-imgs">
+                <img className = 'card-img' src={data.img}/>
+            </div>
+            <div className = 'card-text'>
+                <div className="card-title" >
+                    {data.title}
+                </div>
+                {data.content.map((v, i) => {
+                    return (
+                        <p className='card-content' key={i}>
+                            {v}
+                        </p>
+                    )
+                })}
+            </div>
+        </div>
+    )
+}
+
+export {BoxContent, CourseCard}
