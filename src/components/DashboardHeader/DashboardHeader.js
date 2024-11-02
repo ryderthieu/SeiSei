@@ -4,13 +4,22 @@ import './DashboardHeader.scss'
 const DashboardHeader = () => {
     return (
         <>
-            <h1 className="dashboard-header">
-                <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-                <ion-icon name="notifications-outline"></ion-icon>
+            <div className="dashboard-header">
+                <div className="icon-wrapper">
+                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                    <span className="icon-badge">5</span>
+                    <div className="icon-label">Tin nhắn</div>
+                </div>
+                <div className="icon-wrapper">
+                    <ion-icon name="notifications-outline"></ion-icon>
+                    <span className="icon-badge">4</span>
+                    <div className="icon-label">Thông báo</div>
+                </div>
                 <div className="dashboard-header__user">
                     <div className="dashboard-header__user-avatar"></div>
+                    <div className="avatar-label">Tài khoản</div>
                 </div>
-            </h1>
+            </div>
         </>
     )
 }
