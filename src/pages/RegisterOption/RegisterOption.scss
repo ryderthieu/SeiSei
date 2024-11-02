@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.login-container {
+.register-container {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -26,18 +26,18 @@
         z-index: -1;
     }
 
-    .login-imgs {
+    .register-imgs {
         display: flex;
         align-items: center;
         height: 100vh;
         
-        .login-img {
+        .register-img {
             margin: 200px 0 0 60px;
             height: 500px;
         }
     }
 
-    .login-content {
+    .register-content {
         width: 40%;
         margin: 0 auto;
         padding: 40px;
@@ -47,14 +47,14 @@
         backdrop-filter: blur(10px);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         
-        .login-content__header {
+        .register-content__header {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
         }
 
-        .login-content__title1 {
+        .register-content__title1 {
             font-size: 30px;
             color: #004B7D;
             font-weight: 800;
@@ -62,7 +62,7 @@
             text-transform: uppercase;
         }
 
-        .login-content_title2 {
+        .register-content_title2 {
             font-size: 18px;
             color: #666666;
             font-weight: 500;
@@ -70,7 +70,7 @@
             text-align: center;
         }
 
-        .login-option {
+        .register-option {
             display: flex;
             flex-direction: column;
             margin-top: 20px;
@@ -100,7 +100,7 @@
             }
         }
 
-        .register {
+        .login {
             text-align: center;
             display: flex;
             align-items: center;

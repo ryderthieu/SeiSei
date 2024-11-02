@@ -20,7 +20,7 @@ const Sidebar = () => {
         </li>
 
         <li>
-          <Link to="/">
+          <Link to="/dashboard">
             <span className='icon'><ion-icon name="home-outline"></ion-icon></span>
             <span className='title'>Trang chủ</span>
           </Link>

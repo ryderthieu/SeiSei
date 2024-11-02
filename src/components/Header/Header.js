@@ -41,7 +41,7 @@ const Header = () => {
                     Đăng nhập
                 </Link>
 
-                <Link to='/register' className='register'>
+                <Link to='/register-option' className='register'>
                     Đăng ký
                 </Link>
             </div>

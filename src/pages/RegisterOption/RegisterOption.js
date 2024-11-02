@@ -1,10 +1,10 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link, useNavigate } from "react-router-dom";
-import './LoginOption.scss';
+import './RegisterOption.scss';
 import loginImg from '../../assets/images/cuate.png';
 
-const LoginOption = () => {
+const RegisterOption = () => {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -13,34 +13,34 @@ const LoginOption = () => {
     };
 
     return (
-        <div className="login-container">
-            <div className='login-imgs'>
-                <img src={loginImg} className='login-img' alt="Login" />
+        <div className="register-container">
+            <div className='register-imgs'>
+                <img src={loginImg} className='register-img' alt="Login" />
             </div>
-            <div className="login-content">
+            <div className="register-content">
                 <form onSubmit={handleSubmit}>
-                    <div className="login-content__header">
-                        <div className="login-content__title1">Đăng nhập</div>
+                    <div className="register-content__header">
+                        <div className="register-content__title1">Đăng ký</div>
                     </div>
 
-                    <div className="login-content_title2">
+                    <div className="register-content_title2">
                         <p>
-                            Đăng nhập với tư cách
+                            Đăng ký với tư cách
                         </p>
                     </div>
-                    <div className='login-option'>
-                        <Link to={'/loginGS'}>
+                    <div className='register-option'>
+                        <Link to={'/registerGS'}>
                             <button type="submit">Gia sư</button>
                         </Link>
-                        <Link to={'/loginHV'}>
+                        <Link to={'/registerHV'}>
                             <button type="submit">Học viên</button>
                         </Link>
                     </div>
 
-                    <div className="register">
+                    <div className="login">
                         <p>
-                            Chưa có tài khoản?
-                            <Link to={'/registerHV'}> Register</Link>
+                            Đã có tài khoản?
+                            <Link to={'/login-option'}> Login</Link>
                         </p>
                     </div>
                 </form>
@@ -49,4 +49,4 @@ const LoginOption = () => {
     );
 };
 
-export default LoginOption;
+export default RegisterOption;
