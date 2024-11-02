@@ -223,7 +223,8 @@
                 }
             }
 
-            .next {
+            .next,
+            .final {
                 background-color: #076DB2;
                 color: #fff;
 
@@ -234,7 +235,7 @@
                     text-decoration: none;
                 }
             }
-
+                
             .back,
             .next {
                 font-size: 1.6rem;

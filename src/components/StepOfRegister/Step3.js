@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../../pages/Register/Register.scss';
 import loginImg from '../../assets/images/Login/login.png';
 
@@ -15,9 +14,7 @@ const RightArrowIcon = () => (
   </svg>
 );
 
-const Step3 = ({ formData, setFormData, prevStep, handleSubmit }) => {
-  const navigate = useNavigate();
-
+const Step3 = ({ formData, setFormData, prevStep, nextStep }) => {
   const handleCccdChange = (e) => {
     setFormData({ ...formData, cccd: e.target.files[0] });
   };
@@ -32,7 +29,7 @@ const Step3 = ({ formData, setFormData, prevStep, handleSubmit }) => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    handleSubmit();
+    nextStep();
   };
 
   return (

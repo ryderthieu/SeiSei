@@ -8,7 +8,7 @@ const Sidebar = () => {
     <div className='sidebar'>
       <ul>
         <li>
-          <Link to="/Homepage">
+          <Link to="/">
           <div className='logo'>
             <img src={Logo} className="fluent-mdl2_education.png"/>
             {/* <div className='description'>

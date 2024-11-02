@@ -6,8 +6,10 @@ import './Register.scss';
 import Step1 from '../../components/StepOfRegister/Step1';
 import Step2 from '../../components/StepOfRegister/Step2';
 import Step3 from '../../components/StepOfRegister/Step3';
+import Step4 from '../../components/StepOfRegister/Step4';
 
 const Register = () => {
+    const navigate = useNavigate();
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         email: '',
@@ -34,8 +36,8 @@ const Register = () => {
     };
 
     const handleSubmit = () => {
-        // Xử lý logic gửi form ở đây
         console.log('Form submitted:', formData);
+        navigate('/dashboard');
     };
 
     switch (step) {
@@ -44,7 +46,9 @@ const Register = () => {
         case 2:
             return <Step2 formData={formData} setFormData={setFormData} nextStep={nextStep} prevStep={prevStep} />;
         case 3:
-            return <Step3 formData={formData} setFormData={setFormData} prevStep={prevStep} handleSubmit={handleSubmit} />;
+            return <Step3 formData={formData} setFormData={setFormData} nextStep={nextStep} prevStep={prevStep} />;
+        case 4:
+            return <Step4 formData={formData} setFormData={setFormData} prevStep={prevStep} handleSubmit={handleSubmit} />;
         default:
             return <Step1 formData={formData} setFormData={setFormData} nextStep={nextStep} />;
     }
