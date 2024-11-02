@@ -37,7 +37,7 @@ const Header = () => {
             </div>
 
             <div className='header-items'>
-                <Link to = '/login' className='login'>
+                <Link to = '/login-option' className='login'>
                     Đăng nhập
                 </Link>
 

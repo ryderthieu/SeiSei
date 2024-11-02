@@ -29,7 +29,7 @@ const Login = () => {
                         </p>
                     </div>
                     <div className='login-option'>
-                        <Link to={'/loginGV'}>
+                        <Link to={'/loginGS'}>
                             <button type="submit">Gia sư</button>
                         </Link>
                         <Link to={'/loginHV'}>
