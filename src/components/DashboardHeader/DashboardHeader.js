@@ -6,12 +6,12 @@ const DashboardHeader = () => {
         <>
             <div className="dashboard-header">
                 <div className="icon-wrapper">
-                    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+                    <ion-icon name="chatbubble-ellipses"></ion-icon>
                     <span className="icon-badge">5</span>
                     <div className="icon-label">Tin nhắn</div>
                 </div>
                 <div className="icon-wrapper">
-                    <ion-icon name="notifications-outline"></ion-icon>
+                    <ion-icon name="notifications"></ion-icon>
                     <span className="icon-badge">4</span>
                     <div className="icon-label">Thông báo</div>
                 </div>
