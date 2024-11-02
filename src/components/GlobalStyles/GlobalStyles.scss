@@ -17,3 +17,21 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
 }
+
+:root {
+    /*============= Font =================*/
+    --text-font-normal: 1em;
+    --text-font-header: 2em;
+    --text-font-title: 1.2em;
+
+    /*============= Color =================*/
+    --color-header-container: #2E6FA8;
+    --color-background-dashboard: #D9D9D9;
+    --color-background-dashboard-items: #F6F8FD;
+    --color-icon-dashboard-header: #1974b1;
+    --color-icon-notification: #EB5757;
+
+    /*============= Layout =================*/
+    --margin-left-dashboard: 2rem;
+
+}

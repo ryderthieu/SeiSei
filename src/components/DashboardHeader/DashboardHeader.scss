@@ -1,0 +1,31 @@
+
+
+.dashboard-header {
+    display: flex;
+    padding: 1rem;
+    justify-content: flex-end;
+    margin-right: var(--margin-left-dashboard);
+
+    ion-icon {
+        color: var(--color-icon-dashboard-header);
+        margin-right: 1rem;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        padding: 0.8rem;
+        background: #bcd0e19d;
+    }
+
+    .dashboard-header__user{
+        width: 4.8rem;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        background: #F7C1C1;
+        border-radius: 100%;
+
+        .dashboard-header__user-avatar{
+
+        }
+    }
+}
