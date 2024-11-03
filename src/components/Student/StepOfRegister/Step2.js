@@ -1,6 +1,6 @@
 import React from 'react';
-import loginImg from '../../assets/images/Login/login.png';
-import '../../pages/Student/Register/Register.scss';
+import loginImg from '../../../assets/images/Login/login.png';
+import '../../../pages/Student/Register/Register.scss';
 
 const LeftArrowIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">

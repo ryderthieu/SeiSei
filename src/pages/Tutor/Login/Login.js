@@ -43,7 +43,7 @@ const Login = () => {
                     <div className="register">
                         <p>
                             Chưa có tài khoản?
-                            <Link to={'/register'}> Register</Link>
+                            <Link to={'/register-option'}> Register</Link>
                         </p>
                     </div>
                 </form>

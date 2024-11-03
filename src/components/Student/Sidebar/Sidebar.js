@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.scss';
-import Logo from '../../assets/images/fluent-mdl2_education.png';
+import Logo from '../../../assets/images/fluent-mdl2_education.png';
 
 const Sidebar = () => {
   useEffect(() => {

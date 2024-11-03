@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import Sidebar from "../../components/Student/Sidebar/Sidebar";
 
 import './Layout.scss'
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../pages/Student/Register/Register.scss';
-import loginImg from '../../assets/images/Login/login.png';
+import '../../../pages/Student/Register/Register.scss';
+import loginImg from '../../../assets/images/Login/login.png';
 
 const Step4 = ({ formData, setFormData, prevStep, handleSubmit }) => {
   const navigate = useNavigate();
