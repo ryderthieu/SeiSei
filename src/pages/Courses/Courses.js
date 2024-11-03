@@ -1,9 +1,9 @@
 import React from 'react'
-import './MyClass.scss'
+import './Courses.scss'
 function MyClass() {
   return (
     <div>
-      My Class
+      Courses
     </div>
   )
 }

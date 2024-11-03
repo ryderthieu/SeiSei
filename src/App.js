@@ -4,13 +4,16 @@ import Homepage from './pages/Homepage/Homepage';
 import LoginHV from './pages/LoginHV/Login';
 import Register from './pages/RegisterHV/Register';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
-import ClassRegister from './pages/ClassRegister/ClassRegister';
+import FindTutors from './pages/FindTutors/FindTutors';
 import Layout from './pages/Layout/Layout';
 import Dashboard from './pages/Dashboard/Dashboard';
 import LoginOption from './pages/LoginOption/LoginOption';
 import RegisterOption from './pages/RegisterOption/RegisterOption';
 import LoginGS from './pages/LoginGS/LoginGS';
-import MyClass from './pages/MyClass/MyClass';
+import Courses from './pages/Courses/Courses';
+import Calender from './pages/Calender/Calender';
+import StudyResults from './pages/StudyResults/StudyResults';
+import Payment from './pages/Payment/Payment';
 
 const App = () => {
   return (
@@ -25,8 +28,11 @@ const App = () => {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
-          <Route path="dang-ky-lop" element={<ClassRegister />} />
-          <Route path="my-class" element={<MyClass />} />
+          <Route path="find-tutors" element={<FindTutors />} />
+          <Route path="courses" element={<Courses />} />
+          <Route path="calender" element={<Calender />} />
+          <Route path="study-results" element={<StudyResults />} />
+          <Route path="payment" element={<Payment />} />
         </Route>
       </Routes>
     </>

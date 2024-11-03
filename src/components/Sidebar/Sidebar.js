@@ -34,35 +34,35 @@ const Sidebar = () => {
           </li>
 
           <li>
-            <Link to="dang-ky-lop">
+            <Link to="find-tutors">
               <span className='icon'><ion-icon name="search-outline"></ion-icon></span>
               <span className='title'>Tìm gia sư</span>
             </Link>
           </li>
 
           <li>
-            <Link to="my-class">
+            <Link to="courses">
               <span className='icon'><ion-icon name="folder-open-outline"></ion-icon></span>
               <span className='title'>Lớp học của tôi</span>
             </Link>
           </li>
 
           <li>
-            <Link to="/">
+            <Link to="calender">
               <span className='icon'><ion-icon name="calendar-outline"></ion-icon></span>
               <span className='title'>Lịch học</span>
             </Link>
           </li>
 
           <li>
-            <Link to="/">
+            <Link to="study-results">
               <span className='icon'><ion-icon name="podium-outline"></ion-icon></span>
               <span className='title'>Kết quả học tập</span>
             </Link>
           </li>
 
           <li>
-            <Link to="/">
+            <Link to="payment">
               <span className='icon'><ion-icon name="card-outline"></ion-icon></span>
               <span className='title'>Thanh toán</span>
             </Link>

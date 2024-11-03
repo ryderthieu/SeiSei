@@ -1,10 +1,10 @@
-import "./ClassRegister.scss";
+import "./FindTutors.scss";
 
 const ClassRegister = () => {
   return (
     <div>
       <h1>
-        Đăng ký lớp
+        Tim gia su
       </h1>
     </div>
   );
