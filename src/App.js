@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import LoginOption from './pages/LoginOption/LoginOption';
 import RegisterOption from './pages/RegisterOption/RegisterOption';
 import LoginGS from './pages/LoginGS/LoginGS';
+import MyClass from './pages/MyClass/MyClass';
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/dashboard" element={<Layout />}>
           <Route index element={<Dashboard />} />
           <Route path="dang-ky-lop" element={<ClassRegister />} />
+          <Route path="my-class" element={<MyClass />} />
         </Route>
       </Routes>
     </>

@@ -119,9 +119,44 @@ body {
                     }
                 }
 
+                &.hovered {
+                    background-color: var(--sidebar-bg);
+                    color: var(--sidebar-hover-text-color);
+
+                    a {
+                        color: var(--sidebar-hover-text-color);
+                    }
+
+                    a::before {
+                        content: "";
+                        position: absolute;
+                        top: -50px;
+                        right: 0;
+                        width: 50px;
+                        height: 50px;
+                        background-color: transparent;
+                        border-radius: 50%;
+                        box-shadow: 35px 35px 0 10px var(--sidebar-bg);
+                        pointer-events: none;
+                    }
+
+                    a::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -50px;
+                        right: 0;
+                        width: 50px;
+                        height: 50px;
+                        background-color: transparent;
+                        border-radius: 50%;
+                        box-shadow: 35px -35px 0 10px var(--sidebar-bg);
+                        pointer-events: none;
+                    }
+                } 
+
                 a {
                     position: relative;
-                    display: block;
+                    // display: block;
                     width: 100%;
                     display: flex;
                     text-decoration: none;

@@ -19,7 +19,7 @@ const RegisterOption = () => {
             </div>
             <div className="register-content">
                 <form onSubmit={handleSubmit}>
-                    <div className="register-content__header">
+                    <div className="register-content_header">
                         <div className="register-content__title1">Đăng ký</div>
                     </div>
 
