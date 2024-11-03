@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../pages/RegisterHV/Register.scss';
+import '../../pages/Student/Register/Register.scss';
 import loginImg from '../../assets/images/Login/login.png';
 
 const LeftArrowIcon = () => (

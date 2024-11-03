@@ -29,10 +29,10 @@ const LoginOption = () => {
                         </p>
                     </div>
                     <div className='login-option'>
-                        <Link to={'/loginGS'}>
+                        <Link to={'/tutor-login'}>
                             <button type="submit">Gia sư</button>
                         </Link>
-                        <Link to={'/loginHV'}>
+                        <Link to={'/student-login'}>
                             <button type="submit">Học viên</button>
                         </Link>
                     </div>
@@ -40,7 +40,7 @@ const LoginOption = () => {
                     <div className="register">
                         <p>
                             Chưa có tài khoản?
-                            <Link to={'/registerHV'}> Register</Link>
+                            <Link to={'/register-option'}> Register</Link>
                         </p>
                     </div>
                 </form>

@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Register.scss';
-import Step1 from '../../components/StepOfRegister/Step1';
-import Step2 from '../../components/StepOfRegister/Step2';
-import Step3 from '../../components/StepOfRegister/Step3';
-import Step4 from '../../components/StepOfRegister/Step4';
+import Step1 from '../../../components/StepOfRegister/Step1';
+import Step2 from '../../../components/StepOfRegister/Step2';
+import Step3 from '../../../components/StepOfRegister/Step3';
+import Step4 from '../../../components/StepOfRegister/Step4';
 
 const Register = () => {
     const navigate = useNavigate();

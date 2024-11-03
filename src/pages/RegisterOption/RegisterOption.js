@@ -29,10 +29,10 @@ const RegisterOption = () => {
                         </p>
                     </div>
                     <div className='register-option'>
-                        <Link to={'/registerGS'}>
+                        <Link to={'/tutor-register'}>
                             <button type="submit">Gia sư</button>
                         </Link>
-                        <Link to={'/registerHV'}>
+                        <Link to={'/student-register'}>
                             <button type="submit">Học viên</button>
                         </Link>
                     </div>

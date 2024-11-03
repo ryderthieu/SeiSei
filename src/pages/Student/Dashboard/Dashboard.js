@@ -1,13 +1,13 @@
 import "./Dashboard.scss";
-import HeaderImg from "../../assets/images/dashboard-header-item.png"
-import CCalendar from "../../components/Calendar/Calendar";
-import Table from "../../components/Table/Table";
+import HeaderImg from "../../../assets/images/dashboard-header-item.png"
+import Calendar from "../../../components/Calendar/Calendar";
+import Table from "../../../components/Table/Table";
 import { Link } from "react-router-dom";
-import {CourseCard} from "../../components/BoxContent/BoxContent";
-import Toan from '../../assets/images/math1.png'
-import Anh from '../../assets/images/english.png'
+import {CourseCard} from "../../../components/BoxContent/BoxContent";
+import Toan from '../../../assets/images/math1.png'
+import Anh from '../../../assets/images/english.png'
 const Dashboard = () => {
-  const coures = [
+  const courses = [
     {
       img: Toan,
       title: 'MA010 - TOÁN 10',
@@ -61,7 +61,7 @@ const Dashboard = () => {
               <div className="content-left__header__title">
                 Thời khóa biểu
               </div>
-              <Link className="content-left__header__btn" to={"/dashboard/dang-ky-lop"}>
+              <Link className="content-left__header__btn" to={"find-tutors"}>
                 Xem thêm
               </Link>
             </div>
@@ -72,22 +72,22 @@ const Dashboard = () => {
               <div className="content-left__header__title">
                 Lớp học của bạn
               </div>
-              <Link className="content-left__header__btn" to={"/dashboard/lop-hoc-cua-toi"}>
+              <Link className="content-left__header__btn" to={"courses"}>
                 Xem thêm
               </Link>
             </div>
             <div className="content-left__content_items">
               <div className="content-left__content_item">
-                <CourseCard data={coures[0]}/>
+                <CourseCard data={courses[0]}/>
               </div>
               <div className="content-left__content_item">
-                <CourseCard data={coures[1]}/>
+                <CourseCard data={courses[1]}/>
               </div>
             </div>
           </div>
         </div>
         <div className="calendar">
-          <CCalendar />
+          <Calendar />
         </div>
       </div>
     </div>

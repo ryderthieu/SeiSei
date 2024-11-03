@@ -1,19 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Homepage from './pages/Homepage/Homepage';
-import LoginHV from './pages/LoginHV/Login';
-import Register from './pages/RegisterHV/Register';
-import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
-import FindTutors from './pages/FindTutors/FindTutors';
 import Layout from './pages/Layout/Layout';
-import Dashboard from './pages/Dashboard/Dashboard';
-import LoginOption from './pages/LoginOption/LoginOption';
+import Homepage from './pages/Homepage/Homepage';
 import RegisterOption from './pages/RegisterOption/RegisterOption';
-import LoginGS from './pages/LoginGS/LoginGS';
-import Courses from './pages/Courses/Courses';
-import Calender from './pages/Calender/Calender';
-import StudyResults from './pages/StudyResults/StudyResults';
-import Payment from './pages/Payment/Payment';
+import LoginOption from './pages/LoginOption/LoginOption';
+import TutorLogin from './pages/Tutor/Login/Login';
+import StudentLogin from './pages/Student/Login/Login';
+import StudentRegister from './pages/Student/Register/Register';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import StudentFindTutors from './pages/Student/FindTutors/FindTutors';
+import StudentDashboard from './pages/Student/Dashboard/Dashboard';
+import StudentCourses from './pages/Student/Courses/Courses';
+import StudentCalender from './pages/Student/Calender/Calender';
+import StudentStudyResults from './pages/Student/StudyResults/StudyResults';
+import StudentPayment from './pages/Student/Payment/Payment';
 
 const App = () => {
   return (
@@ -21,18 +21,18 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/login-option" element={<LoginOption />} />
-        <Route path="/loginHV" element={<LoginHV />} />
-        <Route path="/loginGS" element={<LoginGS />} />
+        <Route path="/student-login" element={<StudentLogin />} />
+        <Route path="/tutor-login" element={<TutorLogin />} />
         <Route path="/register-option" element={<RegisterOption />} />
-        <Route path="/registerHV" element={<Register />} />
+        <Route path="/student-register" element={<StudentRegister />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/dashboard" element={<Layout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="find-tutors" element={<FindTutors />} />
-          <Route path="courses" element={<Courses />} />
-          <Route path="calender" element={<Calender />} />
-          <Route path="study-results" element={<StudyResults />} />
-          <Route path="payment" element={<Payment />} />
+          <Route index element={<StudentDashboard />} />
+          <Route path="find-tutors" element={<StudentFindTutors />} />
+          <Route path="courses" element={<StudentCourses />} />
+          <Route path="calender" element={<StudentCalender />} />
+          <Route path="study-results" element={<StudentStudyResults />} />
+          <Route path="payment" element={<StudentPayment />} />
         </Route>
       </Routes>
     </>
