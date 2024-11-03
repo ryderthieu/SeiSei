@@ -1,0 +1,19 @@
+.layout-container {
+    display: flex;
+    flex-direction: row;
+    background-color: #F6F8FD;
+}
+
+.layout-content {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar {
+    flex: 1;
+}
+
+.layout-header {
+    height: 80px;
+}

@@ -27,44 +27,37 @@ const Sidebar = () => {
           </li>
 
           <li>
-            <Link to="/student-dashboard">
+            <Link to="/tutor-dashboard">
               <span className='icon'><ion-icon name="home-outline"></ion-icon></span>
               <span className='title'>Trang chủ</span>
             </Link>
           </li>
 
           <li>
-            <Link to="find-tutors">
+            <Link to="class-management">
               <span className='icon'><ion-icon name="search-outline"></ion-icon></span>
-              <span className='title'>Tìm gia sư</span>
+              <span className='title'>Quản lý lớp</span>
             </Link>
           </li>
 
           <li>
-            <Link to="courses">
+            <Link to="class-registration">
               <span className='icon'><ion-icon name="folder-open-outline"></ion-icon></span>
-              <span className='title'>Lớp học của tôi</span>
+              <span className='title'>Đăng ký lớp</span>
             </Link>
           </li>
 
           <li>
-            <Link to="calender">
+            <Link to="teaching-schedule">
               <span className='icon'><ion-icon name="calendar-outline"></ion-icon></span>
-              <span className='title'>Lịch học</span>
+              <span className='title'>Lịch dạy</span>
             </Link>
           </li>
 
           <li>
-            <Link to="study-results">
+            <Link to="revenue">
               <span className='icon'><ion-icon name="podium-outline"></ion-icon></span>
-              <span className='title'>Kết quả học tập</span>
-            </Link>
-          </li>
-
-          <li>
-            <Link to="payment">
-              <span className='icon'><ion-icon name="card-outline"></ion-icon></span>
-              <span className='title'>Thanh toán</span>
+              <span className='title'>Doanh thu</span>
             </Link>
           </li>
 
