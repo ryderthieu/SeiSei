@@ -1,11 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-
-=======
     flex: 1;
->>>>>>> d87c8dd8ecb8452ab3e9321b539e8e1348842bfe
     .header {
         display: flex;
         flex-direction: row;
@@ -49,12 +45,8 @@
             flex-direction: row;
             gap: 30px;
             flex-wrap: wrap;
-<<<<<<< HEAD
             justify-content: space-evenly;
-
-=======
             margin-top: 20px;
->>>>>>> d87c8dd8ecb8452ab3e9321b539e8e1348842bfe
             .courseItem {
                 height: 100px;
                 width: 300px;

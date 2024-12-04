@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TopTabNavigation from '../../../components/TopTabNavigation/TopTabNavigation';
 import style from './Courses.module.scss';
 import Toan from '../../../assets/images/math1.png';
 import Anh from '../../../assets/images/english.png';
-import { CourseCard } from '../../../components/BoxContent/BoxContent';
+import { CourseCard } from '../../../components/Card/Card';
+import { Link } from 'react-router-dom';
 
 const data = [
   {
@@ -26,6 +27,24 @@ const data = [
         title: 'ENG010 - ANH 10',
         content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
         color: '#05A344',
+      },
+      {
+        img: Anh,
+        title: 'ENG010 - ANH 8',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#05A344',
+      },
+      {
+        img: Anh,
+        title: 'ENG010 - ANH 8',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#05A344',
+      },
+      {
+        img: Anh,
+        title: 'ENG010 - ANH 8',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#05A344',
       }
     ]
   },
@@ -37,36 +56,38 @@ const data = [
         title: 'MA010 - TOÁN 10',
         content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
         color: '#AD8BC8',
-      },
-      {
-        img: Anh,
-        title: 'ENG010 - ANH 10',
-        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-        color: '#05A344',
-      },
-      {
-        img: Anh,
-        title: 'ENG010 - ANH 10',
-        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-        color: '#05A344',
       }
     ]
   },
   {
     id: 2,
-    content: [] // You can add content if necessary
+    content: [
+      {
+        img: Toan,
+        title: 'MA010 - TOÁN 10',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#AD8BC8',
+      },
+      {
+        img: Anh,
+        title: 'ENG010 - ANH 8',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#05A344',
+      },
+      {
+        img: Anh,
+        title: 'ENG010 - ANH 8',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#05A344',
+      }
+    ]
   }
 ];
 
 const TopTab = ['Tất cả', 'Đang diễn ra', 'Đã hoàn thành'];
 
-function MyClass() {
-  const [tab, setTab] = useState(0);  // Track the selected tab
-
-  // Handle tab change
-  const handleTabChange = (index) => {
-    setTab(index);
-  };
+function Courses() {
+  const [tab, setTab] = useState(0);
 
   return (
     <div className={style.container}>
@@ -77,21 +98,21 @@ function MyClass() {
       </div>
 
       <div className={style.content}>
-        <TopTabNavigation data={TopTab} onTabChange={handleTabChange} />
+        <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab}/>
         <div className={style.tabContent}>
-          {data[tab].content.length > 0 ? (
+          {data[tab]?.content?.length > 0 ? (
             data[tab].content.map((v, index) => (
-              <div key={index} className={style.courseItem}>
-                <CourseCard data={v} />
+              <div key={index} className={[style.courseItem, tab === 2 && style.disable].join(' ')}>
+                <CourseCard data={v}/>
               </div>
             ))
           ) : (
-            <p>No courses available for this tab.</p>
+            <p>No courses available in this category.</p>
           )}
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default MyClass;
+export default Courses;
