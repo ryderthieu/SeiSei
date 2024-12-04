@@ -94,6 +94,41 @@ const ExtendableCard = ({ data, cardId }) => {
     );
 };
 
+const FullContentCard = ({ data }) => {
+    return (
+        <div className="fullContentCardContainer">
+            <div className="header">
+                <div className="title">
+                    {data.img && (
+                        <div className="imgContainer">
+                            <img src={data.img} alt="Card" className="img" />
+                        </div>
+                    )}
+                    <div className="text">
+                        {data.title.map((v, i) => (
+                            <div key={i} className="lineContainer">
+                                <div className="label">{v.label}:</div>
+                                <div className="value">{v.value}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="content">
+                <div className="contentTitle">{data.content.title}</div>
+                <div className="text">
+                    {data.content.content.map((v, i) => (
+                        <div key={i} className="lineContainer">
+                            <div className="label">{v.label}:</div>
+                            <div className="value">{v.value}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 
-export {BoxContent, CourseCard, ExtendableCard}
+
+export {BoxContent, CourseCard, ExtendableCard, FullContentCard }

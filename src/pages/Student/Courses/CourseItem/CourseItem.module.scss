@@ -1,29 +1,186 @@
 .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px #004C7F solid;
+    padding-bottom: 10px;
     flex: 1;
+    justify-content: flex-start;
+
+    ion-icon {
+      font-size: 24px;
+      color: #0D3073;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .headerTitle {
+      font-size: var(--text-font-header);
+      font-weight: 900;
+      color: #0D3073;
+    }
+  }
+
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .testList {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    gap: 20px;
+  }
 
-    .header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        border-bottom: 2px #004C7F solid;
-        padding-bottom: 10px;
-        flex: 1;
+  .testSelect {
+    margin-bottom: 15px;
 
-        justify-content: flex-start; 
+    .select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: border-color 0.3s;
 
-        ion-icon {
-            font-size: 24px; 
-            color: #0D3073;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .headerTitle {
-            font-size: var(--text-font-header);
-            font-weight: 900;
-            color: #0D3073;
-        }
+      &:focus {
+        border-color: #004C7F;
+        outline: none;
+      }
     }
+  }
+
+  .testFile {
+    margin-bottom: 20px;
+
+    label {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: #004C7F;
+      }
+    }
+  }
+
+  .fileUpload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px dashed #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: #004C7F;
+    }
+
+    .uploadContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .uploadButtonContainer {
+      display: flex;
+      align-items: center;
+    }
+
+    .uploadButton {
+      background-color: #004C7F;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #003b66;
+      }
+    }
+
+    .plusIcon {
+      font-size: 24px;
+    }
+
+    .uploadText {
+      font-size: 16px;
+      color: #004C7F;
+    }
+
+    .hiddenInput {
+      display: none;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+
+    .cancelButton,
+    .confirmButton {
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .cancelButton {
+      background-color: var(--button-background-color-white);
+      color: var(--button-background-color-blue);
+      border: 1px solid #004C7F;
+
+      &:hover {
+        background-color: #f0f8ff;
+      }
+    }
+
+    .confirmButton {
+      background-color: var(--button-background-color-blue);
+      color: var(--text-color-white);
+
+      &:hover {
+        background-color: #003b66;
+      }
+    }
+  }
 }
+
+.headerList {
+    font-size: 20px;
+    font-weight: 900;
+    color: #0D3073;
+}
+
