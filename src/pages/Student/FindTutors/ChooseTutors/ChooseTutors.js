@@ -4,7 +4,9 @@ import style from "./ChooseTutors.module.scss";
 import img from "../../../../assets/images/art.png";
 import AcceptedOverlay from "../../../../components/Overlay/Overlay";
 import success from "../../../../assets/icon/success.gif"
+import warning from "../../../../assets/icon/warning.gif"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
 const requestData = [
   {
@@ -87,8 +89,14 @@ const ConfirmNoti = {
   img: success,
   content: 'Hãy tiến hành học thử trước khi xác nhận học chính thức'
 }
-const NewRequest = () => {
+const Cancel = {
+  title: 'XÁC NHẬN HỦY LỚP',
+  img: warning,
+}
+const ChooseTutors = () => {
   const [isChoose, setIsChoose] = useState(false)
+  const [isCancel, setIsCancel] = useState(false)
+  const navigate = useNavigate()
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -99,8 +107,8 @@ const NewRequest = () => {
         <div className={style.content}>
           <div className={style.requestCard}>
             <ExtendableCard data={requestData[0]} onChoose = {setIsChoose}/>
-            <ExtendableCard data={requestData[0]} />
-            <ExtendableCard data={requestData[0]} />
+            <ExtendableCard data={requestData[0]} onChoose = {setIsChoose}/>
+            <ExtendableCard data={requestData[0]} onChoose = {setIsChoose}/>
           </div>
           <div className={style.courseInfo}>
             <div className={style.courseInfoTitle}>THÔNG TIN KHÓA HỌC</div>
@@ -131,15 +139,16 @@ const NewRequest = () => {
                 );
               })}
             </div>
-            <div className={style.button}>
+            <div className={style.button} onClick={() => setIsCancel(true)}>
                 Hủy yêu cầu
               </div>
           </div>
         </div>
       </div>
-     {isChoose && <AcceptedOverlay data={ConfirmNoti} yes={'try-learning'}/>}
+     {isChoose && <AcceptedOverlay data={ConfirmNoti} yes={() => navigate('./try-learning')}/>}
+     {isCancel && <AcceptedOverlay data={Cancel} type={'confirm'} yes={() => navigate('../find-tutors')} no={() => setIsCancel(false)}/>}
     </div>
   );
 };
 
-export default NewRequest;
+export default ChooseTutors;

@@ -15,11 +15,11 @@ const AcceptedOverlay = ({ data, type, yes, no }) => {
           {data.content}
         </div>
         <div className={style.buttonContainer}>
-          <Link className={style.button} to={yes}>Xác nhận</Link>
+          <div className={style.button} onClick={yes}>Xác nhận</div>
           {type === 'confirm' && (
-            <Link className={[style.button, style.cancer].join(' ')} to={no}>
+            <div className={[style.button, style.cancel].join(' ')} onClick={no}>
               Hủy
-            </Link>
+            </div>
           )}
         </div>
       </div>

@@ -46,13 +46,17 @@
   
   .buttonContainer {
     margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
   }
   
   .button {
     margin-top: 10px;
     padding: 10px 20px;
+    width: 150px;
     background-color: var(--button-background-color-blue);
-    width: fit-content;
     color: #fff;
     font-weight: bold;
     border-radius: 20px;
@@ -62,7 +66,7 @@
     }
   }
   
-  .cancer {
+  .cancel {
     background-color: var(--button-background-color-gray);
     
     &:hover {
