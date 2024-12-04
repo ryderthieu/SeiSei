@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <div className='container'>
       <div className='sidebar'>
-        <ul className='navigation'>
+        <ul className='tutor-navigation'>
           <li>
             <Link to="/">
               <div className='logo'>
