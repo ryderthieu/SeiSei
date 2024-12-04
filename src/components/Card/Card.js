@@ -45,49 +45,55 @@ const CourseCard = ({data}) => {
     )
 }
 
-const ExtendableCard = ({ data }) => {
-    const [isExtend, setIsExtend]  = useState(false)
-    const extendCard = () => {
-        document.getElementById('cardContent').style.display = isExtend ? 'none' : 'flex'
-        document.getElementById('extendIcon').name = isExtend ? 'chevron-down-outline' : 'chevron-up-outline'
-        setIsExtend(!isExtend)
-    }
+const ExtendableCard = ({ data, cardId }) => {
+    const [isExtend, setIsExtend] = useState(false);
+
+    const toggleExtend = () => {
+        setIsExtend(!isExtend);
+    };
+
     return (
-        <div className='extendableCardContainer' onClick={extendCard}>
-            <div className='title'>
-                {data.img && (
-                    <div className='imgContainer'>
-                        <img src={data.img} alt="Card" className='img' />
-                    </div>
-                )}
-                <div className='text'>
-                    {data.title.map((v, i) => (
-                        <div key={i} className='lineContainer'>
-                            <div className='label'>{v.label}:</div>
-                            <div className='value'>{v.value}</div>
+        <div className={`extendableCardContainer ${isExtend ? 'extended' : ''}`} onClick={toggleExtend}>
+            <div className="header">
+                <div className="title">
+                    {data.img && (
+                        <div className="imgContainer">
+                            <img src={data.img} alt="Card" className="img" />
                         </div>
-                    ))}
-                </div>
-                <div className='extendIcon'>
-                    <ion-icon name="chevron-down-outline" id = "extendIcon"></ion-icon>
-                </div>
-            </div>
-            <div className='content' id='cardContent'>
-                <div className='contentTitle'>
-                    {data.content.title}
-                </div>
-                <div className='text'>
-                    {data.content.content.map((v, i) => (
-                            <div key={i} className='lineContainer'>
-                                <div className='label'>{v.label}:</div>
-                                <div className='value'>{v.value}</div>
+                    )}
+                    <div className="text">
+                        {data.title.map((v, i) => (
+                            <div key={i} className="lineContainer">
+                                <div className="label">{v.label}:</div>
+                                <div className="value">{v.value}</div>
                             </div>
                         ))}
+                    </div>
+                </div>
+                <div className="extendIcon">
+                    <ion-icon
+                        name={isExtend ? 'chevron-up-outline' : 'chevron-down-outline'}
+                        id={`extendIcon-${cardId}`}
+                    ></ion-icon>
                 </div>
             </div>
+            {isExtend && (
+                <div className="content" id={`cardContent-${cardId}`}>
+                    <div className="contentTitle">{data.content.title}</div>
+                    <div className="text">
+                        {data.content.content.map((v, i) => (
+                            <div key={i} className="lineContainer">
+                                <div className="label">{v.label}:</div>
+                                <div className="value">{v.value}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
+
 
 
 export {BoxContent, CourseCard, ExtendableCard}

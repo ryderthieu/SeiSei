@@ -51,9 +51,19 @@ const NewRequest = () => {
                     ĐƠN YÊU CẦU TÌM GIA SƯ
                 </div>
             </div>
-            <div className={style.content}>
-                <RequestStep data={stepperData} active={0}/>
-                <ExtendableCard data={requestData[0]}/>
+            <div className={style.contentContainer}>
+                <RequestStep data={stepperData} active={1}/>
+                <div className={style.content}>
+                    <div className={style.requestCard}>
+                        <ExtendableCard data={requestData[0]} />
+                        <ExtendableCard data={requestData[0]} />
+                        <ExtendableCard data={requestData[0]} />
+                    </div>
+                    <div className={style.courseInfo}>
+                        
+                    </div>
+                </div>
+
             </div>
         </div>
     )
