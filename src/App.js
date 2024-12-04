@@ -15,6 +15,7 @@ import StudentCalender from './pages/Student/Calender/Calender';
 import StudentStudyResults from './pages/Student/StudyResults/StudyResults';
 import StudentPayment from './pages/Student/Payment/Payment';
 import NewRequest from './pages/Student/FindTutors/NewRequest/NewRequest'
+import CourseItem from './pages/Student/Courses/CourseItem/CourseItem';
 
 import TutorDashboard from './pages/Tutor/Dashboard/Dashboard';
 import TutorLayout from './pages/Tutor/Layout/Layout';
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="find-tutors/new-request" element = {<NewRequest />} />
 
           <Route path="courses" element={<StudentCourses />} />
+            <Route path="courses/course-item" element={<CourseItem />} />
           <Route path="calender" element={<StudentCalender />} />
           <Route path="study-results" element={<StudentStudyResults />} />
           <Route path="payment" element={<StudentPayment />} />
