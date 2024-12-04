@@ -3,7 +3,8 @@ import TopTabNavigation from '../../../components/TopTabNavigation/TopTabNavigat
 import style from './FindTutors.module.scss'
 import Toan from '../../../assets/images/math1.png'
 import Anh from '../../../assets/images/english.png'
-import { CourseCard } from '../../../components/BoxContent/BoxContent';
+import { CourseCard } from '../../../components/Card/Card';
+import { Link } from 'react-router-dom';
 const data = [
   {
     id: 0,
@@ -25,14 +26,36 @@ const data = [
           title: 'ENG010 - ANH 10',
           content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
           color: '#05A344',
+        },
+        {
+          img: Anh,
+          title: 'ENG010 - ANH 10',
+          content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+          color: '#05A344',
         }
     ]
   },
   {
-    id: 1
+    id: 1,
+    content: [
+      {
+        img: Toan,
+        title: 'MA010 - TOÁN 10',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#AD8BC8',
+      },
+    ]
   },
   {
-    id: 2
+    id: 2,
+    content: [
+      {
+        img: Toan,
+        title: 'MA010 - TOÁN 10',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#AD8BC8',
+      },
+    ]
   }
 ]
 const TopTab = ['Yêu cầu đang mở', 'Học thử', 'Yêu cầu đã đóng']
@@ -49,18 +72,18 @@ const ClassRegister = () => {
           <div className={style.btnIcon}>
             <ion-icon name="newspaper-outline"></ion-icon>
           </div>
-          <div className= {style.btnTitle}>
+          <Link className= {style.btnTitle} to={'new-request'}>
             Đăng yêu cầu mới
-          </div>
+          </Link>
         </div>
       </div>
 
       <div className={style.content}>
-        <TopTabNavigation data={TopTab}/>
+        <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab}/>
         <div className={style.tabContent}>
-          {data[tab].content.map((v) => (
-            <div className={style.courseItem}>
-              <CourseCard data={v} />
+          {data[tab]?.content?.map((v) => (
+            <div className={[style.courseItem, tab===2&&style.disable].join(' ')}>
+              <CourseCard data={v}/>
             </div>
           ))}
         </div>

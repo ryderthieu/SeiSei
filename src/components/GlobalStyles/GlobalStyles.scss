@@ -17,7 +17,6 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
 }
-
 :root {
     /*============= Font =================*/
     --text-font-normal: 1.6rem;
@@ -39,4 +38,8 @@ body {
     --margin-left-dashboard: 2rem;
     --margin-right-dashboard: 2rem;
 
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }

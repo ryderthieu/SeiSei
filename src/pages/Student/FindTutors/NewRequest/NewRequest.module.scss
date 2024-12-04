@@ -1,0 +1,19 @@
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px #004C7F solid;
+        padding-bottom: 10px;
+        flex: 1;
+        .headerTitle {
+            font-size: var(--text-font-header);
+            font-weight: 900;
+            color: #0D3073;
+        }
+    }
+}
