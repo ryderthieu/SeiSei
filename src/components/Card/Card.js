@@ -84,15 +84,36 @@ const ExtendableCard = ({ data, cardId }) => {
                         {data.content.content.map((v, i) => (
                             <div key={i} className="lineContainer">
                                 <div className="label">{v.label}:</div>
-                                <div className="value">{v.value}</div>
+                                {v.value.map((item, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="value"
+                                        style={{
+                                            padding: '5px 10px',
+                                            borderRadius: 10,
+                                            fontWeight: v.tag ? 'bold' : 'inherit',
+                                            color: v.tag && v.tag[idx] ? v.tag[idx] : 'inherit',
+                                            backgroundColor: v.tag && v.tag[idx] ? v.tag[idx] + '33' : 'transparent', // Thêm độ mờ trực tiếp bằng mã HEX
+                                        }}
+                                    >
+                                        {item}
+                                    </div>
+                                ))}
                             </div>
                         ))}
                     </div>
+                    {data.button && (
+                        <div className='button'>
+                            {data.button.title}
+                        </div>
+
+                    )}
                 </div>
             )}
         </div>
     );
 };
+
 
 
 

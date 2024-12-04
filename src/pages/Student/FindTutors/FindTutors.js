@@ -82,9 +82,9 @@ const ClassRegister = () => {
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab}/>
         <div className={style.tabContent}>
           {data[tab]?.content?.map((v) => (
-            <div className={[style.courseItem, tab===2&&style.disable].join(' ')}>
+            <Link className={[style.courseItem, tab===2&&style.disable].join(' ')} to='choose-tutors'>
               <CourseCard data={v}/>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

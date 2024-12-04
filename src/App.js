@@ -14,7 +14,7 @@ import StudentCourses from './pages/Student/Courses/Courses';
 import StudentCalender from './pages/Student/Calender/Calender';
 import StudentStudyResults from './pages/Student/StudyResults/StudyResults';
 import StudentPayment from './pages/Student/Payment/Payment';
-import NewRequest from './pages/Student/FindTutors/NewRequest/NewRequest'
+import ChooseTutors from './pages/Student/FindTutors/ChooseTutors/ChooseTutors'
 import CourseItem from './pages/Student/Courses/CourseItem/CourseItem';
 
 import TutorDashboard from './pages/Tutor/Dashboard/Dashboard';
@@ -38,7 +38,7 @@ const App = () => {
         <Route path="/student-dashboard" element={<StudentLayout />}>
           <Route index element={<StudentDashboard />} />
           <Route path="find-tutors" element={<StudentFindTutors />} />
-            <Route path="find-tutors/new-request" element = {<NewRequest />} />
+            <Route path="find-tutors/choose-tutors" element = {<ChooseTutors />} />
 
           <Route path="courses" element={<StudentCourses />} />
             <Route path="courses/course-item" element={<CourseItem />} />
