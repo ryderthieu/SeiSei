@@ -7,7 +7,7 @@ import TextShadow from "../../components/TextShadow/TextShadow";
 import homeImg from '../../assets/images/Learning-amico.png'
 import slideImg from '../../assets/images/line-bottom-bg.png'
 import IntroduceImg from '../../assets/images/Questions-rafiki.png'
-import {BoxContent} from "../../components/BoxContent/BoxContent";
+import {BoxContent} from "../../components/Card/Card";
 import imgMath from "../../assets/images/math.png"
 import imgQuyTrinh from "../../assets/images/leadership-cuate.png"
 import imgQuyTrinh2 from "../../assets/images/blue-hat-star1.png"
