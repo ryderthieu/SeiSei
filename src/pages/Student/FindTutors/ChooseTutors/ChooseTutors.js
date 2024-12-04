@@ -135,7 +135,7 @@ const NewRequest = () => {
           </div>
         </div>
       </div>
-      <AcceptedOverlay data={ConfirmNoti} yes={'try-learning'}/>
+      {/* <AcceptedOverlay data={ConfirmNoti} yes={'try-learning'}/> */}
     </div>
   );
 };
