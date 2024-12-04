@@ -4,6 +4,7 @@ import style from "./ChooseTutors.module.scss";
 import img from "../../../../assets/images/art.png";
 import AcceptedOverlay from "../../../../components/Overlay/Overlay";
 import success from "../../../../assets/icon/success.gif"
+import { useState } from "react";
 const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
 const requestData = [
   {
@@ -87,6 +88,7 @@ const ConfirmNoti = {
   content: 'Hãy tiến hành học thử trước khi xác nhận học chính thức'
 }
 const NewRequest = () => {
+  const [isChoose, setIsChoose] = useState(false)
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -96,7 +98,7 @@ const NewRequest = () => {
         <RequestStep data={stepperData} active={1} />
         <div className={style.content}>
           <div className={style.requestCard}>
-            <ExtendableCard data={requestData[0]} />
+            <ExtendableCard data={requestData[0]} onChoose = {setIsChoose}/>
             <ExtendableCard data={requestData[0]} />
             <ExtendableCard data={requestData[0]} />
           </div>
@@ -135,7 +137,7 @@ const NewRequest = () => {
           </div>
         </div>
       </div>
-      {/* <AcceptedOverlay data={ConfirmNoti} yes={'try-learning'}/> */}
+     {isChoose && <AcceptedOverlay data={ConfirmNoti} yes={'try-learning'}/>}
     </div>
   );
 };

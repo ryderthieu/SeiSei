@@ -45,7 +45,7 @@ const CourseCard = ({data}) => {
     )
 }
 
-const ExtendableCard = ({ data, cardId }) => {
+const ExtendableCard = ({ data, cardId, onChoose }) => {
     const [isExtend, setIsExtend] = useState(false);
 
     const toggleExtend = () => {
@@ -93,7 +93,7 @@ const ExtendableCard = ({ data, cardId }) => {
                                             borderRadius: 10,
                                             fontWeight: v.tag ? 'bold' : 'inherit',
                                             color: v.tag && v.tag[idx] ? v.tag[idx] : 'inherit',
-                                            backgroundColor: v.tag && v.tag[idx] ? v.tag[idx] + '33' : 'transparent', // Thêm độ mờ trực tiếp bằng mã HEX
+                                            backgroundColor: v.tag && v.tag[idx] ? v.tag[idx] + '33' : 'transparent',
                                         }}
                                     >
                                         {item}
@@ -103,7 +103,7 @@ const ExtendableCard = ({ data, cardId }) => {
                         ))}
                     </div>
                     {data.button && (
-                        <div className='button'>
+                        <div className='button' onClick={() => onChoose(true)}>
                             {data.button.title}
                         </div>
 
