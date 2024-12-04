@@ -10,20 +10,54 @@ const data = [
   {
     id: 0,
     content: [
+        {
+          img: Toan,
+          title: 'MA010 - TOÁN 10',
+          content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+          color: '#AD8BC8',
+        },
+        {
+          img: Anh,
+          title: 'ENG010 - ANH 10',
+          content: ['Offline - Vũng Tàu', '2 buổi / 1 tuần'],
+          color: '#05A344',
+        },
+        {
+          img: Anh,
+          title: 'ENG010 - ANH 10',
+          content: ['Offline - Bến Tre', '2 buổi / 1 tuần'],
+          color: '#05A344',
+        },
+        {
+          img: Anh,
+          title: 'ENG010 - ANH 10',
+          content: ['Offline - Cà Mau', '2 buổi / 1 tuần'],
+          color: '#05A344',
+        }
+    ]
+  },
+  {
+    id: 1,
+    content: [
       {
         img: Toan,
         title: 'MA010 - TOÁN 10',
         content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
         color: '#AD8BC8',
       },
-      {
-        img: Anh,
-        title: 'ENG010 - ANH 10',
-        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-        color: '#05A344',
-      },
-    ],
+    ]
   },
+  {
+    id: 2,
+    content: [
+      {
+        img: Toan,
+        title: 'MA010 - TOÁN 10',
+        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
+        color: '#AD8BC8',
+      },
+    ]
+  }
 ];
 
 const TopTab = ['Tất cả', 'Đang diễn ra', 'Đã hoàn thành'];

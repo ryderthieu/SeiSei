@@ -6,12 +6,11 @@ import TopTabNavigation from '../../../../components/TopTabNavigation/TopTabNavi
 import img from '../../../../assets/images/art.png';
 
 const TopTab = ['Lớp học', 'Thông tin gia sư', 'Hỗ trợ học viên'];
+
 const requestData = [
   {
     img: img,
-    title: [
-      { label: 'Lớp', value: 'Toán 10' },
-    ],
+    title: [{ label: 'Lớp', value: 'Toán 10' }],
     content: {
       title: 'Thông tin chi tiết',
       content: [
@@ -40,15 +39,14 @@ const CourseItem = () => {
   };
 
   const handleCancel = () => {
-    setSelectedFile(null); // Reset the selected file
+    setSelectedFile(null);
   };
 
   const handleConfirm = () => {
     if (selectedFile) {
-      // Logic for file upload
       alert('Bài làm đã được xác nhận.');
     } else {
-      alert("Vui lòng chọn một bài làm.");
+      alert('Vui lòng chọn một bài làm.');
     }
   };
 
@@ -61,26 +59,79 @@ const CourseItem = () => {
 
       <div className={style.content}>
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab} />
-        <div className={style.requestCard}>
-          <FullContentCard data={requestData[0]} />
-        </div>
 
-        <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
-        <div className={style.testList}>
-          <div className={style.testSelect}>
-            <select className={style.select}>
-              <option value="">Chọn bài kiểm tra</option>
-            </select>
+        {/* Nội dung hiển thị theo từng tab */}
+        {tab === 0 && (
+          <div>
+            <div className={style.requestCard}>
+              <FullContentCard data={requestData[0]} />
+            </div>
+
+            <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
+            <div className={style.testList}>
+              <div className={style.testSelect}>
+                <select className={style.select}>
+                  <option value="">Chọn bài kiểm tra</option>
+                  <option value="test1">Bài kiểm tra 1</option>
+                  <option value="test2">Bài kiểm tra 2</option>
+                </select>
+              </div>
+              <div className={style.testFile}>
+                <label>Bài làm:</label>
+                <input type="file" onChange={handleFileChange} />
+              </div>
+              <div className={style.buttons}>
+                <button className={style.cancelButton} onClick={handleCancel}>Hủy</button>
+                <button className={style.confirmButton} onClick={handleConfirm}>Xác nhận</button>
+              </div>
+            </div>
           </div>
-          <div className={style.testFile}>
-            <label>Bài làm:</label>
-            <input type="file" onChange={handleFileChange} />
+        )}
+
+        {tab === 1 && (
+          <div>
+            <div className={style.tutorInfo}>
+              <h2>Nguyễn Văn A</h2>
+              <p><strong>Giới tính:</strong> Nam</p>
+              <p><strong>Bằng cấp:</strong> Ielts 7.0</p>
+              <p><strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.</p>
+            </div>
+            <div className={style.supportButtons}>
+                <label htmlFor="details">Đánh giá gia sư:</label>
+                <textarea id="details" name="details" rows="4"></textarea>
+              </div>
+              <button type="submit" className={style.submitButton}>
+                Gửi
+              </button>
           </div>
-          <div className={style.buttons}>
-            <button className={style.cancelButton} onClick={handleCancel}>Hủy</button>
-            <button className={style.confirmButton} onClick={handleConfirm}>Xác nhận</button>
+        )}
+
+        {tab === 2 && (
+          <div>
+            <form className={style.supportForm}>
+              <h3>Bạn muốn làm gì?</h3>
+              <div>
+                <input type="radio" id="cancel" name="action" value="cancel" />
+                <label htmlFor="cancel">Hủy khóa học</label>
+              </div>
+              <div>
+                <input type="radio" id="change-tutor" name="action" value="change-tutor" />
+                <label htmlFor="change-tutor">Thay đổi gia sư</label>
+              </div>
+              <div>
+                <input type="radio" id="other" name="action" value="other" />
+                <label htmlFor="other">Khác</label>
+              </div>
+              <div className={style.supportButtons}>
+                <label htmlFor="details">Mô tả chi tiết/lý do:</label>
+                <textarea id="details" name="details" rows="4"></textarea>
+              </div>
+              <button type="submit" className={style.submitButton}>
+                Gửi
+              </button>
+            </form>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
