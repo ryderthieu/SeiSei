@@ -145,7 +145,7 @@ const ChooseTutors = () => {
           </div>
         </div>
       </div>
-     {isChoose && <AcceptedOverlay data={ConfirmNoti} yes={() => navigate('./try-learning')}/>}
+     {isChoose && <AcceptedOverlay data={ConfirmNoti} yes={() => navigate('../find-tutors/trial')}/>}
      {isCancel && <AcceptedOverlay data={Cancel} type={'confirm'} yes={() => navigate('../find-tutors')} no={() => setIsCancel(false)}/>}
     </div>
   );

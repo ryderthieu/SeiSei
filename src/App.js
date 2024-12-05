@@ -16,6 +16,7 @@ import StudentStudyResults from './pages/Student/StudyResults/StudyResults';
 import StudentPayment from './pages/Student/Payment/Payment';
 import ChooseTutors from './pages/Student/FindTutors/ChooseTutors/ChooseTutors'
 import CourseItem from './pages/Student/Courses/CourseItem/CourseItem';
+import ClassDetail from './pages/Student/StudyResults/ClassDetail/ClassDetail';
 
 import TutorDashboard from './pages/Tutor/Dashboard/Dashboard';
 import TutorLayout from './pages/Tutor/Layout/Layout';
@@ -23,6 +24,9 @@ import TutorClassManagement from './pages/Tutor/ClassManagement/ClassManagement'
 import TutorClassRegistration from './pages/Tutor/ClassRegistration/ClassRegistration';
 import TutorTeachingSchedule from './pages/Tutor/TeachingSchedule/TeachingSchedule';
 import TutorRevenue from './pages/Tutor/Revenue/Revenue';
+import NewRequest from './pages/Student/FindTutors/NewRequest/NewRequest';
+import Trial from './pages/Student/FindTutors/Trial/Trial';
+import CourseConfirm from './pages/Student/FindTutors/CourseConfirm/CourseConfirm';
 
 const App = () => {
   return (
@@ -39,11 +43,14 @@ const App = () => {
           <Route index element={<StudentDashboard />} />
           <Route path="find-tutors" element={<StudentFindTutors />} />
             <Route path="find-tutors/choose-tutors" element = {<ChooseTutors />} />
-
+            <Route path="find-tutors/new-request" element = {<NewRequest />} />
+            <Route path="find-tutors/trial" element = {<Trial />} />
+            <Route path="find-tutors/confirm" element = {<CourseConfirm />} />
           <Route path="courses" element={<StudentCourses />} />
             <Route path="courses/course-item" element={<CourseItem />} />
           <Route path="calender" element={<StudentCalender />} />
           <Route path="study-results" element={<StudentStudyResults />} />
+            <Route path="study-results/classdetail" element={<ClassDetail />} />
           <Route path="payment" element={<StudentPayment />} />
         </Route>
 
