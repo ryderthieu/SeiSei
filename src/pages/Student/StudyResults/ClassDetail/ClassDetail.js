@@ -11,12 +11,7 @@ import {
   LineElement,
 } from 'chart.js';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 
 const TopTab = ['Điểm kiểm tra', 'Báo cáo của gia sư'];
 
@@ -72,6 +67,7 @@ const ClassDetail = () => {
         <ion-icon name="arrow-back-outline" onClick={handleBackClick}></ion-icon>
         <div className={style.headerTitle}>CHI TIẾT LỚP HỌC</div>
       </div>
+
       <div className={style.content}>
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab} />
 
@@ -80,41 +76,52 @@ const ClassDetail = () => {
         </div>
 
         <div className={style.detailsSection}>
-        {/* Card for lessons */}
-        <div className={style.card}>
-          <h3>Các buổi đã học</h3>
-          <ul className={style.list}>
-            {lessons.map((lesson, index) => (
-              <li key={index} className={style.item}>
-                <div className={style.title}>
-                  <span className={style.icon}>
-                    <ion-icon name="checkmark-circle-outline"></ion-icon>
-                  </span>
-                  {lesson.title}
-                  <span className={style.status}>Đã hoàn thành</span>
-                </div>
-                <div className={style.score}>{lesson.score}</div>
-              </li>
-            ))}
-          </ul>
-        </div>
+          {/* Table for lessons */}
+          <div className={style.card}>
+            <h3>Các buổi đã học</h3>
+            <table className={style.table}>
+              <thead>
+                <tr>
+                  <th>Buổi học</th>
+                  <th>Trạng thái</th>
+                  <th>Điểm</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lessons.map((lesson, index) => (
+                  <tr key={index}>
+                    <td>{lesson.title}</td>
+                    <td>Đã hoàn thành</td>
+                    <td>{lesson.score}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-        {/* Card for tests */}
-        <div className={style.card}>
-          <h3>Điểm bài kiểm tra</h3>
-          <ul className={style.list}>
-            {tests.map((test, index) => (
-              <li key={index} className={style.item}>
-                <div className={style.title}>
-                  {test.name}
-                  <span className={style.time}>Thời gian: {test.time || 'N/A'}</span>
-                </div>
-                <div className={style.score}>{test.score}</div>
-              </li>
-            ))}
-          </ul>
+          {/* Table for tests */}
+          <div className={style.card}>
+            <h3>Điểm bài kiểm tra</h3>
+            <table className={style.table}>
+              <thead>
+                <tr>
+                  <th>Tên bài kiểm tra</th>
+                  <th>Thời gian</th>
+                  <th>Điểm</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tests.map((test, index) => (
+                  <tr key={index}>
+                    <td>{test.name}</td>
+                    <td>{test.time || 'N/A'}</td>
+                    <td>{test.score}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );
