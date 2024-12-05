@@ -48,7 +48,7 @@ const Sidebar = () => {
           </li>
 
           <li>
-            <Link to="calender">
+            <Link to="schedule">
               <span className='icon'><ion-icon name="calendar-outline"></ion-icon></span>
               <span className='title'>Lịch học</span>
             </Link>
