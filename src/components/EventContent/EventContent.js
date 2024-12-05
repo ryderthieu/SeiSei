@@ -1,6 +1,6 @@
 // EventContent.js
 import React from "react";
-import { Link, Router, Route, Routes  } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const EventContent = ({ event }) => {
   const startTime = event.start.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
@@ -83,10 +83,10 @@ const EventContent = ({ event }) => {
       {/* Hiển thị tiêu đề sự kiện */}
       <div style={{marginTop: "0.2em", fontSize: "1.3em"}}>{event.title}</div>
 
-      {/* Thêm đường link dẫn đến trang khác nếu có */}
+   
       {event.extendedProps.type === "Học online" && (
          <Link
-         to={"./OnlineClass"} // Sử dụng Link để chuyển hướng
+         to={"./online-class"} 
          style={{
            marginTop: "5px",
            color: "red",
@@ -97,10 +97,10 @@ const EventContent = ({ event }) => {
           Học online
         </Link>
       )}
-      {/* Thêm đường link dẫn đến trang khác nếu có */}
+
       {event.extendedProps.type === "Học thử" && (
          <Link
-         to={"try-learning"} // Sử dụng Link để chuyển hướng
+         to={"try-learning"}
          style={{
            marginTop: "5px",
            color: "red",
