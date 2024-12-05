@@ -5,11 +5,11 @@
 }
 
 :root {
-    --sidebar-width: 200px;
+    --sidebar-width: 250px;
     --sidebar-bg: #F6F8FD;
     --sidebar-text-color: #ecf0f1;
-    --sidebar-hover-bg: #34495e;
-    --sidebar-hover-text-color: #004C7B;
+    --sidebar-hover-bg: #F6F8FD;
+    --sidebar-hover-text-color: #ffffff;
     --sidebar-active-bg: #2980b9;
     --sidebar-active-text-color: #ecf0f1;
     --sidebar-border-left: linear-gradient(183deg, #0770B5 24%, #83BBE0 91%);
@@ -25,11 +25,10 @@ body {
     width: 100%;
     font-weight: 700;
 
-
     .sidebar {
         position: fixed;
         height: 100%;
-        width: 250px;
+        width: var(--sidebar-width);
         background: linear-gradient(183deg, #0770B5 24%, #83BBE0 91%);
         border-left: 10px solid var(--sidebar-border-left);
         color: var(--sidebar-text-color);
@@ -56,16 +55,15 @@ body {
             display: flex;
             flex-direction: column;
             position: absolute;
-            width: 100%; 
+            width: 100%;
             top: 0;
             left: 0;
 
-           li {
+            li {
                 list-style: none;
                 width: 100%;
                 position: relative;
-                border-top-left-radius: 30px;
-                border-bottom-left-radius: 30px;
+                transition: background-color 0.3s ease, color 0.3s ease;
 
                 &:nth-child(1) {
                     margin-bottom: 40px;
@@ -76,91 +74,39 @@ body {
                     margin-bottom: 110px;
                 }
 
-                &:hover {
-                    background-color: var(--sidebar-bg);
-                    color: var(--sidebar-hover-text-color);
+                &:hover, &.selected {
+                    background-color: #F6F8FD;
+                    color: #0770B5;
 
                     a {
-                        color: var(--sidebar-hover-text-color);
-                    }
-
-                    a::before {
-                        content: "";
-                        position: absolute;
-                        top: -50px;
-                        right: 0;
-                        width: 50px;
-                        height: 50px;
-                        background-color: transparent;
-                        border-radius: 50%;
-                        box-shadow: 35px 35px 0 10px var(--sidebar-bg);
-                        pointer-events: none;
-                    }
-
-                    a::after {
-                        content: "";
-                        position: absolute;
-                        bottom: -50px;
-                        right: 0;
-                        width: 50px;
-                        height: 50px;
-                        background-color: transparent;
-                        border-radius: 50%;
-                        box-shadow: 35px -35px 0 10px var(--sidebar-bg);
-                        pointer-events: none;
+                        color: #0770B5;
                     }
                 }
 
-                &.hovered {
-                    background-color: var(--sidebar-bg);
-                    color: var(--sidebar-hover-text-color);
-
+                &.selected {
+                    background-color: #F6F8FD;
+                    color: #0770B5; 
                     a {
-                        color: var(--sidebar-hover-text-color);
+                        color: #0770B5;
                     }
-
-                    a::before {
-                        content: "";
-                        position: absolute;
-                        top: -50px;
-                        right: 0;
-                        width: 50px;
-                        height: 50px;
-                        background-color: transparent;
-                        border-radius: 50%;
-                        box-shadow: 35px 35px 0 10px var(--sidebar-bg);
-                        pointer-events: none;
-                    }
-
-                    a::after {
-                        content: "";
-                        position: absolute;
-                        bottom: -50px;
-                        right: 0;
-                        width: 50px;
-                        height: 50px;
-                        background-color: transparent;
-                        border-radius: 50%;
-                        box-shadow: 35px -35px 0 10px var(--sidebar-bg);
-                        pointer-events: none;
-                    }
-                } 
+                }
 
                 a {
                     position: relative;
-                    // display: block;
                     width: 100%;
                     display: flex;
                     text-decoration: none;
-                    color: white;
+                    color: var(--sidebar-text-color);
+                    padding: 0 15px;
+                    height: 60px;
+                    align-items: center; 
 
                     .icon {
-                        position: relative;
-                        display: block;
+                        display: flex;
+                        justify-content: center; 
+                        align-items: center; 
                         min-width: 60px;
                         height: 60px;
-                        line-height: 70px;
-                        text-align: center;
 
                         ion-icon {
                             font-size: 2.2rem;
@@ -168,16 +114,16 @@ body {
                     }
 
                     .title {
-                        position: relative;
-                        display: block;
-                        padding: 0 10px;
+                        display: flex;
+                        align-items: center;
                         line-height: 60px;
                         height: 60px;
-                        text-align: center;
+                        text-align: left;
                         white-space: nowrap;
+                        transition: color 0.3s ease;
                     }
                 }
-           }
+            }
         }
     }
 }
