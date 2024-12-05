@@ -58,11 +58,10 @@ const EventContent = ({ event }) => {
         borderRadius: "5px",
         color: "#333",
         fontWeight: "bold",
-        fontSize: "13px",
         whiteSpace: "pre-wrap",
-        height: "90px",
+        height: "80px",
         padding: "5px 10px",
-        lineHeight: "1.8em"
+        lineHeight: "1.6em"
       }}
     >
 
@@ -81,7 +80,7 @@ const EventContent = ({ event }) => {
       </div>
 
       {/* Hiển thị tiêu đề sự kiện */}
-      <div style={{marginTop: "0.2em", fontSize: "1.3em"}}>{event.title}</div>
+      <div style={{marginTop: "0.2em", fontSize: "1.2em"}}>{event.title}</div>
 
    
       {event.extendedProps.type === "Học online" && (
@@ -108,7 +107,7 @@ const EventContent = ({ event }) => {
            textDecoration: "underline",
          }}
         >
-          Học online
+          Học thử
         </Link>
       )}
     </div>
