@@ -1,9 +1,13 @@
 import style from './CourseItem.module.scss';
+import Rating from 'react-rating-stars-component';
 import { useState } from 'react';
-import { FullContentCard } from '../../../../components/Card/Card'; // Import FullContentCard thay cho ExtendableCard
+import { FullContentCard } from '../../../../components/Card/Card';
 import { useNavigate } from 'react-router-dom';
 import TopTabNavigation from '../../../../components/TopTabNavigation/TopTabNavigation';
 import img from '../../../../assets/images/art.png';
+import tutorAvatar from '../../../../assets/images/tutor.jpg';
+import TestTable from '../../../../components/Table/TestTable';
+import TestSubmission from "../../../../components/TestSubmission/TestSubmission";
 
 const TopTab = ['Lớp học', 'Thông tin gia sư', 'Hỗ trợ học viên'];
 
@@ -27,27 +31,29 @@ const requestData = [
 
 const CourseItem = () => {
   const [tab, setTab] = useState(0);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [tests, setTests] = useState([
+    { id: 1, name: 'Định kỳ lần 1', time: '15h, 19/04/2024', status: 'Đã hoàn thành' },
+    { id: 2, name: '15p đầu giờ', time: '15h, 10/05/2024', status: 'Đã hoàn thành' },
+    { id: 3, name: 'Định kỳ lần 2', time: '15h, 19/05/2024', status: 'Chưa hoàn thành' },
+    { id: 4, name: '15p đầu giờ', time: '15h, 25/05/2024', status: 'Chưa hoàn thành' },
+  ]);
+  const [showSubmissionForm, setShowSubmissionForm] = useState(true);
+  const [showEditButton, setShowEditButton] = useState(false); // Trạng thái nút chỉnh sửa
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate('/student-dashboard/courses');
   };
 
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
-
-  const handleCancel = () => {
-    setSelectedFile(null);
-  };
-
   const handleConfirm = () => {
-    if (selectedFile) {
-      alert('Bài làm đã được xác nhận.');
-    } else {
-      alert('Vui lòng chọn một bài làm.');
-    }
+    setShowSubmissionForm(false);
+    setShowEditButton(true); // Hiển thị nút chỉnh sửa sau khi nộp bài
+    alert('Bài làm đã được nộp thành công.');
+  };
+
+  const handleEditSubmission = () => {
+    setShowSubmissionForm(true);
+    setShowEditButton(false); // Ẩn nút chỉnh sửa khi quay lại form nộp bài
   };
 
   return (
@@ -60,49 +66,64 @@ const CourseItem = () => {
       <div className={style.content}>
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab} />
 
-        {/* Nội dung hiển thị theo từng tab */}
         {tab === 0 && (
           <div>
             <div className={style.requestCard}>
               <FullContentCard data={requestData[0]} />
             </div>
 
-            <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
-            <div className={style.testList}>
-              <div className={style.testSelect}>
-                <select className={style.select}>
-                  <option value="">Chọn bài kiểm tra</option>
-                  <option value="test1">Bài kiểm tra 1</option>
-                  <option value="test2">Bài kiểm tra 2</option>
-                </select>
-              </div>
-              <div className={style.testFile}>
-                <label>Bài làm:</label>
-                <input type="file" onChange={handleFileChange} />
-              </div>
-              <div className={style.buttons}>
-                <button className={style.cancelButton} onClick={handleCancel}>Hủy</button>
-                <button className={style.confirmButton} onClick={handleConfirm}>Xác nhận</button>
-              </div>
+            <div className={style.headerAndButton}>
+              <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
+              {showEditButton && (
+                <button onClick={handleEditSubmission} className={style.editButton}>
+                  Chỉnh sửa bài nộp
+                </button>
+              )}
             </div>
+
+            {!showSubmissionForm ? (
+              <TestTable tests={tests} onEdit={handleEditSubmission} />
+            ) : (
+              <TestSubmission tests={tests} handleConfirm={handleConfirm} />
+            )}
           </div>
         )}
 
         {tab === 1 && (
           <div>
             <div className={style.tutorInfo}>
-              <h2>Nguyễn Văn A</h2>
-              <p><strong>Giới tính:</strong> Nam</p>
-              <p><strong>Bằng cấp:</strong> Ielts 7.0</p>
-              <p><strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.</p>
-            </div>
-            <div className={style.supportButtons}>
-                <label htmlFor="details">Đánh giá gia sư:</label>
-                <textarea id="details" name="details" rows="4"></textarea>
+              <img className={style.tutorAvatar} src={tutorAvatar} alt="Avatar của gia sư" />
+              <div className={style.tutorDetails}>
+                <h2>Nguyễn Văn A</h2>
+                <p>
+                  <strong>Giới tính:</strong> Nam
+                </p>
+                <p>
+                  <strong>Bằng cấp:</strong> Ielts 7.0
+                </p>
+                <p>
+                  <strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.
+                </p>
               </div>
-              <button type="submit" className={style.submitButton}>
-                Gửi
-              </button>
+            </div>
+
+            <div className={style.rating}>
+              <label>ĐÁNH GIÁ GIA SƯ:</label>
+              <Rating
+                count={5}
+                onChange={(newRating) => console.log(`Đánh giá: ${newRating}`)}
+                size={30}
+                activeColor="#ffd700"
+              />
+            </div>
+
+            <div className={style.supportButtons}>
+              <label htmlFor="details">Ý KIẾN NHẬN XÉT:</label>
+              <textarea id="details" name="details" rows="4"></textarea>
+            </div>
+            <button type="submit" className={style.submitButton}>
+              Thêm nhận xét
+            </button>
           </div>
         )}
 
@@ -115,7 +136,12 @@ const CourseItem = () => {
                 <label htmlFor="cancel">Hủy khóa học</label>
               </div>
               <div>
-                <input type="radio" id="change-tutor" name="action" value="change-tutor" />
+                <input
+                  type="radio"
+                  id="change-tutor"
+                  name="action"
+                  value="change-tutor"
+                />
                 <label htmlFor="change-tutor">Thay đổi gia sư</label>
               </div>
               <div>

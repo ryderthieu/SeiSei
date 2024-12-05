@@ -63,30 +63,28 @@ const data = [
 const TopTab = ['Tất cả', 'Đang diễn ra', 'Đã hoàn thành'];
 
 function Courses() {
-  const [tab, setTab] = useState(0);
+  const [tab, setTab] = useState(0)
 
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <div className={style.headerTitle}>DANH SÁCH LỚP HỌC CỦA TÔI</div>
+        <div className={style.headerTitle}>
+          DANH SÁCH LỚP HỌC CỦA TÔI
+        </div>
       </div>
 
       <div className={style.content}>
-        <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab} />
+        <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab}/>
         <div className={style.tabContent}>
-          {data[tab]?.content?.length > 0 ? (
-            data[tab].content.map((v, index) => (
-            <Link to="course-item" className={style.courseItem}>
-              <CourseCard data={v} />
-            </Link>
-            ))
-          ) : (
-            <p>No courses available in this category.</p>
-          )}
+          {data[tab]?.content?.map((v) => (
+            <Link className={[style.courseItem, tab===2&&style.disable].join(' ')} to='course-item'>
+            <CourseCard data={v}/>
+          </Link>
+          ))}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Courses;

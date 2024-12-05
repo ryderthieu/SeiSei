@@ -1,122 +1,194 @@
 .container {
-    flex: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .header {
     display: flex;
-    flex-direction: column;
-  
-    .header {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      border-bottom: 2px #004C7F solid;
-      padding-bottom: 10px;
-      flex: 1;
-      justify-content: flex-start;
-  
-      ion-icon {
-        font-size: 24px;
-        color: #0D3073;
-        margin-right: 10px;
-        cursor: pointer;
-      }
-  
-      .headerTitle {
-        font-size: var(--text-font-header);
-        font-weight: 900;
-        color: #0D3073;
-      }
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2px #004C7F solid;
+    padding-bottom: 10px;
+    flex: 1;
+    justify-content: flex-start;
+
+    ion-icon {
+      font-size: 24px;
+      color: #0D3073;
+      margin-right: 10px;
+      cursor: pointer;
     }
-  
-    .content {
-      flex: 1;
-      padding: 20px;
-  
-      /* Bổ sung phần hỗ trợ học viên */
-      .supportForm {
-        background-color: #fff;
-        border-radius: 12px;
-        padding: 25px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
 
-        .supportButtons {
-            display: flex;
-            justify-content:space-around;
-            flex-direction: column;
-        }
-
-        h3 {
-          font-size: 18px;
-          font-weight: 600;
-          color: #0D3073;
-        }
-  
-        div {
-          display: flex;
-          gap: 10px;
-  
-          input[type='radio'] {
-            cursor: pointer;
-          }
-
-          label {
-            font-size: 18px;
-            font-weight: 600;
-            color: #0D3073;
-        }
-  
-          p {
-            font-size: 16px;
-            font-weight: 400;
-            color: #333;
-          }
-        }
-  
-        textarea {
-          width: 100%;
-          height: 100px;
-          border-radius: 8px;
-          padding: 10px;
-          font-size: 16px;
-          border: 1px solid #ccc;
-          background-color: #f9f9f9;
-          color: #333;
-          transition: border-color 0.3s;
-  
-          &:focus {
-            border-color: #004C7F;
-            outline: none;
-          }
-        }
-  
-        .submitButton {
-          align-self: flex-end;
-          background-color: #004C7F;
-          color: white;
-          border: none;
-          border-radius: 8px;
-          padding: 12px 25px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: background-color 0.3s;
-  
-          &:hover {
-            background-color: #003b66;
-          }
-        }
-      }
+    .headerTitle {
+      font-size: var(--text-font-header);
+      font-weight: 900;
+      color: #0D3073;
     }
-  
-    .testList {
+  }
+
+  .content {
+    flex: 1;
+    padding: 20px;
+
+    .supportForm {
       background-color: #fff;
-      padding: 25px;
       border-radius: 12px;
-      margin-top: 20px;
+      padding: 25px;
       box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
       gap: 20px;
+
+      .supportButtons {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #0D3073;
+      }
+
+      div {
+        display: flex;
+        gap: 10px;
+
+        input[type="radio"] {
+          cursor: pointer;
+        }
+
+        label {
+          font-size: 18px;
+          font-weight: 600;
+          color: #0D3073;
+        }
+
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          color: #333;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: 100px;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px dashed #0D3073;
+        background-color: #f9f9f9;
+        color: #333;
+        transition: border-color 0.3s;
+
+        &:focus {
+          border-color: #004C7F;
+          outline: none;
+        }
+      }
+
+      .submitButton {
+        align-self: flex-end;
+        background-color: #004C7F;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 25px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #003b66;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+
+  .headerList {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0D3073;
+    margin-bottom: 10px;
+  }
+
+  .testSubmission {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #0D3073;
+    }
+  
+    .select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+      transition: border-color 0.3s;
+  
+      &:focus {
+        border-color: #004C7F;
+        outline: none;
+      }
+    }
+  
+    .testFile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px dashed #004C7F;
+      border-radius: 12px;
+      background-color: #fff;
+      position: relative;
+      text-align: center;
+      color: #004C7F;
+      font-size: 40px;
+      gap: 10px;
+  
+      &:hover {
+        border-color: #004C7F;
+        color: #003c66bb;
+      }
+  
+      label {
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        color: #aaa;
+        cursor: pointer;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #004C7F;
+        }
+      }
+  
+      input[type="file"] {
+        position: absolute;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
     }
   
     .buttons {
@@ -131,7 +203,7 @@
         font-size: 16px;
         cursor: pointer;
         border: none;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, transform 0.2s ease;
       }
   
       .cancelButton {
@@ -141,6 +213,7 @@
   
         &:hover {
           background-color: #f0f8ff;
+          transform: translateY(-1px);
         }
       }
   
@@ -150,78 +223,129 @@
   
         &:hover {
           background-color: #003b66;
+          transform: translateY(-1px);
+        }
+      }
+  
+      .editButton {
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #004C7F;
+        color: white;
+        border: none;
+        transition: background-color 0.3s, transform 0.2s ease;
+  
+        &:hover {
+          background-color: #003b66;
+          transform: translateY(-1px);
+        }
+  
+        &:active {
+          transform: scale(0.98);
         }
       }
     }
   }
   
-  .headerList {
-    font-size: 20px;
-    font-weight: 900;
-    color: #0D3073;
-  }
 
-.tutorInfo {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  .tutorInfo {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
 
-  h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #0d3073;
-  }
+    .tutorAvatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
 
-  p {
-    font-size: 16px;
-    font-weight: 400;
-    color: #333;
+    .tutorDetails {
+      flex: 1;
+    }
 
-    strong {
-      font-weight: 600;
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
       color: #0d3073;
     }
-  }
 
-  ul {
-    list-style: disc;
-    padding-left: 20px;
-
-    li {
+    p {
       font-size: 16px;
+      font-weight: 400;
       color: #333;
+
+      strong {
+        font-weight: 600;
+        color: #0d3073;
+      }
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+
+      li {
+        font-size: 16px;
+        color: #333;
+      }
     }
   }
-}
 
-.supportButtons {
+  .rating {
+    margin-top: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    label {
+      font-size: 16px;
+      font-weight: 900;
+      color: #0d3073;
+    }
+
+    .ratingStars {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  .supportButtons {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+
+    label {
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #0d3073;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px dashed #0d3073;
+      border-radius: 5px;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #0d3073;
+        outline: none;
+      }
+    }
   }
-  
-  .supportButtons label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
-  }
-  
-  .supportButtons textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px dashed #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    line-height: 1.5;
-    resize: vertical;
-  }
-  
+
   .submitButton {
     margin-top: 20px;
     align-self: flex-start;
@@ -233,17 +357,14 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  
+
     &:hover {
       background-color: #003b66;
     }
-  
+
     &:disabled {
       background-color: #ccc;
       cursor: not-allowed;
     }
   }
-  
-
-
-  
+}
