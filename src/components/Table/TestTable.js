@@ -25,9 +25,6 @@ const TestTable = ({ tests, onEdit }) => {
           ))}
         </tbody>
       </table>
-      <button onClick={onEdit} className={style['edit-button']}>
-        Chỉnh sửa bài nộp
-      </button>
     </div>
   );
 };

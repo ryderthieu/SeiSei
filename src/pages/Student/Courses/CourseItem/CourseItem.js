@@ -7,6 +7,7 @@ import TopTabNavigation from '../../../../components/TopTabNavigation/TopTabNavi
 import img from '../../../../assets/images/art.png';
 import tutorAvatar from '../../../../assets/images/tutor.jpg';
 import TestTable from '../../../../components/Table/TestTable';
+import TestSubmission from "../../../../components/TestSubmission/TestSubmission";
 
 const TopTab = ['Lớp học', 'Thông tin gia sư', 'Hỗ trợ học viên'];
 
@@ -36,7 +37,8 @@ const CourseItem = () => {
     { id: 3, name: 'Định kỳ lần 2', time: '15h, 19/05/2024', status: 'Chưa hoàn thành' },
     { id: 4, name: '15p đầu giờ', time: '15h, 25/05/2024', status: 'Chưa hoàn thành' },
   ]);
-  const [showSubmissionForm, setShowSubmissionForm] = useState(true); // Hiện/ẩn form nộp bài
+  const [showSubmissionForm, setShowSubmissionForm] = useState(true);
+  const [showEditButton, setShowEditButton] = useState(false); // Trạng thái nút chỉnh sửa
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -44,13 +46,14 @@ const CourseItem = () => {
   };
 
   const handleConfirm = () => {
-    // Xử lý nộp bài
     setShowSubmissionForm(false);
+    setShowEditButton(true); // Hiển thị nút chỉnh sửa sau khi nộp bài
     alert('Bài làm đã được nộp thành công.');
   };
 
   const handleEditSubmission = () => {
-    setShowSubmissionForm(true); // Hiển thị lại form nộp bài
+    setShowSubmissionForm(true);
+    setShowEditButton(false); // Ẩn nút chỉnh sửa khi quay lại form nộp bài
   };
 
   return (
@@ -69,37 +72,19 @@ const CourseItem = () => {
               <FullContentCard data={requestData[0]} />
             </div>
 
-            <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
+            <div className={style.headerAndButton}>
+              <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
+              {showEditButton && (
+                <button onClick={handleEditSubmission} className={style.editButton}>
+                  Chỉnh sửa bài nộp
+                </button>
+              )}
+            </div>
+
             {!showSubmissionForm ? (
               <TestTable tests={tests} onEdit={handleEditSubmission} />
             ) : (
-              <div className={style.testSubmission}>
-                <label className={style.title}>Chọn bài kiểm tra</label>
-                <select className={style.select}>
-                  <option value="">Chọn bài kiểm tra</option>
-                  {tests.map((test) => (
-                    <option key={test.id} value={test.id}>
-                      {test.name}
-                    </option>
-                  ))}
-                </select>
-
-                <label className={style.title}>Bài làm</label>
-                <div className={style.testFile}>
-                  <ion-icon name="cloud-upload-outline"></ion-icon>
-                  <label>Thêm bài nộp</label>
-                  <input type="file" />
-                </div>
-                <div className={style.buttons}>
-                  <button className={style.cancelButton}>Hủy</button>
-                  <button
-                    className={style.confirmButton}
-                    onClick={handleConfirm}
-                  >
-                    Xác nhận
-                  </button>
-                </div>
-              </div>
+              <TestSubmission tests={tests} handleConfirm={handleConfirm} />
             )}
           </div>
         )}
