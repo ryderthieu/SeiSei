@@ -61,70 +61,94 @@ const ClassDetail = () => {
     { name: 'Kiểm tra chất lượng đầu vào', score: '7.7/10' },
   ];
 
+  const tutorFeedback = {
+    rating: 4.5,
+    comments: [
+      'Học sinh có sự tiến bộ đáng kể.'
+    ],
+  };
+
   return (
     <div className={style.container}>
       <div className={style.header}>
         <ion-icon name="arrow-back-outline" onClick={handleBackClick}></ion-icon>
         <div className={style.headerTitle}>CHI TIẾT LỚP HỌC</div>
       </div>
-
+  
       <div className={style.content}>
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab} />
-
-        <div className={style.chart}>
-          <Line data={chartData} options={chartOptions} />
-        </div>
-
-        <div className={style.detailsSection}>
-          {/* Table for lessons */}
-          <div className={style.card}>
-            <h3>Các buổi đã học</h3>
-            <table className={style.table}>
-              <thead>
-                <tr>
-                  <th>Buổi học</th>
-                  <th>Trạng thái</th>
-                  <th>Điểm</th>
-                </tr>
-              </thead>
-              <tbody>
-                {lessons.map((lesson, index) => (
-                  <tr key={index}>
-                    <td>{lesson.title}</td>
-                    <td>Đã hoàn thành</td>
-                    <td>{lesson.score}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+  
+        {tab === 0 ? (
+          <>
+            <div className={style.chart}>
+              <Line data={chartData} options={chartOptions} />
+            </div>
+  
+            <div className={style.detailsSection}>
+              {/* Table for lessons */}
+              <div className={style.card}>
+                <h3>Các buổi đã học</h3>
+                <table className={style.table}>
+                  <thead>
+                    <tr>
+                      <th>Buổi học</th>
+                      <th>Trạng thái</th>
+                      <th>Điểm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {lessons.map((lesson, index) => (
+                      <tr key={index}>
+                        <td>{lesson.title}</td>
+                        <td>Đã hoàn thành</td>
+                        <td>{lesson.score}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+  
+              {/* Table for tests */}
+              <div className={style.card}>
+                <h3>Điểm bài kiểm tra</h3>
+                <table className={style.table}>
+                  <thead>
+                    <tr>
+                      <th>Tên bài kiểm tra</th>
+                      <th>Thời gian</th>
+                      <th>Điểm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tests.map((test, index) => (
+                      <tr key={index}>
+                        <td>{test.name}</td>
+                        <td>{test.time || 'N/A'}</td>
+                        <td>{test.score}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className={style.feedbackSection}>
+            <div className={style.rating}>
+              <span>Đánh giá: </span>
+              {'★'.repeat(Math.floor(tutorFeedback.rating))}
+              {'☆'.repeat(5 - Math.floor(tutorFeedback.rating))}
+              <span> ({tutorFeedback.rating}/5)</span>
+            </div>
+            <h4>Nhận xét:</h4>
+            <ul>
+              {tutorFeedback.comments.map((comment, index) => (
+                <li key={index}>{comment}</li>
+              ))}
+            </ul>
           </div>
-
-          {/* Table for tests */}
-          <div className={style.card}>
-            <h3>Điểm bài kiểm tra</h3>
-            <table className={style.table}>
-              <thead>
-                <tr>
-                  <th>Tên bài kiểm tra</th>
-                  <th>Thời gian</th>
-                  <th>Điểm</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tests.map((test, index) => (
-                  <tr key={index}>
-                    <td>{test.name}</td>
-                    <td>{test.time || 'N/A'}</td>
-                    <td>{test.score}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        )}
       </div>
     </div>
-  );
-};
-
+  )};
 export default ClassDetail;
