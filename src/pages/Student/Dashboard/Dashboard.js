@@ -3,7 +3,7 @@ import HeaderImg from "../../../assets/images/dashboard-header-item.png"
 import Calendar from "../../../components/Calendar/Calendar";
 import Table from "../../../components/Table/Table";
 import { Link } from "react-router-dom";
-import {CourseCard} from "../../../components/BoxContent/BoxContent";
+import {CourseCard} from "../../../components/Card/Card";
 import Toan from '../../../assets/images/math1.png'
 import Anh from '../../../assets/images/english.png'
 const Dashboard = () => {

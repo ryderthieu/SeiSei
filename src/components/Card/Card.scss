@@ -1,0 +1,216 @@
+.boxContent-container {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bColor);
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    margin-top: 60px;
+    .boxContent-imgs {
+        margin: 10px;
+        .boxContent-img {
+            width: 200px;
+        }
+    }
+    .boxContent-content {
+        margin: 10px;
+        
+        .bcContent-title {
+            font-size: 20px;
+            color: #5E93BB;
+            font-weight: bold;
+        }
+        .bcContent-content {
+            margin-bottom: 40px;
+        }
+        .boxContent-btn {
+            background-color: #83BBE1;
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 10px;
+            
+        }
+    }
+}
+
+.card-container {
+    padding: 10px;
+    display: flex;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    align-items: center;
+    .card-imgs {
+        height: 100%;
+        margin-left: 10px;
+        .card-img {
+            height: 100%;
+        }
+    }
+    .card-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: space-between;
+        margin-left: 10px;
+        .card-title {
+            font-size: 20px;
+            font-weight: 1000;
+        }
+        .card-content {
+            font-size: 16px;
+        }
+    }
+
+}
+
+.extendableCardContainer {
+    padding: 10px;
+    display: flex;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    flex-direction: column;
+    cursor: pointer;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        .extendIcon {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 24px;
+            align-self: flex-start;
+            font-weight: 900;
+        }
+        .title {
+            font-size: var(--text-font-title);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            .imgContainer {
+                width: 70px;
+                height: 70px;
+                .img {
+                    width: 100%;
+                }
+            }
+    
+        }
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        .lineContainer {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 10px;
+            align-items: center;
+            .label {
+                font-weight: bold;
+            }
+        }
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        .contentTitle {
+            font-weight: bold;
+            font-size: var(--text-font-title);
+        }
+        .text {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 10px;
+        }
+        .button {
+            margin-top: 10px;
+            padding: 5px 20px;
+            background-color: var(--button-background-color-blue);
+            width: fit-content;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 20px;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+  /* FullContentCard styles */
+  .fullContentCardContainer {
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: var(--text-font-title);
+        font-weight: bold;
+        flex-grow: 1; /* Đảm bảo title chiếm toàn bộ không gian còn lại trong hàng */
+
+        .imgContainer {
+          width: 70px;
+          height: 70px;
+
+          .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+
+        .text {
+          display: flex;
+          flex-direction: row;
+          flex-grow: 1; /* Title text sẽ mở rộng chiếm phần còn lại */
+        }
+      }
+    }
+
+    .content {
+      margin-top: 20px;
+
+      .contentTitle {
+        font-weight: bold;
+        font-size: var(--text-font-title);
+        margin-bottom: 10px;
+      }
+
+      .text {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+
+        .lineContainer {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+
+          .label {
+            font-weight: bold;
+            color: #333;
+          }
+
+          .value {
+            color: #777;
+          }
+        }
+      }
+    }
+  }
+

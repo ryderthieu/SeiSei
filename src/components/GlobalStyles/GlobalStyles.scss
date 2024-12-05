@@ -11,18 +11,19 @@ html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
-
+html::-webkit-scrollbar {
+    display: none;
+}
 body {
     font-family: 'Nunito';
     font-size: 1.6rem;
     line-height: 1.5;
 }
-
 :root {
     /*============= Font =================*/
-    --text-font-normal: 1em;
-    --text-font-header: 2em;
-    --text-font-title: 1.2em;
+    --text-font-normal: 1.6rem;
+    --text-font-header: 2.4rem;
+    --text-font-title: 2rem;
 
     /*============= Color =================*/
     --color-header-container: #2E6FA8;
@@ -32,8 +33,17 @@ body {
     --color-icon-dashboard-label: #70a5d43a;
     --color-icon-notification: #EB5757;
 
+    --button-background-color-blue: #0F7CC6;
+    --button-background-color-white: #DFEBF7;
+    --button-background-color-gray: #B6B6B6;
+    --text-color-white: #fff;
+    --text-color-blue: #0F7CC6;
     /*============= Layout =================*/
     --margin-left-dashboard: 2rem;
     --margin-right-dashboard: 2rem;
 
+}
+a {
+    text-decoration: none;
+    color: inherit;
 }

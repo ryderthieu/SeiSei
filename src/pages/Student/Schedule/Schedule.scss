@@ -1,0 +1,91 @@
+.schedule {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px #004C7F solid;
+        padding-bottom: 10px;
+        flex: 1;
+        margin-bottom: 2em;
+  
+      &-title {
+        font-size: var(--text-font-header);
+        font-weight: 900;
+        color: #0D3073;
+      }
+    }
+
+}
+.fc {
+    background: white;
+    padding: 1em;
+    border-radius: 0.5em;
+
+    .fc-toolbar{
+        justify-content: center;
+
+        &-title {
+            font-weight: 900;
+            color: #2979BA;
+            font-size: 1.2em;
+            padding: 0 20px;
+        }
+    }
+
+    .fc-button {
+        background: #fff;
+        color: #2979BA;
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 0 2px #c5c5c5;
+        width: 50px;
+        font-weight: bold;
+        font-size: 0.8em;
+
+        &:hover{
+            background: #f8fbff;
+            color: #2979BA;
+        }
+
+        &.fc-button:active {
+            background: #ffffff;
+            color: #0a1f70;      
+        }
+    }
+
+    .fc-day-today {
+        background-color: #0062b21d !important; 
+    }
+
+    .fc-col-header-cell-cushion {
+        padding: 2px 4em;
+        color: #2979BA;
+        font-weight: 800;
+    }
+    
+    .fc-timegrid-body .fc-timegrid-slot, .fc-timegrid-col {
+        border: 1px solid #e3e3e3c1; 
+    }
+
+    .fc-timegrid-slot-label-frame{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fc-timegrid-slot-label-cushion{
+        color: #2979BA;
+        font-weight: 800;
+        height: 2.8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fc-event {
+        background: transparent;
+        border: none;
+    }
+}
+

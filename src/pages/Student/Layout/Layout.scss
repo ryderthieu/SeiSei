@@ -2,16 +2,21 @@
     display: flex;
     flex-direction: row;
     background-color: #F6F8FD;
+    flex: 1;
+    min-height: 100vh;
 }
 
 .layout-content {
     flex: 4;
     display: flex;
     flex-direction: column;
+    .content {
+        padding: 20px;
+    }
 }
 
 .sidebar {
-    flex: 1;
+    flex: .8;
 }
 
 .layout-header {

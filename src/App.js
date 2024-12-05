@@ -11,9 +11,11 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import StudentFindTutors from './pages/Student/FindTutors/FindTutors';
 import StudentDashboard from './pages/Student/Dashboard/Dashboard';
 import StudentCourses from './pages/Student/Courses/Courses';
-import StudentCalender from './pages/Student/Calender/Calender';
+import StudentCalender from './pages/Student/Calender/Schedule';
 import StudentStudyResults from './pages/Student/StudyResults/StudyResults';
 import StudentPayment from './pages/Student/Payment/Payment';
+import ChooseTutors from './pages/Student/FindTutors/ChooseTutors/ChooseTutors'
+import CourseItem from './pages/Student/Courses/CourseItem/CourseItem';
 
 import TutorDashboard from './pages/Tutor/Dashboard/Dashboard';
 import TutorLayout from './pages/Tutor/Layout/Layout';
@@ -36,7 +38,10 @@ const App = () => {
         <Route path="/student-dashboard" element={<StudentLayout />}>
           <Route index element={<StudentDashboard />} />
           <Route path="find-tutors" element={<StudentFindTutors />} />
+            <Route path="find-tutors/choose-tutors" element = {<ChooseTutors />} />
+
           <Route path="courses" element={<StudentCourses />} />
+            <Route path="courses/course-item" element={<CourseItem />} />
           <Route path="calender" element={<StudentCalender />} />
           <Route path="study-results" element={<StudentStudyResults />} />
           <Route path="payment" element={<StudentPayment />} />

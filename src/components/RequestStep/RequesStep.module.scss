@@ -1,0 +1,60 @@
+.container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    .stepItem {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        max-width: 50px;
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #000;
+            border: 3px solid #a1aebe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .circleActive {
+            color: #0063a7;
+            border-color: #0063a7;
+        }
+        .circleDone {
+            background-color: #0063a7;
+            color: #fff;
+            border: none;
+            span {
+                flex: 1;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                font-size: 24px;
+                font-weight: 900;
+            }
+        }
+        .stepText {
+            color: #465668;
+            font-size: var(--text-font-title);
+            text-wrap: nowrap;
+        }
+        .stepTextActive {
+            color: #0063a7;
+            font-weight: bold;
+        }
+    }
+    .stepTrail {
+        padding: 20px 0;
+        align-self: first baseline;
+        .trailLine {
+            background: #a1aebe;
+            height: 2px;
+            width: 100px;
+          }
+    }
+  }

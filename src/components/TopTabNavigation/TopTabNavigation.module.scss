@@ -1,0 +1,26 @@
+.container {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 60px;
+    gap: 200px;
+    .navItem {
+        padding: 10px 20px;
+        background-color: var(--button-background-color-white);
+        color: var(--button-background-color-blue);
+        font-size: var(--text-font-normal);
+        border-radius: 10px;
+        font-weight: bold;
+        flex: 1;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    .navItem__active {
+        color: var(--text-color-white);
+        background-color: var(--button-background-color-blue);
+    }
+}
