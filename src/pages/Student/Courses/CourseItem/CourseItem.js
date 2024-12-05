@@ -38,7 +38,7 @@ const CourseItem = () => {
     { id: 4, name: '15p đầu giờ', time: '15h, 25/05/2024', status: 'Chưa hoàn thành' },
   ]);
   const [showSubmissionForm, setShowSubmissionForm] = useState(true);
-  const [showEditButton, setShowEditButton] = useState(false); // Trạng thái nút chỉnh sửa
+  const [showEditButton, setShowEditButton] = useState(false);
   const navigate = useNavigate();
 
   const handleBackClick = () => {
@@ -47,13 +47,13 @@ const CourseItem = () => {
 
   const handleConfirm = () => {
     setShowSubmissionForm(false);
-    setShowEditButton(true); // Hiển thị nút chỉnh sửa sau khi nộp bài
+    setShowEditButton(true);
     alert('Bài làm đã được nộp thành công.');
   };
 
   const handleEditSubmission = () => {
     setShowSubmissionForm(true);
-    setShowEditButton(false); // Ẩn nút chỉnh sửa khi quay lại form nộp bài
+    setShowEditButton(false);
   };
 
   return (
