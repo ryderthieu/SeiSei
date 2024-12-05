@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import TopTabNavigation from '../../../../components/TopTabNavigation/TopTabNavigation';
 import img from '../../../../assets/images/art.png';
 import tutorAvatar from '../../../../assets/images/tutor.jpg';
+import TestTable from '../../../../components/Table/TestTable';
 
 const TopTab = ['Lớp học', 'Thông tin gia sư', 'Hỗ trợ học viên'];
 
@@ -29,38 +30,28 @@ const requestData = [
 
 const CourseItem = () => {
   const [tab, setTab] = useState(0);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [tests, setTests] = useState([
+    { id: 1, name: 'Định kỳ lần 1', time: '15h, 19/04/2024', status: 'Đã hoàn thành' },
+    { id: 2, name: '15p đầu giờ', time: '15h, 10/05/2024', status: 'Đã hoàn thành' },
+    { id: 3, name: 'Định kỳ lần 2', time: '15h, 19/05/2024', status: 'Chưa hoàn thành' },
+    { id: 4, name: '15p đầu giờ', time: '15h, 25/05/2024', status: 'Chưa hoàn thành' },
+  ]);
+  const [showSubmissionForm, setShowSubmissionForm] = useState(true); // Hiện/ẩn form nộp bài
   const navigate = useNavigate();
 
   const handleBackClick = () => {
     navigate('/student-dashboard/courses');
   };
 
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
-
-  const handleCancel = () => {
-    setSelectedFile(null);
-  };
-
   const handleConfirm = () => {
-    if (selectedFile) {
-      alert('Bài làm đã được xác nhận.');
-    } else {
-      alert('Vui lòng chọn một bài làm.');
-    }
+    // Xử lý nộp bài
+    setShowSubmissionForm(false);
+    alert('Bài làm đã được nộp thành công.');
   };
 
-  const [rating, setRating] = useState(0);
-
-  <Rating
-    count={5}
-    value={rating}
-    onChange={(newRating) => setRating(newRating)}
-    size={30}
-    activeColor="#ffd700"
-  />;
+  const handleEditSubmission = () => {
+    setShowSubmissionForm(true); // Hiển thị lại form nộp bài
+  };
 
   return (
     <div className={style.container}>
@@ -79,26 +70,37 @@ const CourseItem = () => {
             </div>
 
             <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
-            <div className={style.testList}>
-              <div className={style.testSelect}>
+            {!showSubmissionForm ? (
+              <TestTable tests={tests} onEdit={handleEditSubmission} />
+            ) : (
+              <div className={style.testSubmission}>
                 <label className={style.title}>Chọn bài kiểm tra</label>
                 <select className={style.select}>
                   <option value="">Chọn bài kiểm tra</option>
-                  <option value="test1">Bài kiểm tra 1</option>
-                  <option value="test2">Bài kiểm tra 2</option>
+                  {tests.map((test) => (
+                    <option key={test.id} value={test.id}>
+                      {test.name}
+                    </option>
+                  ))}
                 </select>
+
+                <label className={style.title}>Bài làm</label>
+                <div className={style.testFile}>
+                  <ion-icon name="cloud-upload-outline"></ion-icon>
+                  <label>Thêm bài nộp</label>
+                  <input type="file" />
+                </div>
+                <div className={style.buttons}>
+                  <button className={style.cancelButton}>Hủy</button>
+                  <button
+                    className={style.confirmButton}
+                    onClick={handleConfirm}
+                  >
+                    Xác nhận
+                  </button>
+                </div>
               </div>
-              <label className={style.title}>Bài làm</label>  
-              <div className={style.testFile}>
-                <ion-icon name="cloud-upload-outline"></ion-icon>
-                <label>Thêm bài nộp</label>
-                <input type="file" onChange={handleFileChange} />
-              </div>
-              <div className={style.buttons}>
-                <button className={style.cancelButton} onClick={handleCancel}>Hủy</button>
-                <button className={style.confirmButton} onClick={handleConfirm}>Xác nhận</button>
-              </div>
-            </div>
+            )}
           </div>
         )}
 
@@ -108,9 +110,15 @@ const CourseItem = () => {
               <img className={style.tutorAvatar} src={tutorAvatar} alt="Avatar của gia sư" />
               <div className={style.tutorDetails}>
                 <h2>Nguyễn Văn A</h2>
-                <p><strong>Giới tính:</strong> Nam</p>
-                <p><strong>Bằng cấp:</strong> Ielts 7.0</p>
-                <p><strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.</p>
+                <p>
+                  <strong>Giới tính:</strong> Nam
+                </p>
+                <p>
+                  <strong>Bằng cấp:</strong> Ielts 7.0
+                </p>
+                <p>
+                  <strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.
+                </p>
               </div>
             </div>
 
@@ -143,7 +151,12 @@ const CourseItem = () => {
                 <label htmlFor="cancel">Hủy khóa học</label>
               </div>
               <div>
-                <input type="radio" id="change-tutor" name="action" value="change-tutor" />
+                <input
+                  type="radio"
+                  id="change-tutor"
+                  name="action"
+                  value="change-tutor"
+                />
                 <label htmlFor="change-tutor">Thay đổi gia sư</label>
               </div>
               <div>
