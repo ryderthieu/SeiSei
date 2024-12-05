@@ -1,0 +1,86 @@
+.class-list-container {
+    margin: 30px auto;
+    max-width: 95%;
+    padding: 25px;
+    border-radius: 8px;
+  }
+  
+  .class-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .class-list-table {
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .class-list-table th,
+  .class-list-table td {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd; 
+    color: #333;
+  }
+  
+  .class-list-table th {
+    background-color: #004c7f;
+    color: white;
+    font-weight: 900;
+  }
+  
+  .class-list-table tr {
+    &:nth-child(even) {
+      color: #666; 
+    }
+  
+    &:nth-child(odd) {
+      color: #333;
+    }
+  
+    &:hover {
+      background-color: #f0f8ff; 
+    }
+  }
+  
+  .class-list-table td img {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    object-fit: cover;
+  }
+  
+  .subject-column {
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+  
+  .table-cell {
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .detail-button {
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #218838;
+    }
+  }
+  

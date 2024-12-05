@@ -1,0 +1,71 @@
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px #004C7F solid;
+        padding-bottom: 10px;
+        flex: 1;
+        .headerTitle {
+            font-size: var(--text-font-header);
+            font-weight: 900;
+            color: #0D3073;
+        }
+    }
+    .contentContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            flex: 1;
+            .item {
+                display: flex;
+                flex-direction: column;
+                .itemTitle {
+                    font-size: var(--text-font-title);
+                    font-weight: bold;
+                }
+                .itemContent {
+                    display: flex;
+                    flex-direction: row;
+                    .cardContainer {
+                        padding: 10px;
+                        flex: 1;
+                        height: 150px;
+                    }
+                }
+
+            }
+        }
+    }
+    .buttonContainer {
+        display: flex;
+        gap: 40px;
+        justify-content: flex-end;
+        width: 100%;
+        .button {
+          margin-top: 10px;
+          padding: 5px 20px;
+          background-color: var(--button-background-color-blue);
+          width: 130px;
+          text-align: center;
+          color: #fff;
+          font-weight: bold;
+          border-radius: 20px;
+          &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+          }
+        }
+        .cancel {
+          background-color: var(--button-background-color-gray);
+        }
+      }
+}
