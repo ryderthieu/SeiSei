@@ -18,9 +18,7 @@ const OnlineClass = () => {
         </div>
         <div className="class-video">
           <div className="class-video__content">
-            {/* Nội dung video sẽ nằm ở đây */}
-            <div className="video-placeholder">Video</div>
-          </div>
+        </div>
         </div>
       </div>
       <div className="class-controls">
