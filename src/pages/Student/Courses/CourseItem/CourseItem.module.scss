@@ -30,7 +30,6 @@
       flex: 1;
       padding: 20px;
   
-      /* Bổ sung phần hỗ trợ học viên */
       .supportForm {
         background-color: #fff;
         border-radius: 12px;
@@ -107,119 +106,226 @@
         }
       }
     }
-  
+    
+    .title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0D3073;
+    }
+
     .testList {
-      background-color: #fff;
+      background-color: #ffffff;
       padding: 25px;
       border-radius: 12px;
-      margin-top: 20px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       display: flex;
       flex-direction: column;
       gap: 20px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
-  
+
+    .testSelect {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+    
+    .select:focus {
+      border-color: #004C7F;
+      outline: none;
+    }
+    
+    .testFile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px dashed #004C7F;
+      border-radius: 12px;
+      background-color: #fff;
+      position: relative;
+      text-align: center;
+      color: #004C7F;
+      font-size: 40px;
+      gap: 10px;
+    }
+    
+    .testFile:hover {
+      border-color: #004C7F;
+      color: #003c66bb;
+    }
+    
+    .testFile label {
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      color: #aaa;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .testFile label:hover {
+      color: #004C7F;
+    }
+
+    .testFile input[type="file"] {
+      position: absolute;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    
     .buttons {
       display: flex;
       justify-content: flex-end;
       gap: 15px;
-  
-      .cancelButton,
-      .confirmButton {
-        padding: 12px 25px;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        transition: background-color 0.3s;
-      }
-  
-      .cancelButton {
-        background-color: var(--button-background-color-white);
-        color: var(--button-background-color-blue);
-        border: 1px solid #004C7F;
-  
-        &:hover {
-          background-color: #f0f8ff;
-        }
-      }
-  
-      .confirmButton {
-        background-color: var(--button-background-color-blue);
-        color: var(--text-color-white);
-  
-        &:hover {
-          background-color: #003b66;
-        }
-      }
     }
-  }
+    
+    .buttons .cancelButton,
+    .buttons .confirmButton {
+      padding: 12px 25px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s, transform 0.2s ease;
+    }
+    
+    .buttons .cancelButton {
+      background-color: var(--button-background-color-white);
+      color: var(--button-background-color-blue);
+      border: 1px solid #004C7F;
+    }
+    
+    .buttons .cancelButton:hover {
+      background-color: #f0f8ff;
+      transform: translateY(-1px);
+    }
+    
+    .buttons .confirmButton {
+      background-color: var(--button-background-color-blue);
+      color: var(--text-color-white);
+    }
+    
+    .buttons .confirmButton:hover {
+      background-color: #003b66;
+      transform: translateY(-1px);
+    }
+    
+    .headerList {
+      font-size: 20px;
+      font-weight: 900;
+      color: #0D3073;
+      margin-bottom: 15px;
+    }
+  }    
+
+  .tutorInfo {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
   
-  .headerList {
-    font-size: 20px;
-    font-weight: 900;
-    color: #0D3073;
-  }
-
-.tutorInfo {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #0d3073;
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: 400;
-    color: #333;
-
-    strong {
-      font-weight: 600;
+    .tutorAvatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      object-fit: cover;
+    }  
+  
+    .tutorDetails {
+      flex: 1;
+    }
+  
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
       color: #0d3073;
     }
-  }
-
-  ul {
-    list-style: disc;
-    padding-left: 20px;
-
-    li {
+  
+    p {
       font-size: 16px;
+      font-weight: 400;
       color: #333;
+  
+      strong {
+        font-weight: 600;
+        color: #0d3073;
+      }
+    }
+  
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+  
+      li {
+        font-size: 16px;
+        color: #333;
+      }
     }
   }
-}
-
-.supportButtons {
+  
+  .rating {
+    margin-top: 20px; 
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  
+    label {
+      font-size: 16px;
+      font-weight: 900;
+      color: #0d3073;
+    }
+  
+    .ratingStars {
+      display: flex;
+      gap: 8px;
+    }
+  }
+  
+  .supportButtons {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
   
-  .supportButtons label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #333;
-  }
+    label {
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #0d3073;
+    }
   
-  .supportButtons textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px dashed #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    line-height: 1.5;
-    resize: vertical;
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px dashed #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      line-height: 1.5;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+  
+      &:focus {
+        border-color: #0d3073;
+        outline: none;
+      }
+    }
   }
   
   .submitButton {
