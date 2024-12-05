@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import './StudyResults.scss'
-
-function StudyResults() {
-  return (
-    <div>
-      Study Results
-    </div>
-  )
-}
-
-export default StudyResults
-=======
 import React from 'react'
 import style from './StudyResults.module.scss'
 import ClassList from '../../../components/ClassList/ClassList'
@@ -32,4 +18,3 @@ function StudyResults() {
 }
 
 export default StudyResults
->>>>>>> 07eee045ef8c8ea1206189eabc7949776fc4abd7

@@ -11,7 +11,7 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import StudentFindTutors from './pages/Student/FindTutors/FindTutors';
 import StudentDashboard from './pages/Student/Dashboard/Dashboard';
 import StudentCourses from './pages/Student/Courses/Courses';
-import StudentCalender from './pages/Student/Calender/Schedule';
+import StudentCalender from './pages/Student/Schedule/Schedule';
 import StudentStudyResults from './pages/Student/StudyResults/StudyResults';
 import StudentPayment from './pages/Student/Payment/Payment';
 import ChooseTutors from './pages/Student/FindTutors/ChooseTutors/ChooseTutors'
@@ -48,7 +48,7 @@ const App = () => {
             <Route path="find-tutors/confirm" element = {<CourseConfirm />} />
           <Route path="courses" element={<StudentCourses />} />
             <Route path="courses/course-item" element={<CourseItem />} />
-          <Route path="calender" element={<StudentCalender />} />
+          <Route path="schedule" element={<StudentCalender />} />
           <Route path="study-results" element={<StudentStudyResults />} />
             <Route path="study-results/classdetail" element={<ClassDetail />} />
           <Route path="payment" element={<StudentPayment />} />
