@@ -1,0 +1,86 @@
+.class-card {
+    padding: 1rem;
+    border: 2px solid;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+  
+    &--upcoming {
+      border-color: #31bfff;
+      background-color: #eff6ff;
+    }
+  
+    &--ongoing {
+      border-color: #29cc39;
+      background-color: #f0fdf4;
+    }
+  
+    &--completed {
+      border-color: #d1d5db;
+      background-color: #f9fafb;
+    }
+  
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+    }
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+  
+    &__title {
+      font-size: 1em;
+      font-weight: 900;
+    }
+  
+    &__status {
+      font-size: 0.9em;
+      font-weight: 700;
+  
+      &--upcoming {
+        color: #0550ab;
+      }
+  
+      &--ongoing {
+        color: #16a34a;
+      }
+  
+      &--completed {
+        color: #6b7280;
+      }
+    }
+  
+    &__content {
+      font-size: 1em;
+      position: relative;
+  
+      p {
+        margin: 0.5rem 0;
+      }
+    }
+  
+    &__button {
+      margin-top: 1rem;
+      padding: 1rem 1.5rem;
+      font-size: 1.6rem;
+      color: #fff;
+      background-color: #16a34a;
+      border: none;
+      border-radius: 1em;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      
+  
+      &:hover {
+        opacity: 0.8
+      }
+    }
+  }
+  

@@ -22,5 +22,35 @@
       color: #0D3073;
     }
   }
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+
+    &-title{
+      margin-bottom: 0.5em;
+      color: #AB0707;
+      font-weight: 900;
+      font-size: 1.2em;
+      text-decoration: underline;
+    }
+  }
+
+  &__schedule {
+    flex: 1;
+    margin-right: 5em;
+  }
+
+  &__meeting {
+    flex: 1;
+  }
+
+  &__no-meeting {
+    padding: 8em;
+    &--image {
+      height: 300px;
+      width: 300px;
+    }
+  }
 }
 

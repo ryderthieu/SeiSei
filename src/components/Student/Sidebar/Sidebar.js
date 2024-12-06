@@ -66,8 +66,8 @@ const Sidebar = () => {
           </li>
 
           <li 
-            onClick={() => setSelectedItem(9)} 
-            className={selectedItem === 9 ? 'selected' : ''}
+            onClick={() => setSelectedItem(5)} 
+            className={selectedItem === 5 ? 'selected' : ''}
           >
             <Link to="online-class">
               <span className='icon'><ion-icon name="videocam-outline"></ion-icon></span>
@@ -76,8 +76,8 @@ const Sidebar = () => {
           </li>
 
           <li 
-            onClick={() => setSelectedItem(5)} 
-            className={selectedItem === 5 ? 'selected' : ''}
+            onClick={() => setSelectedItem(6)} 
+            className={selectedItem === 6 ? 'selected' : ''}
           >
             <Link to="study-results">
               <span className='icon'><ion-icon name="podium-outline"></ion-icon></span>
@@ -86,8 +86,8 @@ const Sidebar = () => {
           </li>
 
           <li 
-            onClick={() => setSelectedItem(6)} 
-            className={selectedItem === 6 ? 'selected' : ''}
+            onClick={() => setSelectedItem(7)} 
+            className={selectedItem === 7 ? 'selected' : ''}
           >
             <Link to="payment">
               <span className='icon'><ion-icon name="card-outline"></ion-icon></span>
@@ -96,8 +96,8 @@ const Sidebar = () => {
           </li>
 
           <li 
-            onClick={() => setSelectedItem(7)} 
-            className={selectedItem === 7 ? 'selected' : ''}
+            onClick={() => setSelectedItem(8)} 
+            className={selectedItem === 8 ? 'selected' : ''}
           >
             <Link to="/">
               <span className='icon'><ion-icon name="settings-outline"></ion-icon></span>
@@ -106,8 +106,8 @@ const Sidebar = () => {
           </li>
 
           <li 
-            onClick={() => setSelectedItem(8)} 
-            className={selectedItem === 8 ? 'selected' : ''}
+            onClick={() => setSelectedItem(9)} 
+            className={selectedItem === 9 ? 'selected' : ''}
           >
             <Link to="/">
               <span className='icon'><ion-icon name="log-out-outline"></ion-icon></span>

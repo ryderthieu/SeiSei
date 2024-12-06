@@ -1,4 +1,8 @@
 .meeting-card {
+  background: #fff;
+  border-radius: 1em;
+  overflow: hidden;
+
     &__header{
         display: flex;
         flex-direction: row;
@@ -59,7 +63,6 @@
       &__controls{
         background: #fff;
         height: 80px;
-        border-radius: 1em;
         display: flex;
         align-items: center;
         justify-content: center;
