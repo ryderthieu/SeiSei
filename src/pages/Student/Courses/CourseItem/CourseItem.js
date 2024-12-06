@@ -56,86 +56,6 @@ const CourseItem = () => {
     setShowEditButton(false);
   };
 
-  const LopHocTab = () => (
-    <div>
-      <div className={style.requestCard}>
-        <FullContentCard data={requestData[0]} />
-      </div>
-      <div className={style.headerAndButton}>
-        <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
-        {showEditButton && (
-          <button onClick={handleEditSubmission} className={style.editButton}>
-            Chỉnh sửa bài nộp
-          </button>
-        )}
-      </div>
-      {!showSubmissionForm ? (
-        <TestTable tests={tests} onEdit={handleEditSubmission} />
-      ) : (
-        <TestSubmission tests={tests} handleConfirm={handleConfirm} />
-      )}
-    </div>
-  );
-  
-  const TutorInfoTab = () => (
-    <div>
-      <div className={style.tutorInfo}>
-        <img className={style.tutorAvatar} src={tutorAvatar} alt="Avatar của gia sư" />
-        <div className={style.tutorDetails}>
-          <h2>Nguyễn Văn A</h2>
-          <p><strong>Giới tính:</strong> Nam</p>
-          <p><strong>Bằng cấp:</strong> Ielts 7.0</p>
-          <p><strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.</p>
-        </div>
-      </div>
-  
-      <div className={style.rating}>
-        <label>ĐÁNH GIÁ GIA SƯ:</label>
-        <Rating
-          count={5}
-          onChange={(newRating) => console.log(`Đánh giá: ${newRating}`)}
-          size={30}
-          activeColor="#ffd700"
-        />
-      </div>
-  
-      <div className={style.supportButtons}>
-        <label htmlFor="details">Ý KIẾN NHẬN XÉT:</label>
-        <textarea id="details" name="details" rows="4"></textarea>
-      </div>
-      <button type="submit" className={style.submitButton}>
-        Thêm nhận xét
-      </button>
-    </div>
-  );
-  
-  const SupportTab = () => (
-    <div>
-      <form className={style.supportForm}>
-        <h3>Bạn muốn làm gì?</h3>
-        <div>
-          <input type="radio" id="cancel" name="action" value="cancel" />
-          <label htmlFor="cancel">Hủy khóa học</label>
-        </div>
-        <div>
-          <input type="radio" id="change-tutor" name="action" value="change-tutor" />
-          <label htmlFor="change-tutor">Thay đổi gia sư</label>
-        </div>
-        <div>
-          <input type="radio" id="other" name="action" value="other" />
-          <label htmlFor="other">Khác</label>
-        </div>
-        <div className={style.supportButtons}>
-          <label htmlFor="details">Mô tả chi tiết/lý do:</label>
-          <textarea id="details" name="details" rows="4"></textarea>
-        </div>
-        <button type="submit" className={style.submitButton}>
-          Gửi
-        </button>
-      </form>
-    </div>
-  );
-  
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -145,9 +65,99 @@ const CourseItem = () => {
 
       <div className={style.content}>
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab} />
-          {tab === 0 && <LopHocTab />}
-          {tab === 1 && <TutorInfoTab />}
-          {tab === 2 && <SupportTab />}
+
+        {tab === 0 && (
+          <div>
+            <div className={style.requestCard}>
+              <FullContentCard data={requestData[0]} />
+            </div>
+
+            <div className={style.headerAndButton}>
+              <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
+              {showEditButton && (
+                <button onClick={handleEditSubmission} className={style.editButton}>
+                  Chỉnh sửa bài nộp
+                </button>
+              )}
+            </div>
+
+            {!showSubmissionForm ? (
+              <TestTable tests={tests} onEdit={handleEditSubmission} />
+            ) : (
+              <TestSubmission tests={tests} handleConfirm={handleConfirm} />
+            )}
+          </div>
+        )}
+
+        {tab === 1 && (
+          <div>
+            <div className={style.tutorInfo}>
+              <img className={style.tutorAvatar} src={tutorAvatar} alt="Avatar của gia sư" />
+              <div className={style.tutorDetails}>
+                <h2>Nguyễn Văn A</h2>
+                <p>
+                  <strong>Giới tính:</strong> Nam
+                </p>
+                <p>
+                  <strong>Bằng cấp:</strong> Ielts 7.0
+                </p>
+                <p>
+                  <strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.
+                </p>
+              </div>
+            </div>
+
+            <div className={style.rating}>
+              <label>ĐÁNH GIÁ GIA SƯ:</label>
+              <Rating
+                count={5}
+                onChange={(newRating) => console.log(`Đánh giá: ${newRating}`)}
+                size={30}
+                activeColor="#ffd700"
+              />
+            </div>
+
+            <div className={style.supportButtons}>
+              <label htmlFor="details">Ý KIẾN NHẬN XÉT:</label>
+              <textarea id="details" name="details" rows="4"></textarea>
+            </div>
+            <button type="submit" className={style.submitButton}>
+              Thêm nhận xét
+            </button>
+          </div>
+        )}
+
+        {tab === 2 && (
+          <div>
+            <form className={style.supportForm}>
+              <h3>Bạn muốn làm gì?</h3>
+              <div>
+                <input type="radio" id="cancel" name="action" value="cancel" />
+                <label htmlFor="cancel">Hủy khóa học</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="change-tutor"
+                  name="action"
+                  value="change-tutor"
+                />
+                <label htmlFor="change-tutor">Thay đổi gia sư</label>
+              </div>
+              <div>
+                <input type="radio" id="other" name="action" value="other" />
+                <label htmlFor="other">Khác</label>
+              </div>
+              <div className={style.supportButtons}>
+                <label htmlFor="details">Mô tả chi tiết/lý do:</label>
+                <textarea id="details" name="details" rows="4"></textarea>
+              </div>
+              <button type="submit" className={style.submitButton}>
+                Gửi
+              </button>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   );
