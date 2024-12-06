@@ -11,6 +11,9 @@ body {
     .sidebar {
         position: fixed;
         height: 100vh;
+        top: 0;
+        bottom: 0;
+        left: 0;
         width: var(--sidebar-width);
         background: linear-gradient(183deg, #0770B5 24%, #83BBE0 91%);
         border-left: 10px solid var(--sidebar-border-left);
@@ -56,6 +59,10 @@ body {
 
                 &:nth-child(8) {
                     margin-bottom: 70px;
+                }
+
+                &:nth-child(9) {
+                    margin-top: calc(100vh - 8*60px - 190px);
                 }
 
                 &:hover, &.selected {
