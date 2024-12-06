@@ -16,7 +16,8 @@ const MeetingCard = ({
   const [isCameraOn, setIsCameraOn] = useState(true);
   const [isPresent, setIsPresent] = useState(false);
   const [isMessagesVisible, setIsMessagesVisible] = useState(false);
-
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  
   const toggleMic = () => {
     setIsMicroOn(prev => !prev);
   };
@@ -48,9 +49,10 @@ const MeetingCard = ({
         className="meeting-card__screen"
         style={{
           background: `url(${screenBackground})`,
+          backgroundColor: "#C2E4FF",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "top right",
+          backgroundPosition: "top",
         }}
       >
       {showStartButton &&
@@ -80,7 +82,8 @@ const MeetingCard = ({
         </div>
         {showPresentation && (
           <div
-            className="meeting-card__control meeting-card__control--presentation"
+            className={`meeting-card__control 
+              ${isPresent ? "meeting-card__control--presentation" : "meeting-card__control--presentation-off"}`}
             onClick={togglePresentation}
           >
             <ion-icon name="easel-outline"></ion-icon>
@@ -89,7 +92,7 @@ const MeetingCard = ({
         )}
         {showMessages && (
           <div
-            className="meeting-card__control meeting-card__control--messages"
+            className={`meeting-card__control ${isMessagesVisible ? "meeting-card__control--messages" : "meeting-card__control--messages-off"}`}
             onClick={toggleMessages}
           >
             <ion-icon name="chatbubble-outline"></ion-icon>
