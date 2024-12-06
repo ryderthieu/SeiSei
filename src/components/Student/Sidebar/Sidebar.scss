@@ -41,6 +41,7 @@ body {
             width: 100%;
             top: 0;
             left: 0;
+            gap: 0.5rem !important;
 
             li {
                 list-style: none;
@@ -49,12 +50,12 @@ body {
                 transition: background-color 0.3s ease, color 0.3s ease;
 
                 &:nth-child(1) {
-                    margin-bottom: 40px;
+                    margin-bottom: 20px;
                     pointer-events: none;
                 }
 
                 &:nth-child(8) {
-                    margin-bottom: 110px;
+                    margin-bottom: 70px;
                 }
 
                 &:hover, &.selected {

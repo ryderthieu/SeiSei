@@ -63,7 +63,8 @@ const OnlineClass = () => {
             <MeetingCard
               meetingName={currentMeeting.name}
               meetingTime={`${currentMeeting.date} | ${currentMeeting.time}`}
-              linkTo="try-learning"
+              linkTo="meeting-room"
+              showStartButton={true}
               showPresentation={false}
               showMessages={false}
             />

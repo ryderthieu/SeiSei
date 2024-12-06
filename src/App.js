@@ -20,6 +20,7 @@ import StudentCalender from './pages/Student/Schedule/Schedule';
 import OnlineClass from "./pages/Student/OnlineClass/OnlineClass";
 import WaitingRoom from './pages/Student/OnlineClass/WaitingRoom/WaitingRoom';
 import TryLearning from "./pages/Student/OnlineClass/TryLearning/TryLearning";
+import MeetingRoom from './pages/Student/OnlineClass/MeetingRoom/MeetingRoom';
 import StudentStudyResults from './pages/Student/StudyResults/StudyResults';
 import StudentPayment from './pages/Student/Payment/Payment';
 import ChooseTutors from './pages/Student/FindTutors/ChooseTutors/ChooseTutors'
@@ -60,8 +61,9 @@ const App = () => {
             <Route path="courses/course-item" element={<CourseItem />} />
           <Route path="schedule" element={<StudentCalender />} />
             <Route path="waiting-room" element={<WaitingRoom />} />
-          <Route path="online-class" element={<OnlineClass />} />
             <Route path="try-learning" element={<TryLearning />} />
+          <Route path="online-class" element={<OnlineClass />} />
+            <Route path="online-class/meeting-room" element={<MeetingRoom />} />
           <Route path="study-results" element={<StudentStudyResults />} />
             <Route path="study-results/classdetail" element={<ClassDetail />} />
           <Route path="payment" element={<StudentPayment />} />

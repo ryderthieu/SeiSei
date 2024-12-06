@@ -6,8 +6,10 @@ const MeetingCard = ({
   meetingName,
   meetingTime,
   linkTo,
+  showStartButton,
   showPresentation,
   showMessages,
+  screenBackground,
 }) => {
 
   const [isMicroOn, setIsMicroOn] = useState(true);
@@ -42,10 +44,20 @@ const MeetingCard = ({
           <div className="meeting-card__time">{meetingTime}</div>
         </div>
       </div>
-      <div className="meeting-card__screen">
+      <div 
+        className="meeting-card__screen"
+        style={{
+          background: `url(${screenBackground})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "top right",
+        }}
+      >
+      {showStartButton &&
         <div className="meeting-card__screen-button">
           <Link to={linkTo}>Bắt đầu học</Link>
         </div>
+      }
       </div>
       <div className="meeting-card__controls">
         <div
