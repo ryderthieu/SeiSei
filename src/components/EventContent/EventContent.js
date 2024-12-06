@@ -1,6 +1,6 @@
 // EventContent.js
 import React from "react";
-import { Link, Router, Route, Routes  } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const EventContent = ({ event }) => {
   const startTime = event.start.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false });
@@ -58,11 +58,10 @@ const EventContent = ({ event }) => {
         borderRadius: "5px",
         color: "#333",
         fontWeight: "bold",
-        fontSize: "13px",
         whiteSpace: "pre-wrap",
-        height: "90px",
+        height: "80px",
         padding: "5px 10px",
-        lineHeight: "1.8em"
+        lineHeight: "1.6em"
       }}
     >
 
@@ -81,12 +80,12 @@ const EventContent = ({ event }) => {
       </div>
 
       {/* Hiển thị tiêu đề sự kiện */}
-      <div style={{marginTop: "0.2em", fontSize: "1.3em"}}>{event.title}</div>
+      <div style={{marginTop: "0.2em", fontSize: "1.2em"}}>{event.title}</div>
 
-      {/* Thêm đường link dẫn đến trang khác nếu có */}
+   
       {event.extendedProps.type === "Học online" && (
          <Link
-         to={"./OnlineClass"} // Sử dụng Link để chuyển hướng
+         to={"../waiting-room"} 
          style={{
            marginTop: "5px",
            color: "red",
@@ -97,10 +96,10 @@ const EventContent = ({ event }) => {
           Học online
         </Link>
       )}
-      {/* Thêm đường link dẫn đến trang khác nếu có */}
+
       {event.extendedProps.type === "Học thử" && (
          <Link
-         to={"try-learning"} // Sử dụng Link để chuyển hướng
+         to={"../try-learning"}
          style={{
            marginTop: "5px",
            color: "red",
@@ -108,7 +107,7 @@ const EventContent = ({ event }) => {
            textDecoration: "underline",
          }}
         >
-          Học online
+          Học thử
         </Link>
       )}
     </div>

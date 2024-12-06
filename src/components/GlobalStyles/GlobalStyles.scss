@@ -38,10 +38,20 @@ body {
     --button-background-color-gray: #B6B6B6;
     --text-color-white: #fff;
     --text-color-blue: #0F7CC6;
+
     /*============= Layout =================*/
     --margin-left-dashboard: 2rem;
     --margin-right-dashboard: 2rem;
 
+     /*============= Sidebar Student=================*/
+    --sidebar-width: 300px;
+    --sidebar-bg: #F6F8FD;
+    --sidebar-text-color: #ecf0f1;
+    --sidebar-hover-bg: #F6F8FD;
+    --sidebar-hover-text-color: #ffffff;
+    --sidebar-active-bg: #2980b9;
+    --sidebar-active-text-color: #ecf0f1;
+    --sidebar-border-left: linear-gradient(183deg, #0770B5 24%, #83BBE0 91%);
 }
 a {
     text-decoration: none;

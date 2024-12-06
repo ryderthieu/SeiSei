@@ -1,20 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --sidebar-width: 200px;
-    --sidebar-bg: #F6F8FD;
-    --sidebar-text-color: #ecf0f1;
-    --sidebar-hover-bg: #34495e;
-    --sidebar-hover-text-color: #004C7B;
-    --sidebar-active-bg: #2980b9;
-    --sidebar-active-text-color: #ecf0f1;
-    --sidebar-border-left: linear-gradient(183deg, #0770B5 24%, #83BBE0 91%);
-}
-
 body {
     min-height: 100vh;
     overflow-x: hidden;
@@ -29,7 +12,7 @@ body {
     .sidebar {
         position: fixed;
         height: 100%;
-        width: 250px;
+        width: var(--sidebar-width);
         background: linear-gradient(183deg, #0770B5 24%, #83BBE0 91%);
         border-left: 10px solid var(--sidebar-border-left);
         color: var(--sidebar-text-color);

@@ -11,10 +11,12 @@ const MessagesPanel = () => {
     ]);    
 
     const [selectedMessage, setSelectedMessage] = useState(null);
+    const [showPanel, setShowPanel] = useState(true);
 
     const handleClick = (message) => {
         setSelectedMessage(message);
     };
+
 
     return (
         <div className="messages-panel">
@@ -41,7 +43,7 @@ const MessagesPanel = () => {
                     ))}
                 </div>
             </div>
-            {selectedMessage && <ChatBox selectedMessage={selectedMessage} />}
+            {selectedMessage && <ChatBox selectedMessage={selectedMessage}/>}
         </div>
     );
 };

@@ -57,7 +57,7 @@ const Schedule = () => {
       title: "Anh văn",
       start: "2024-12-14T13:00:00",
       end: "2024-12-14T14:30:00",
-      type:""
+      type:"Học thử"
     },
   ];
 
