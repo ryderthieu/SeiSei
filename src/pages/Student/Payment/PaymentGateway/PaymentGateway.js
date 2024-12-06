@@ -113,7 +113,7 @@ const PaymentGateway = () => {
   const [gate, setGate] = useState(0);
   const [timeLeft, setTimeLeft] = useState(300);
   const navigate = useNavigate()
-
+  const [overlay, setOverlay] = useState(false)
   useEffect(() => {
     setTimeLeft(300);
     const timer = setInterval(() => {
@@ -216,10 +216,10 @@ const PaymentGateway = () => {
                   </div>
                 </div>
                 <div className={styles.buttonContainer}>
-                  <div className={[styles.button, styles.cancel].join(" ")}>
+                  <div className={[styles.button, styles.cancel].join(" ")} onClick={() => navigate('../payment')}>
                     Hủy
                   </div>
-                  <div className={styles.button}>Xác nhận</div>
+                  <div className={styles.button} onClick={() => setOverlay(true)}>Xác nhận</div>
                 </div>
               </>
             )}
@@ -249,10 +249,8 @@ const PaymentGateway = () => {
           </div>
         </div>
       </div>
-      {/* <div className={styles.atm}>
-            <img src={atm} className={styles.atmImg}/>
-        </div> */}
-      <AcceptedOverlay data={overlayData} yes={() => navigate('../payment')}/>
+
+      {overlay && <AcceptedOverlay data={overlayData} yes={() => navigate('../payment')}/>}
     </div>
   );
 };
