@@ -57,8 +57,8 @@ body {
                     pointer-events: none;
                 }
 
-                &:nth-child(8) {
-                    margin-bottom: 70px;
+                &:nth-child(9) {
+                    margin-top: calc(100vh - 8*60px - 190px);
                 }
 
                 &:nth-child(9) {
