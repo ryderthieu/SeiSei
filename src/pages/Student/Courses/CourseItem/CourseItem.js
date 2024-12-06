@@ -88,7 +88,7 @@ const CourseItem = () => {
             )}
           </div>
         )}
-
+   
         {tab === 1 && (
           <div>
             <div className={style.tutorInfo}>
