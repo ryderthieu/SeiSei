@@ -87,7 +87,8 @@ const courseInfo = [
 const ConfirmNoti = {
   title: 'CHẤP NHẬN ĐỀ NGHỊ THÀNH CÔNG',
   img: success,
-  content: 'Hãy tiến hành học thử trước khi xác nhận học chính thức'
+  content: 'Hãy tiến hành học thử trước khi xác nhận học chính thức',
+  color: '#0F7CC6'
 }
 const Cancel = {
   title: 'XÁC NHẬN HỦY LỚP',

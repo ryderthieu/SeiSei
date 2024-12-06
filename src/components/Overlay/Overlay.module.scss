@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); // Nền mờ
+    background-color: rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,6 @@
   .title {
     font-size: var(--text-font-header);
     font-weight: 900;
-    color: var(--text-color-blue);
   }
   
   .icon {
