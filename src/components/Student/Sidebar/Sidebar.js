@@ -66,6 +66,16 @@ const Sidebar = () => {
           </li>
 
           <li 
+            onClick={() => setSelectedItem(9)} 
+            className={selectedItem === 9 ? 'selected' : ''}
+          >
+            <Link to="online-class">
+              <span className='icon'><ion-icon name="videocam-outline"></ion-icon></span>
+              <span className='title'>Lớp học trực tuyến</span>
+            </Link>
+          </li>
+
+          <li 
             onClick={() => setSelectedItem(5)} 
             className={selectedItem === 5 ? 'selected' : ''}
           >

@@ -85,7 +85,7 @@ const EventContent = ({ event }) => {
    
       {event.extendedProps.type === "Học online" && (
          <Link
-         to={"./online-class"} 
+         to={"../waiting-room"} 
          style={{
            marginTop: "5px",
            color: "red",
@@ -99,7 +99,7 @@ const EventContent = ({ event }) => {
 
       {event.extendedProps.type === "Học thử" && (
          <Link
-         to={"try-learning"}
+         to={"../try-learning"}
          style={{
            marginTop: "5px",
            color: "red",
