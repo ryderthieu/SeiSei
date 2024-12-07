@@ -15,7 +15,7 @@ const TryLearning = () => {
       <MeetingCard
           meetingName="Toán 10"
           meetingTime="02/12/2024 | 9:00 - 10:30"
-          linkTo="try-learning"
+          linkTo="../online-class/meeting-room"
           showStartButton={true}
         />
       </div>
