@@ -1,7 +1,6 @@
 import React, {useRef} from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "./Schedule.scss";
 import EventContent from "../../../components/EventContent/EventContent";
@@ -77,7 +76,6 @@ const Schedule = () => {
           right: "next",
         }}
         titleFormat={{year: "numeric", month: "long", day:"2-digit"}}
-        columnHeaderFormat={{ weekday: 'long', day: 'numeric'}}
         slotMinTime="09:00:00"
         slotMaxTime="21:00:00"
         allDaySlot={false}

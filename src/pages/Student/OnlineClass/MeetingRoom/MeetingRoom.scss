@@ -22,6 +22,28 @@
         color: #0D3073;
       }
     }
-  }
+
+    &__main{
+      display: flex;
+      height: 100vh;
+    }
+
+    &__meeting{
+      flex: 2; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    &__chat{
+      flex: 1; 
+      background-color: #ffffff;
+      border-left: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+}
   
   

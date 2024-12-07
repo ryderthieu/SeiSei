@@ -3,124 +3,144 @@
   border-radius: 1em;
   overflow: hidden;
 
-    &__header{
-        display: flex;
-        flex-direction: row;
+  &__header{
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-right: 1px solid #f5f5f5;
+
+    ion-icon {
+      font-size:3em;
+      color: #2979BA;
     }
-  
-      &__icon{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 90px;
-        height: 90px;
-        border-right: 1px solid #f5f5f5;
-  
-        ion-icon {
-          font-size:3em;
-          color: #2979BA;
-        }
-      }
-  
-      &__info{
-        padding:  0.5em 1em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-  
-      &__name{
-        font-weight: 900;
-        font-size: 1.2em;
-      }
-  
-      &__time {
-        color: #aaa;
-      }
+  }
 
-    &__screen{
-        background: #C2E4FF;
-        height: 400px;
-        display: flex; 
-        align-items: center; 
-        justify-content: center;
-    
-        &-button{
-          margin: auto;
-          width: 200px;
-          height: 50px;
-          background: #EB5757;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 2em;
-          font-weight: bold;
-          color: #fff;
-          cursor: pointer;
-        }
-      }
-    
-      &__controls{
-        background: #fff;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    
-      &__control{
-        color: #fff;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 10px;
-        border-radius: 50%;
-        font-size: 1.5em;
-        cursor: pointer;
-    
-        &:hover {
-            opacity: 0.8;
-        }
+  &__info{
+    padding:  0.5em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-        &:hover .meeting-card__label {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(-130px); 
-        }
+  &__name{
+    font-weight: 900;
+    font-size: 1.2em;
+  }
+
+  &__time {
+    color: #aaa;
+  }
   
-      .meeting-card__label {
-        position: absolute;
-        bottom: -25px;
-        font-size: 0.6em;
-        background-color: #868686;
-        color: #fff;
-        border-radius: 5px;
-        padding: 5px;
-        opacity: 0;
-        visibility: hidden;
-      }
+  &__screen{
+    background: #C2E4FF;
+    height: 380px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    position: relative;
+
+    &-button{
+      margin: auto;
+      width: 200px;
+      height: 50px;
+      background: #EB5757;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2em;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .meeting-card--fullscreen & {
+      height: calc(100vh - 180px);
+    }
+  }
   
 
-        &--camera-on, &--mic-on{
-          background: #2979BA;
-        }
+  &__fullscreen-btn{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 50%;
+    color: #fff;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+  }
+  
+  &__controls{
+    background: #fff;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__control{
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
 
-        &--presentation, &--messages{
-            background: #DFEBFF;
-            color: #2576B9;
-        }
-    
-        &--camera-off, &--mic-off{
-          background: #EB5757;
-        }
+    &:hover {
+        opacity: 0.8;
+    }
 
-        &--presentation-off, &--messages-off {
-          background: #85c7fe;
-        }
+    &:hover .meeting-card__label {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50px); 
+    }
 
-      }
+    .meeting-card__label {
+      position: absolute;
+      font-size: 0.6em;
+      background-color: #868686;
+      color: #fff;
+      border-radius: 5px;
+      padding: 5px;
+      opacity: 0;
+      visibility: hidden;
+    }
 
+    &--camera-on, &--mic-on{
+      background: #2979BA;
+    }
+
+    &--presentation, &--messages{
+        background: #DFEBFF;
+        color: #2576B9;
+    }
+
+    &--camera-off, &--mic-off{
+      background: #EB5757;
+    }
+
+    &--presentation-off, &--messages-off {
+      background: #85c7fe;
+    }
+
+  }
 }
-  
