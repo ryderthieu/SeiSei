@@ -16,14 +16,6 @@ const classData = [
   },
   {
     id: 2,
-    name: 'JLPT N2',
-    teacher: 'Trần Đỗ Phương Nhi',
-    time: '11:00 - 12:30',
-    date: '09/12/2024',
-    status: 'upcoming'
-  },
-  {
-    id: 3,
     name: 'JLPT N3',
     teacher: 'Lê Thiện Nhi',
     time: '18:00 - 19:30',
@@ -31,9 +23,9 @@ const classData = [
     status: 'ongoing'
   },
   {
-    id: 4,
+    id: 3,
     name: 'Toán 10',
-    teacher: 'Huỳnh Văn Thiệu',
+    teacher: 'Trần Nhật Trường',
     time: '09:00 - 10:30',
     date: '02/12/2024',
     status: 'completed'

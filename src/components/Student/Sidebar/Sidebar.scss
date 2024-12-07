@@ -61,10 +61,6 @@ body {
                     margin-top: calc(100vh - 8*60px - 190px);
                 }
 
-                &:nth-child(9) {
-                    margin-top: calc(100vh - 8*60px - 190px);
-                }
-
                 &:hover, &.selected {
                     background-color: #F6F8FD;
                     color: #0770B5;

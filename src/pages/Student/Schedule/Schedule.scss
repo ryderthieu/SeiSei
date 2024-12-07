@@ -1,4 +1,6 @@
 .schedule {
+    height: 100vh;
+    
     &__header {
         display: flex;
         flex-direction: row;
@@ -7,7 +9,7 @@
         border-bottom: 2px #004C7F solid;
         padding-bottom: 10px;
         flex: 1;
-        margin-bottom: 2em;
+        margin-bottom: 0.5em;
   
       &-title {
         font-size: var(--text-font-header);
@@ -60,7 +62,7 @@
     }
 
     .fc-col-header-cell-cushion {
-        padding: 2px 4em;
+        padding: 2px 3em;
         color: #2979BA;
         font-weight: 800;
     }

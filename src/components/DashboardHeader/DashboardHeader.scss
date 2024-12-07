@@ -50,6 +50,7 @@
             border-radius: 6px;
             padding: 5px;
             color: var(--color-icon-dashboard-header);
+            z-index: 1000;
         }
 
         &:hover .icon-label {
@@ -93,7 +94,7 @@
             background-color: var(--color-icon-dashboard-label);
             width: 6em;
             padding: 5px;
-            z-index: 20;
+            z-index: 1000;
             top: 7rem;
             text-align: center;
             border-radius: 6px;
