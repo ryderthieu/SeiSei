@@ -1,56 +1,58 @@
 import React, { useState } from "react";
 import "./MeetingChatBox.scss";
+import TutorAvatar from '../../assets/images/giasu.jpg';
+import StudentAvatar from '../../assets/images/student.jpg';
+const MeetingChatBox = ({isOpen, onClose}) => {
+  const [chatMessages, setChatMessages] = useState([
+    { 
+      id: 1, 
+      avatar: TutorAvatar, 
+      text: "Chào em !", 
+      sender: "Gia sư",  
+      time: "10:30"  
+    },
+    { 
+      id: 2, 
+      avatar: StudentAvatar, 
+      text: "Câu này khó quá cô ơi", 
+      sender: "Bạn", 
+      time: "10:32" 
+    },
+  ]);
 
-const ChatBox = () => {
-  const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState("");
-
-  // Xử lý gửi tin nhắn
-  const handleSendMessage = () => {
-    if (newMessage.trim()) {
-      setMessages([
-        ...messages,
-        {
-          id: Date.now(),
-          text: newMessage,
-          sender: "Bạn", // Người gửi là chính bạn
-          timestamp: new Date().toLocaleTimeString(),
-        },
-      ]);
-      setNewMessage("");
-    }
-  };
+  if (!isOpen) return null;
 
   return (
-    <div className="chat-box">
-      {/* Tiêu đề chat */}
-      <div className="chat-box__header">
-        <h3>Trò chuyện</h3>
+    <div className="meeting-chat-box">
+      <div className="meeting-chat-box__header">
+        <div className="meeting-chat-box__header-title">Cuộc trò chuyện</div>
       </div>
 
-      {/* Khung tin nhắn */}
-      <div className="chat-box__messages">
-        {messages.map((msg) => (
-          <div key={msg.id} className="chat-box__message">
-            <div className="chat-box__message-content">
-              <strong>{msg.sender}</strong> {/* Hiển thị tên người gửi */}
-              <span className="chat-box__timestamp">{msg.timestamp}</span>
-              <p>{msg.text}</p> {/* Nội dung tin nhắn */}
+      <div className="meeting-chat-box__messages">
+        {chatMessages.map((message) => (
+          <div
+            key={message.id}
+            className={`meeting-chat-box__message ${
+              message.sender === "Bạn"
+                ? "meeting-chat-box__message--sent"
+                : "meeting-chat-box__message--received"
+            }`}
+          >
+            <div className="meeting-chat-box__avatar">
+              <img src={message.avatar} alt={message.sender}/>
+            </div>
+            <div className="meeting-chat-box__bubble">
+              <span className="meeting-chat-box__sender">{message.sender} </span>
+              <span className="meeting-chat-box__text">{message.text}</span>
+              <div className="meeting-chat-box__time">{message.time}</div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Khung nhập tin nhắn */}
-      <div className="chat-box__input">
-        <input
-          type="text"
-          value={newMessage}
-          onChange={(e) => setNewMessage(e.target.value)}
-          placeholder="Nhập tin nhắn..."
-          onKeyPress={(e) => e.key === "Enter" && handleSendMessage()} // Gửi tin nhắn khi nhấn Enter
-        />
-        <button onClick={handleSendMessage}>
+      <div className="meeting-chat-box__input">
+        <input type="text" placeholder="Nhập tin nhắn..." />
+        <button>
           <ion-icon name="send-outline"></ion-icon>
         </button>
       </div>
@@ -58,4 +60,4 @@ const ChatBox = () => {
   );
 };
 
-export default ChatBox;
+export default MeetingChatBox;

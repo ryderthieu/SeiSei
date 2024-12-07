@@ -21,11 +21,13 @@
 }
 .fc {
     background: white;
-    padding: 1em;
+    padding: 1em 1em;
     border-radius: 0.5em;
+    flex: 1;
 
-    .fc-toolbar{
+    .fc-toolbar {
         justify-content: center;
+        margin-bottom: 0.5em !important;
 
         &-title {
             font-weight: 900;
@@ -62,7 +64,7 @@
     }
 
     .fc-col-header-cell-cushion {
-        padding: 2px 3em;
+        padding: 0 3em;
         color: #2979BA;
         font-weight: 800;
     }

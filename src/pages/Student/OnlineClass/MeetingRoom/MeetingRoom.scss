@@ -1,10 +1,12 @@
-.try-learning {
+.meeting-room {
     border-radius: 1em;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    height: 100vh;
     overflow: hidden;
-  
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
     &__header{
       display: flex;
       flex-direction: row;
@@ -21,28 +23,6 @@
         font-weight: 900;
         color: #0D3073;
       }
-    }
-
-    &__main{
-      display: flex;
-      height: 100vh;
-    }
-
-    &__meeting{
-      flex: 2; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    &__chat{
-      flex: 1; 
-      background-color: #ffffff;
-      border-left: 1px solid #ddd;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
     }
 }
   
