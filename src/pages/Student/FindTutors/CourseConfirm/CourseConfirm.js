@@ -3,26 +3,63 @@ import styles from "./CourseConfirm.module.scss";
 import RequestStep from "../../../../components/RequestStep/RequestStep";
 import { CourseCard } from "../../../../components/Card/Card";
 import Anh from "../../../../assets/images/english.png";
-import Avt from "../../../../assets/images/avatar.png";
+import Avt from "../../../../assets/images/student.jpg";
 import Table from "../../../../components/Table/Table";
+import Button from "../../../../components/Button/Button";
+import AcceptedOverlay from "../../../../components/Overlay/Overlay";
+import success from "../../../../assets/icon/success.gif";
+import { useNavigate } from "react-router-dom";
 const CourseConfirm = () => {
+  const navigate = useNavigate()
+  const [overlay, setOverlay] = useState(false)
   const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
+  const overlayData = {
+    title: 'ĐĂNG KÝ LỚP THÀNH CÔNG',
+    img: success,
+    content: [
+      {
+        value: ['Bạn đã đăng ký lớp thành công, chúc bạn học tập tốt!']
+      }
+    ],
+    color: '#005A96'
+  }
   const data = {
     img: Anh,
     content: [
-      "Mã lớp: ENG112",
-      "Môn: Tiếng Anh",
-      "Hình thức: Offline - TP. Hồ Chí Minh",
+      {
+        label: 'Mã lớp',
+        value: ['ENG112']
+      },
+      {
+        label: 'Môn',
+        value: ['Tiếng Anh']
+      },
+      {
+        label: 'Hình thức',
+        value: ['Offline - Tp. Hồ Chí Minh']
+      }
     ],
     color: "#05A344",
   };
   const tutor = {
     img: Avt,
     content: [
-      "Họ và tên: Nguyễn Văn A",
-      "Giới tính: Nam",
-      "Chuyên môn: Tiếng Anh các cấp",
-      "Sinh viên năm 2 trường ĐH CNTT",
+      {
+        label: 'Tên gia sư',
+        value: ['Nguyễn Văn A']
+      },
+      {
+        label: 'Giới tính',
+        value: ['Nam']
+      },
+      {
+        label: 'Chuyên môn',
+        value: ['Tiếng anh các cấp']
+      },
+      {
+        label: '',
+        value: ['Sinh viên năm 2 ở UIT']
+      },
     ],
     color: "#000",
   };
@@ -69,10 +106,12 @@ const CourseConfirm = () => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <div className={styles.button}>Xác nhận</div>
-          <div className={[styles.button, styles.cancel].join(" ")}>Hủy</div>
+          <div className={styles.button} onClick={() => setOverlay(true)}>
+            <Button title='Xác nhận' />
+          </div>
         </div>
       </div>
+      {overlay && <AcceptedOverlay data={overlayData} yes={() => navigate('../courses')}/>}
     </div>
   );
 };

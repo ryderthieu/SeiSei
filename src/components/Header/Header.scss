@@ -29,12 +29,12 @@
     flex-direction: row;
     list-style: none;
     justify-content: space-around;
-}
-
-ul {
-    display: flex;
     gap: 1.2rem;
     list-style: none;
+}
+.active {
+    border-bottom: 2px #f9f96c solid;
+    color: #f9f96c !important;
 }
 
 .header-menu__item-link {

@@ -4,9 +4,6 @@ import { Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage/Homepage';
 
 // Auth Pages
-import RegisterOption from './pages/RegisterOption/RegisterOption';
-import LoginOption from './pages/LoginOption/LoginOption';
-import TutorLogin from './pages/Tutor/Login/Login';
 import StudentLogin from './pages/Student/Login/Login';
 import StudentRegister from './pages/Student/Register/Register';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
@@ -29,6 +26,7 @@ import ClassDetail from './pages/Student/StudyResults/ClassDetail/ClassDetail';
 import NewRequest from './pages/Student/FindTutors/NewRequest/NewRequest';
 import Trial from './pages/Student/FindTutors/Trial/Trial';
 import CourseConfirm from './pages/Student/FindTutors/CourseConfirm/CourseConfirm';
+<<<<<<< HEAD
 import Profile from './pages/Student/Profile/Profile';
 
 // Tutor Pages
@@ -38,6 +36,8 @@ import TutorClassManagement from './pages/Tutor/ClassManagement/ClassManagement'
 import TutorClassRegistration from './pages/Tutor/ClassRegistration/ClassRegistration';
 import TutorTeachingSchedule from './pages/Tutor/TeachingSchedule/TeachingSchedule';
 import TutorRevenue from './pages/Tutor/Revenue/Revenue';
+=======
+>>>>>>> d1ea2b06f7db192d15cd7ae151000aaf9dbc326e
 import PaymentGateway from './pages/Student/Payment/PaymentGateway/PaymentGateway';
 
 
@@ -46,13 +46,10 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/login-option" element={<LoginOption />} />
-        <Route path="/student-login" element={<StudentLogin />} />
-        <Route path="/tutor-login" element={<TutorLogin />} />
-        <Route path="/register-option" element={<RegisterOption />} />
-        <Route path="/student-register" element={<StudentRegister />} />
+        <Route path="/login" element={<StudentLogin />} />
+        <Route path="/register" element={<StudentRegister />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/student-dashboard" element={<StudentLayout />}>
+        <Route path="/dashboard" element={<StudentLayout />}>
           <Route index element={<StudentDashboard />} />
           <Route path="find-tutors" element={<StudentFindTutors />} />
             <Route path="find-tutors/choose-tutors" element = {<ChooseTutors />} />
@@ -71,14 +68,6 @@ const App = () => {
           <Route path="payment" element={<StudentPayment />} />
             <Route path='payment/gateway' element ={<PaymentGateway />} />
           <Route path="profile" element={<Profile />}/>
-        </Route>
-
-        <Route path="/tutor-dashboard" element={<TutorLayout />}>
-          <Route index element={<TutorDashboard />} />
-          <Route path="class-management" element={<TutorClassManagement />} />
-          <Route path="class-registration" element={<TutorClassRegistration />} />
-          <Route path="teaching-schedule" element={<TutorTeachingSchedule />} />
-          <Route path="revenue" element={<TutorRevenue />} />
         </Route>
       </Routes>
     </>

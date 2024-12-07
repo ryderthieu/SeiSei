@@ -8,6 +8,7 @@ import img from '../../../../assets/images/art.png';
 import tutorAvatar from '../../../../assets/images/tutor.jpg';
 import TestTable from '../../../../components/Table/TestTable';
 import TestSubmission from "../../../../components/TestSubmission/TestSubmission";
+import Button from '../../../../components/Button/Button';
 
 const TopTab = ['Lớp học', 'Thông tin gia sư', 'Hỗ trợ học viên'];
 
@@ -75,9 +76,9 @@ const CourseItem = () => {
             <div className={style.headerAndButton}>
               <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
               {showEditButton && (
-                <button onClick={handleEditSubmission} className={style.editButton}>
-                  Chỉnh sửa bài nộp
-                </button>
+                <div onClick={handleEditSubmission} className={style.editButton}>
+                  <Button title='Chỉnh sửa bài nộp'/>
+                </div>
               )}
             </div>
 
@@ -121,9 +122,9 @@ const CourseItem = () => {
               <label htmlFor="details">Ý KIẾN NHẬN XÉT:</label>
               <textarea id="details" name="details" rows="4"></textarea>
             </div>
-            <button type="submit" className={style.submitButton}>
-              Thêm nhận xét
-            </button>
+            <div type="submit" className={style.submitButton}>
+              <Button title='Thêm nhận xét'/>
+            </div>
           </div>
         )}
 
@@ -131,11 +132,11 @@ const CourseItem = () => {
           <div>
             <form className={style.supportForm}>
               <h3>Bạn muốn làm gì?</h3>
-              <div>
+              <div className={style.item}>
                 <input type="radio" id="cancel" name="action" value="cancel" />
                 <label htmlFor="cancel">Hủy khóa học</label>
               </div>
-              <div>
+              <div className={style.item}>
                 <input
                   type="radio"
                   id="change-tutor"
@@ -144,7 +145,7 @@ const CourseItem = () => {
                 />
                 <label htmlFor="change-tutor">Thay đổi gia sư</label>
               </div>
-              <div>
+              <div className={style.item}>
                 <input type="radio" id="other" name="action" value="other" />
                 <label htmlFor="other">Khác</label>
               </div>
@@ -152,9 +153,9 @@ const CourseItem = () => {
                 <label htmlFor="details">Mô tả chi tiết/lý do:</label>
                 <textarea id="details" name="details" rows="4"></textarea>
               </div>
-              <button type="submit" className={style.submitButton}>
-                Gửi
-              </button>
+              <div type="submit" className={style.submitButton}>
+                <Button title='Gửi' />
+              </div>
             </form>
           </div>
         )}

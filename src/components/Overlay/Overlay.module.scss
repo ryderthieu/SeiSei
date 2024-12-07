@@ -22,17 +22,6 @@
     flex-direction: column;
     gap: 30px;
     position: relative;
-    .close {
-      font-size: 40px;
-      position: absolute;
-      right: 0;
-      top: 0;
-      color: var(--button-background-color-gray);
-      &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-      }
-    }
   }
   
   .title {
@@ -64,23 +53,8 @@
   }
   
   .button {
-    padding: 10px 20px;
-    width: 150px;
-    background-color: var(--button-background-color-blue);
-    color: #fff;
-    font-weight: bold;
-    border-radius: 20px;
-    &:hover {
-        cursor: pointer;
-        opacity: 0.8;
-    }
+    height: fit-content;
+    width: fit-content;
   }
   
-  .cancel {
-    background-color: var(--button-background-color-gray);
-    
-    &:hover {
-      opacity: 0.8;
-    }
-  }
   

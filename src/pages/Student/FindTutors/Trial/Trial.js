@@ -2,62 +2,71 @@ import React, { useState } from "react";
 import styles from "./Trial.module.scss";
 import RequestStep from "../../../../components/RequestStep/RequestStep";
 import { useNavigate } from "react-router-dom";
+import Button from "../../../../components/Button/Button";
+import AcceptedOverlay from "../../../../components/Overlay/Overlay";
+import warning from "../../../../assets/icon/warning.gif"
+import successIcon from "../../../../assets/icon/success.gif"
 const Trial = () => {
   const [selectedTime, setSelectedTime] = useState(null);
-  const navigate = useNavigate()
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [confirm, setConfirm] = useState(false);
+  const [cancel, setCancel] = useState(false)
+  const [overlayData, setOverlayData] = useState({});
+  const [success, setSuccess] = useState(false)
+  const navigate = useNavigate();
+
   const tutorInfo = {
     name: "Nguyễn Văn A",
     subject: "Toán Lớp 10",
     bio: "Gia sư có 5 năm kinh nghiệm giảng dạy các môn học cấp 3.",
     availableTimes: [
-      { date: "2024-12-06", times: ["09:00", "14:00", "16:00"] },
-      { date: "2024-12-07", times: ["10:00", "15:00"] },
-      { date: "2024-12-08", times: ["11:00", "13:00", "17:00"] },
+      { date: "01/12/2024", times: ["09:00", "14:00", "16:00"] },
+      { date: "03/12/2024", times: ["10:00", "15:00"] },
+      { date: "04/12/2024", times: ["11:00", "13:00", "17:00"] },
     ],
   };
+  const warningData = {
+    title: "XÁC NHẬN HỦY LỚP",
+    img: warning,
+    color: '#005A96'
+  }
   const courseInfo = [
-    {
-      label: "Môn học yêu cầu",
-      value: ["Toán"],
-    },
-    {
-      label: "Trình độ",
-      value: ["Lớp 10"],
-    },
-    {
-      label: "Hình thức",
-      value: ["Online"],
-    },
-    {
-      label: "Ngân sách",
-      value: ["300.000 VND"],
-    },
-    {
-      label: "Thời lượng",
-      value: ["2 buổi / tuần"],
-    },
-    {
-      label: "Thời gian rảnh",
-      value: ["Thứ Hai", "Thứ Năm"],
-      tag: ["#D00000", "#359508"],
-    },
-    {
-      label: "Thông tin học viên",
-      value: ["Nữ, 16 tuổi"],
-    },
-    {
-      label: "Yêu cầu gia sư",
-      value: ["Nữ, có khả năng dạy tốt"],
-    },
+    { label: "Môn học yêu cầu", value: ["Toán"] },
+    { label: "Trình độ", value: ["Lớp 10"] },
+    { label: "Hình thức", value: ["Online"] },
+    { label: "Ngân sách", value: ["300.000 VND"] },
+    { label: "Thời lượng", value: ["2 buổi / tuần"] },
+    { label: "Thời gian rảnh", value: ["Thứ Hai", "Thứ Năm"], tag: ["#D00000", "#359508"] },
+    { label: "Thông tin học viên", value: ["Nữ, 16 tuổi"] },
+    { label: "Yêu cầu gia sư", value: ["Nữ, có khả năng dạy tốt"] },
   ];
+  const successData = {
+    title: 'ĐÃ XÓA THÀNH CÔNG YÊU CẦU',
+    img: successIcon,
+    color: '#005A96'
+  }
   const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
 
-  const handleSelectTime = (time) => {
+  const handleSelectTime = (time, dayIndex) => {
     setSelectedTime(time);
+    setSelectedDay(tutorInfo.availableTimes[dayIndex].date);
   };
-
   const handleSubmit = () => {
-    alert(`Đã xác nhận lịch học vào thời gian: ${selectedTime}`);
+    if (!selectedTime || !selectedDay) {
+      alert("Vui lòng chọn ngày và giờ học!");
+      return;
+    }
+    const data = {
+      title: "Xác nhận lịch học thử",
+      content: [
+        { label: "Môn học", value: [tutorInfo.subject] },
+        { label: "Ngày học", value: [selectedDay] },
+        { label: "Giờ học", value: [selectedTime] },
+      ],
+      color: "#005A96",
+    };
+    setOverlayData(data);
+    setConfirm(true);
   };
 
   return (
@@ -71,31 +80,26 @@ const Trial = () => {
           <div className={styles.item}>
             <div className={styles.itemTitle}>Thông tin khóa học</div>
             <div className={styles.itemContent}>
-              {courseInfo.map((v, i) => {
-                return (
-                  <div className={styles.lineContent}>
-                    <div className={styles.label}>{v.label}:</div>
-                    {v.value.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className={styles.value}
-                        style={{
-                          padding: "5px 10px",
-                          borderRadius: 10,
-                          fontWeight: v.tag ? "bold" : "inherit",
-                          color: v.tag && v.tag[idx] ? v.tag[idx] : "inherit",
-                          backgroundColor:
-                            v.tag && v.tag[idx]
-                              ? v.tag[idx] + "33"
-                              : "transparent",
-                        }}
-                      >
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                );
-              })}
+              {courseInfo.map((v, i) => (
+                <div className={styles.lineContent} key={i}>
+                  <div className={styles.label}>{v.label}:</div>
+                  {v.value.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className={styles.value}
+                      style={{
+                        padding: "5px 10px",
+                        borderRadius: 10,
+                        fontWeight: v.tag ? "bold" : "inherit",
+                        color: v.tag && v.tag[idx] ? v.tag[idx] : "inherit",
+                        backgroundColor: v.tag && v.tag[idx] ? v.tag[idx] + "33" : "transparent",
+                      }}
+                    >
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
           <div className={styles.item}>
@@ -106,32 +110,33 @@ const Trial = () => {
                   <h4>{item.date}</h4>
                   <div className={styles.times}>
                     {item.times.map((time, idx) => (
-                      <button
+                      <div
                         key={idx}
                         className={`${styles.timeButton} ${selectedTime === time ? styles.selected : ""}`}
-                        onClick={() => handleSelectTime(time)}
+                        onClick={() => handleSelectTime(time, index)}
                       >
                         {time}
-                      </button>
+                      </div>
                     ))}
                   </div>
                 </div>
               ))}
-              {selectedTime && (
-                <div className={styles.confirmation}>
-                  <p>
-                    <strong>Thời gian bạn chọn:</strong> {selectedTime}
-                  </p>
-                </div>
-              )}
+
             </div>
           </div>
         </div>
         <div className={styles.buttonContainer}>
-          <div className={styles.button} onClick = {() => navigate('/student-dashboard/find-tutors/confirm')}>Xác nhận</div>
-          <div className={[styles.button, styles.cancel].join(" ")}>Hủy</div>
+          <div className={styles.button} onClick={() => setCancel(true)}>
+            <Button title="Hủy yêu cầu" type="danger" />
+          </div>
+          <div className={styles.button} onClick={handleSubmit}>
+            <Button title="Xác nhận" />
+          </div>
         </div>
       </div>
+      {confirm && <AcceptedOverlay data={overlayData} type='confirm' yes = {() => navigate('../find-tutors')} no={() => setConfirm(false)}/>}
+      {cancel && <AcceptedOverlay data={warningData} type={confirm} yes={() => setSuccess(true)} no={() => setCancel(false)} />}
+      {success && <AcceptedOverlay data = {successData} yes = {() => navigate('../find-tutors')} />}
     </div>
   );
 };

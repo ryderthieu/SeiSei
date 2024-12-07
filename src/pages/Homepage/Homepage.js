@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import './Homepage.scss'
 import Header from '../../components/Header/Header'
 import Footer from "../../components/Footer/Footer";
@@ -21,19 +21,21 @@ import Slider from "../../components/Slider/Slider";
 
 const Homepage = () => {
         const sectionsRef = useRef([]);
-    
+        const [activeSection, setActiveSection] = useState('');
         useEffect(() => {
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add("animate-visible");
+
                         } else {
                             entry.target.classList.remove("animate-visible");
                         }
+
                     });
                 },
-                { threshold: 0.2 }
+                { threshold: 0.5 }
             );
     
             sectionsRef.current.forEach((section) => {
@@ -49,7 +51,7 @@ const Homepage = () => {
     
     return (
     <div className='homepage-container'>
-        <Header />
+        <Header activeSection={activeSection}/>
         <div id = 'TrangChu' className='section animate-fade-in'
                     ref={(el) => sectionsRef.current.push(el)}>
             <div className="home-imgs">
@@ -115,7 +117,7 @@ const Homepage = () => {
                     backgroundColor={'#F8FBFF'}
                 />
             </div>
-            <div className = 'lh-item animate-left'
+            <div className = 'lh-item animate-right'
                 ref={(el) => sectionsRef.current.push(el)}>
                 <BoxContent 
                     title={'LỚP HỌC PHỔ THÔNG'}

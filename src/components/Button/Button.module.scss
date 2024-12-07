@@ -1,0 +1,26 @@
+.button {
+    background-color: var(--button-background-color-blue);
+    font-size: var(--text-font-normal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    min-width: 120px;
+    border-radius: 10px;
+    color: #fff;
+    height: 40px;
+    padding: 0 20px;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+.secondary {
+    background-color: var(--button-background-color-gray);
+}
+.success {
+    background-color: var(--button-background-color-green);
+}
+.danger {
+    background-color: var(--button-background-color-red);
+}
