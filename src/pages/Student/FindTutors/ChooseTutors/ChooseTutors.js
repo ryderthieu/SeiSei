@@ -7,6 +7,7 @@ import success from "../../../../assets/icon/success.gif"
 import warning from "../../../../assets/icon/warning.gif"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../../../components/Button/Button";
 const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
 const requestData = [
   {
@@ -146,7 +147,7 @@ const ChooseTutors = () => {
               })}
             </div>
             <div className={style.button} onClick={() => setIsCancel(true)}>
-                Hủy yêu cầu
+                <Button title='Hủy yêu cầu' type="danger"/>
               </div>
           </div>
         </div>

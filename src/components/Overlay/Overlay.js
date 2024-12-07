@@ -1,13 +1,10 @@
 import style from "./Overlay.module.scss";
-
+import Button from "../Button/Button";
 const AcceptedOverlay = ({ data, type, yes, no }) => {
 
   return (
     <div className={style.container} style={{ color: data.color }} id="container">
       <div className={style.modal}>
-        <div className={style.close}>
-          <ion-icon name="close-outline"></ion-icon>
-        </div>
         <div className={style.title}>{data.title}</div>
         {data.img && (
           <div className={style.icon}>
@@ -25,16 +22,15 @@ const AcceptedOverlay = ({ data, type, yes, no }) => {
           <div
             className={style.button}
             onClick={yes}
-            style={{ backgroundColor: data.color }}
           >
-            Xác nhận
+            <Button title = 'Xác nhận' />
           </div>
           {type === "confirm" && (
             <div
-              className={[style.button, style.cancel].join(" ")}
+              className={style.button}
               onClick={no}
             >
-              Hủy
+              <Button title = 'Hủy' type='secondary' />
             </div>
           )}
         </div>

@@ -8,6 +8,7 @@ import img from '../../../../assets/images/art.png';
 import tutorAvatar from '../../../../assets/images/tutor.jpg';
 import TestTable from '../../../../components/Table/TestTable';
 import TestSubmission from "../../../../components/TestSubmission/TestSubmission";
+import Button from '../../../../components/Button/Button';
 
 const TopTab = ['Lớp học', 'Thông tin gia sư', 'Hỗ trợ học viên'];
 
@@ -75,9 +76,9 @@ const CourseItem = () => {
             <div className={style.headerAndButton}>
               <div className={style.headerList}>DANH SÁCH BÀI KIỂM TRA</div>
               {showEditButton && (
-                <button onClick={handleEditSubmission} className={style.editButton}>
-                  Chỉnh sửa bài nộp
-                </button>
+                <div onClick={handleEditSubmission} className={style.editButton}>
+                  <Button title='Chỉnh sửa bài nộp'/>
+                </div>
               )}
             </div>
 

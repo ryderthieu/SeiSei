@@ -10,55 +10,74 @@ const data = [
   {
     id: 0,
     content: [
-        {
-          img: Toan,
-          title: 'MA010 - TOÁN 10',
-          content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-          color: '#AD8BC8',
-        },
-        {
-          img: Anh,
-          title: 'ENG010 - ANH 10',
-          content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-          color: '#05A344',
-        },
-        {
-          img: Anh,
-          title: 'ENG010 - ANH 10',
-          content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-          color: '#05A344',
-        },
-        {
-          img: Anh,
-          title: 'ENG010 - ANH 10',
-          content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-          color: '#05A344',
-        }
-    ]
+      {
+        img: Toan,
+        title: "MA010 - TOÁN 10",
+        content: [
+          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
+          { value: ["2 buổi / 1 tuần"] },
+        ],
+        color: "#AD8BC8",
+      },
+      {
+        img: Anh,
+        title: "ENG010 - ANH 10",
+        content: [
+          { value: ["Offline - Vũng Tàu"] },
+          { value: ["2 buổi / 1 tuần"] },
+        ],
+        color: "#05A344",
+      },
+      {
+        img: Anh,
+        title: "ENG010 - ANH 10",
+        content: [
+          { value: ["Offline - Vũng Tàu"] },
+          { value: ["2 buổi / 1 tuần"] },
+        ],
+        color: "#05A344",
+      },
+      {
+        img: Anh,
+        title: "ENG010 - ANH 10",
+        content: [
+          { value: ["Offline - Vũng Tàu"] },
+          { value: ["2 buổi / 1 tuần"] },
+        ],
+        color: "#05A344",
+      },
+    ],
   },
   {
     id: 1,
     content: [
       {
         img: Toan,
-        title: 'MA010 - TOÁN 10',
-        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-        color: '#AD8BC8',
+        title: "MA010 - TOÁN 10",
+        content: [
+          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
+          { value: ["2 buổi / 1 tuần"] },
+        ],
+        color: "#AD8BC8",
       },
-    ]
+    ],
   },
   {
     id: 2,
     content: [
       {
         img: Toan,
-        title: 'MA010 - TOÁN 10',
-        content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-        color: '#AD8BC8',
+        title: "MA010 - TOÁN 10",
+        content: [
+          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
+          { value: ["2 buổi / 1 tuần"] },
+        ],
+        color: "#AD8BC8",
       },
-    ]
-  }
-]
+    ],
+  },
+];
+
 const TopTab = ['Yêu cầu đang mở', 'Học thử', 'Yêu cầu đã đóng']
 const overlayData = {
   title: 'THÔNG TIN BUỔI HỌC THỬ',
@@ -122,7 +141,7 @@ const ClassRegister = () => {
           ))}
         </div>
       </div>
-      {overlay && <AcceptedOverlay data={overlayData} yes = {() => setOverlay(false)}/>}
+      {overlay && <AcceptedOverlay data={overlayData} yes = {() => setOverlay(false)} type='confirm'/>}
     </div>
   );
 };

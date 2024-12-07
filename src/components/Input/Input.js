@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./Input.module.scss";
 
-const SelectInput = ({ label, placeholder, options = [], multi = false }) => {
+const SelectInput = ({ label, placeholder, options = [], multi = false, onChange }) => {
   const [selectedValues, setSelectedValues] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,15 +20,19 @@ const SelectInput = ({ label, placeholder, options = [], multi = false }) => {
   }, []);
 
   const handleToggleOption = (option) => {
+    let newSelectedValues;
     if (multi) {
-      setSelectedValues((prev) =>
-        prev.includes(option)
-          ? prev.filter((item) => item !== option) 
-          : [...prev, option] 
-      );
+      newSelectedValues = selectedValues.includes(option)
+        ? selectedValues.filter((item) => item !== option) 
+        : [...selectedValues, option]; 
     } else {
-      setSelectedValues([option]);
+      newSelectedValues = [option];
       setIsOpen(false);
+    }
+    
+    setSelectedValues(newSelectedValues);
+    if (onChange) {
+      onChange(newSelectedValues);
     }
   };
 

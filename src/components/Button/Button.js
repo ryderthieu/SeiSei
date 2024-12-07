@@ -1,12 +1,10 @@
-import './style.scss'
-
-const Button = ({title, type, onClick}) => {
-    return <button 
-        onClick={onClick}
-        className='button-container'
-        >
-        {title}
-    </button>
+import styles from './Button.module.scss'
+const Button = ({title, type = 'primary'}) => {
+    return (
+        <div className={`${styles.button} ${styles[type]}`}>
+            {title}
+        </div>
+    )
 }
 
 export default Button

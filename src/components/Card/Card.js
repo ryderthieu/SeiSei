@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Card.scss'
 import { Link } from 'react-router-dom'
+import Button from '../Button/Button'
 const BoxContent = ({title, img, content, type, backgroundColor}) => {
     return (
         <div className="boxContent-container" style={{'--bColor': backgroundColor}}>
@@ -35,9 +36,9 @@ const CourseCard = ({data}) => {
                 </div>
                 {data.content.map((v, i) => {
                     return (
-                        <p className='card-content' key={i}>
-                            {v}
-                        </p>
+                        <div className='card-content' key={i}>
+                           <b>{v.label}</b> {v.label ? ':' : ''}  {Array.isArray(v.value) && v.value.join(' ')}
+                        </div>
                     )
                 })}
             </div>
@@ -104,7 +105,7 @@ const ExtendableCard = ({ data, cardId, onChoose }) => {
                     </div>
                     {data.button && (
                         <div className='button' onClick={() => onChoose(true)}>
-                            {data.button.title}
+                            <Button title={data.button.title} />
                         </div>
 
                     )}

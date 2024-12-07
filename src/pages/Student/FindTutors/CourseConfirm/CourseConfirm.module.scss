@@ -28,6 +28,15 @@
             .item {
                 display: flex;
                 flex-direction: column;
+                .itemHeader {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .button {
+                    width: fit-content;
+                    height: fit-content;
+                }
                 .itemTitle {
                     font-size: var(--text-font-title);
                     font-weight: bold;
@@ -51,21 +60,8 @@
         justify-content: flex-end;
         width: 100%;
         .button {
-          margin-top: 10px;
-          padding: 5px 20px;
-          background-color: var(--button-background-color-blue);
-          width: 130px;
-          text-align: center;
-          color: #fff;
-          font-weight: bold;
-          border-radius: 20px;
-          &:hover {
-            cursor: pointer;
-            opacity: 0.8;
-          }
-        }
-        .cancel {
-          background-color: var(--button-background-color-gray);
+          width: fit-content;
+          height: fit-content;
         }
       }
 }

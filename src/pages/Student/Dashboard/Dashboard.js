@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import {CourseCard} from "../../../components/Card/Card";
 import Toan from '../../../assets/images/math1.png'
 import Anh from '../../../assets/images/english.png'
+import Button from "../../../components/Button/Button";
 const Dashboard = () => {
   const courses = [
     {
@@ -61,8 +62,9 @@ const Dashboard = () => {
               <div className="content-left__header__title">
                 Thời khóa biểu
               </div>
+
               <Link className="content-left__header__btn" to={"find-tutors"}>
-                Xem thêm
+                <Button title='Xem thêm'/>
               </Link>
             </div>
             <Table data={data} />
@@ -73,7 +75,7 @@ const Dashboard = () => {
                 Lớp học của bạn
               </div>
               <Link className="content-left__header__btn" to={"courses"}>
-                Xem thêm
+                <Button title='Xem thêm'/>
               </Link>
             </div>
             <div className="content-left__content_items">
