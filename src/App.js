@@ -26,18 +26,9 @@ import ClassDetail from './pages/Student/StudyResults/ClassDetail/ClassDetail';
 import NewRequest from './pages/Student/FindTutors/NewRequest/NewRequest';
 import Trial from './pages/Student/FindTutors/Trial/Trial';
 import CourseConfirm from './pages/Student/FindTutors/CourseConfirm/CourseConfirm';
-<<<<<<< HEAD
 import Profile from './pages/Student/Profile/Profile';
 
 // Tutor Pages
-import TutorDashboard from './pages/Tutor/Dashboard/Dashboard';
-import TutorLayout from './pages/Tutor/Layout/Layout';
-import TutorClassManagement from './pages/Tutor/ClassManagement/ClassManagement';
-import TutorClassRegistration from './pages/Tutor/ClassRegistration/ClassRegistration';
-import TutorTeachingSchedule from './pages/Tutor/TeachingSchedule/TeachingSchedule';
-import TutorRevenue from './pages/Tutor/Revenue/Revenue';
-=======
->>>>>>> d1ea2b06f7db192d15cd7ae151000aaf9dbc326e
 import PaymentGateway from './pages/Student/Payment/PaymentGateway/PaymentGateway';
 
 

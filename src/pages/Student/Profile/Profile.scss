@@ -37,12 +37,17 @@
             color: rgba(0, 0, 0, 0.5);
             cursor: pointer;
             margin-bottom: 2em;
-            margin-top: 0.5em;
+            margin-top: 0.5em; 
 
-            p:hover, p:focus {
-                border-bottom: 2px solid #0D3073;
-                color: #0D3073
+            &-title:hover{
+                border-bottom: 3px solid #0D3073a0;
+                transition: width 0.5s ease-in-out;
             }
+        }
+
+        &-active {
+            border-bottom: 3px solid #0D3073;
+            color: #0D3073;
         }
 
         &--account{

@@ -20,16 +20,16 @@ const Profile = () => {
         <div className="profile__main--settings">
             <div className="profile__main--header">
                 <div
-                    className={activeTab === "infomation" ? "active" : ""}
+                    className={`profile__main--tab ${activeTab === "information" ? "profile__main-active" : ""}`}
                     onClick={() => setActiveTab("information")}
                 >
-                    <p>THÔNG TIN CÁ NHÂN</p>
+                    <p className="profile__main--header-title">THÔNG TIN CÁ NHÂN</p>
                 </div>
                 <div
-                    className={activeTab === "infomation" ? "active" : ""}
+                    className={`profile__main--tab ${activeTab === "password" ? "profile__main-active" : ""}`}
                     onClick={() => setActiveTab("password")}
                 >
-                    <p>ĐỔI MẬT KHẨU</p>
+                    <p className="profile__main--header-title">ĐỔI MẬT KHẨU</p>
                 </div>
             </div>
             {activeTab === "information" ? (
