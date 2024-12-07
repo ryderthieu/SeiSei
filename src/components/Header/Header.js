@@ -4,7 +4,7 @@ import Logo from '../../assets/images/Logo.png'
 import { Link } from 'react-router-dom'
 
 
-const Header = () => {
+const Header = ({ activeSection }) => {
     return (
         <div className="header-container">
             <div className='header-items'>
@@ -16,22 +16,22 @@ const Header = () => {
             <div className='header-items'>
                 <ul className="header-menu">
                     <li className="header-menu__item">
-                        <a className='header-menu__item-link' href='#TrangChu'>Trang chủ</a>
+                        <a className={`header-menu__item-link ${activeSection === 'TrangChu' ? 'active' : ''}`} href='#TrangChu'>Trang chủ</a>
                     </li>
                     <li className="header-menu__item">
-                        <a className='header-menu__item-link' href='#GioiThieu'>Giới thiệu</a>
+                        <a className={`header-menu__item-link ${activeSection === 'GioiThieu' ? 'active' : ''}`} href='#GioiThieu'>Giới thiệu</a>
                     </li>
                     <li className="header-menu__item">
-                        <a className='header-menu__item-link' href='#LopHoc'>Các lớp học</a>
+                        <a className={`header-menu__item-link ${activeSection === 'LopHoc' ? 'active' : ''}`} href='#LopHoc'>Các lớp học</a>
                     </li>
                     <li className="header-menu__item">
-                        <a className='header-menu__item-link' href='#DangKyLop'>Đăng ký lớp</a>
+                        <a className={`header-menu__item-link ${activeSection === 'DangKyLop' ? 'active' : ''}`} href='#DangKyLop'>Đăng ký lớp</a>
                     </li>
                     <li className="header-menu__item">
-                        <a className='header-menu__item-link' href='#LuuY'>Lưu ý</a>
+                        <a className={`header-menu__item-link ${activeSection === 'LuuY' ? 'active' : ''}`} href='#LuuY'>Lưu ý</a>
                     </li>
                     <li className="header-menu__item">
-                        <a className='header-menu__item-link' href='#LienHe'>Liên hệ</a>
+                        <a className={`header-menu__item-link ${activeSection === 'LienHe' ? 'active' : ''}`} href='#LienHe'>Liên hệ</a>
                     </li>
                 </ul>
             </div>
