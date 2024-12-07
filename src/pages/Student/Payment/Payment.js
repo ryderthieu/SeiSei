@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Payment.module.scss";
 import TopTabNavigation from "../../../components/TopTabNavigation/TopTabNavigation";
+import { useNavigate } from "react-router-dom";
 
 const unpaid = {
   title: "Danh sách các lớp chưa thanh toán học phí",
@@ -43,7 +44,7 @@ const paid = {
 const Payment = () => {
   const TopTab = ["Chưa thanh toán", "Đã thanh toán"];
   const [tab, setTab] = useState(0);
-
+  const navigate = useNavigate()
   const Table = ({ data }) => {
     return (
       <div className={styles.tableContainer}>
@@ -76,7 +77,7 @@ const Payment = () => {
                     ))}
                     {data.content.button && (
                       <td className={styles.buttonCell}>
-                        <button className={styles.button}>Thanh toán</button>
+                        <button className={styles.button} onClick={() => navigate('../payment/gateway')}>Thanh toán</button>
                       </td>
                     )}
                   </tr>

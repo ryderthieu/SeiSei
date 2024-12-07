@@ -68,14 +68,14 @@ const ClassRegister = () => {
         <div className={style.headerTitle}>
           DANH SÁCH YÊU CẦU
         </div>
-        <div className={style.headerBtn}>
+        <Link className={style.headerBtn}  to={'new-request'}>
           <div className={style.btnIcon}>
             <ion-icon name="newspaper-outline"></ion-icon>
           </div>
-          <Link className= {style.btnTitle} to={'new-request'}>
+          <div className= {style.btnTitle}>
             Đăng yêu cầu mới
-          </Link>
-        </div>
+          </div>
+        </Link>
       </div>
 
       <div className={style.content}>

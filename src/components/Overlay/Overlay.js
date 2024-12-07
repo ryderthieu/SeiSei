@@ -3,7 +3,7 @@ import style from './Overlay.module.scss';
 
 const AcceptedOverlay = ({ data, type, yes, no }) => {
   return (
-    <div className={style.container}>
+    <div className={style.container} style={{color: data.color}}>
       <div className={style.modal}>
         <div className={style.title}>
           {data.title}
@@ -15,7 +15,7 @@ const AcceptedOverlay = ({ data, type, yes, no }) => {
           {data.content}
         </div>
         <div className={style.buttonContainer}>
-          <div className={style.button} onClick={yes}>Xác nhận</div>
+          <div className={style.button} onClick={yes} style={{backgroundColor: data.color}}>Xác nhận</div>
           {type === 'confirm' && (
             <div className={[style.button, style.cancel].join(' ')} onClick={no}>
               Hủy

@@ -1,0 +1,152 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #004c7f;
+      padding-bottom: 10px;
+  
+      .headerTitle {
+        font-size: var(--text-font-header);
+        font-weight: 900;
+        color: #0d3073;
+      }
+    }
+    .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 30px;
+        .paymentContainer {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            .gateContainer {
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                .gate {
+                    border: 1px solid #E0E0E0;
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    height: 80px;
+                    padding-left: 10px;
+                    justify-content: center;
+                    border-radius: 5px;
+                    background-color: #fff;
+                    color: #E0E0E0;
+                    box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+                    &:hover {
+                        cursor: pointer;
+                        opacity: 0.8;
+                    }
+                    .icon {
+                        font-size: 26px;
+                        height: 26px;
+                    }
+
+                }
+                .gateActive {
+                    color: #0570DE;
+                    border-color: #0570DE;
+                }
+            }
+            .paymentContent {
+                margin-top: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .row {
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 30px;
+                    .itemContainer {
+                        display: flex;
+                        flex-direction: column;
+                        flex: 1;
+                        .label {
+                            font-size: var(--text-font-normal);
+                        }
+                        .input {
+                            font-size: 14px;
+                            border: none;
+                            box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+                            padding: 10px 10px;
+                            border: 1px solid #E0E0E0;
+                        }
+                    }
+                }
+                .buttonContainer {
+                    display: flex;
+                    gap: 40px;
+                    justify-content: flex-end;
+                    width: 100%;
+                    .button {
+                      margin-top: 10px;
+                      padding: 5px 20px;
+                      background-color: var(--button-background-color-blue);
+                      width: 130px;
+                      text-align: center;
+                      color: #fff;
+                      font-weight: bold;
+                      border-radius: 20px;
+                      &:hover {
+                        cursor: pointer;
+                        opacity: 0.8;
+                      }
+                    }
+                    .cancel {
+                      background-color: var(--button-background-color-gray);
+                    }
+                  }
+                .qrContainer {
+                    box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+                    background-color: #fff;
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 30px;
+                    gap: 10px;
+                    border: 1px solid #E0E0E0;
+                }
+            }
+        }
+        .billInfo {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            background-color: #fff;
+            box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+            border: 1px #E0E0E0 solid;
+            max-height: fit-content;
+            padding: 30px;
+            .title {
+                font-size: var(--text-font-title);
+                font-weight: bold;
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 10px
+            }
+
+        }
+    }
+    // .atm {
+    //     width: 100%;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     margin-top: calc(100vh - 570px - 150px);
+    //     .atmImg {
+    //         width: 1000px;
+    //     }
+    // }
+  }

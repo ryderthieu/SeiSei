@@ -37,6 +37,7 @@ import TutorClassManagement from './pages/Tutor/ClassManagement/ClassManagement'
 import TutorClassRegistration from './pages/Tutor/ClassRegistration/ClassRegistration';
 import TutorTeachingSchedule from './pages/Tutor/TeachingSchedule/TeachingSchedule';
 import TutorRevenue from './pages/Tutor/Revenue/Revenue';
+import PaymentGateway from './pages/Student/Payment/PaymentGateway/PaymentGateway';
 
 
 const App = () => {
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="study-results" element={<StudentStudyResults />} />
             <Route path="study-results/classdetail" element={<ClassDetail />} />
           <Route path="payment" element={<StudentPayment />} />
+            <Route path='payment/gateway' element ={<PaymentGateway />} />
         </Route>
 
         <Route path="/tutor-dashboard" element={<TutorLayout />}>
