@@ -29,6 +29,7 @@ import ClassDetail from './pages/Student/StudyResults/ClassDetail/ClassDetail';
 import NewRequest from './pages/Student/FindTutors/NewRequest/NewRequest';
 import Trial from './pages/Student/FindTutors/Trial/Trial';
 import CourseConfirm from './pages/Student/FindTutors/CourseConfirm/CourseConfirm';
+import Profile from './pages/Student/Profile/Profile';
 
 // Tutor Pages
 import TutorDashboard from './pages/Tutor/Dashboard/Dashboard';
@@ -69,6 +70,7 @@ const App = () => {
             <Route path="study-results/classdetail" element={<ClassDetail />} />
           <Route path="payment" element={<StudentPayment />} />
             <Route path='payment/gateway' element ={<PaymentGateway />} />
+          <Route path="profile" element={<Profile />}/>
         </Route>
 
         <Route path="/tutor-dashboard" element={<TutorLayout />}>

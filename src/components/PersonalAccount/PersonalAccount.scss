@@ -1,0 +1,85 @@
+.personal-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    &__avatar{
+        
+        &-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 1em;
+        }
+
+        &-update-btn{
+            padding: 0.5em 3em;
+            border: none;
+            cursor: pointer;
+            background-color: #83BBE1;
+            font-size: 1em;
+            color: #fff;
+            font-weight: bold;
+            font-family: "Nunito";
+            border-radius: 0.5em;
+            box-shadow: 0 5px 5px #999;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                background-color: #0f66a0;
+                box-shadow: 0 7px 7px #999;
+            }
+            
+            &:active {
+                transform: translateY(1px);
+                box-shadow: 0 2px 2px #999;
+            }
+        }
+    }
+
+    &__name{
+        color: #0b4f83;
+        font-weight: 900;
+        font-size: 1.2em;
+    }
+
+    &__role{
+        color: #3D6D92;
+        
+    }
+
+    &__stats{
+        display: flex;
+        margin: 1em 0;
+        align-items: center;
+        position: relative; 
+    }
+
+    &__stat{
+        margin: 0 2em;
+
+        &-number{
+            color: #3D6D92;
+            font-weight: 900;
+            font-size: 1.5em;
+        }
+
+        &-label{
+            color: #3d6d92db;
+            font-size: 0.8em;
+        }
+
+        &:first-child::after {
+            content: '';
+            position: absolute;
+            background-color: #3D6D92;
+            height: 70%;
+            width: 2px;
+            top: 50%;
+            right: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+  }

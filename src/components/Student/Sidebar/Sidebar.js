@@ -99,7 +99,7 @@ const Sidebar = () => {
             onClick={() => setSelectedItem(8)} 
             className={selectedItem === 8 ? 'selected' : ''}
           >
-            <Link to="/">
+            <Link to="profile">
               <span className='icon'><ion-icon name="settings-outline"></ion-icon></span>
               <span className='title'>Hồ sơ cá nhân</span>
             </Link>
