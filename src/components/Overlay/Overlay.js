@@ -1,5 +1,4 @@
 import style from "./Overlay.module.scss";
-import { useEffect, useState } from "react";
 
 const AcceptedOverlay = ({ data, type, yes, no }) => {
 
