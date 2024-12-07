@@ -250,7 +250,7 @@ const PaymentGateway = () => {
         </div>
       </div>
 
-      {overlay && <AcceptedOverlay data={overlayData} yes={() => navigate('../payment')}/>}
+      {overlay && <AcceptedOverlay data={overlayData} yes={() => navigate('../payment')} buttonType='success'/>}
     </div>
   );
 };

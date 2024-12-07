@@ -79,33 +79,7 @@
   
       .cancelButton,
       .confirmButton {
-        padding: 12px 25px;
-        border-radius: 6px;
-        font-size: 16px;
-        cursor: pointer;
-        border: none;
-        transition: background-color 0.3s, transform 0.2s ease;
-      }
-  
-      .cancelButton {
-        background-color: var(--button-background-color-white);
-        color: var(--button-background-color-blue);
-        border: 1px solid #004C7F;
-  
-        &:hover {
-          background-color: #f0f8ff;
-          transform: translateY(-1px);
-        }
-      }
-  
-      .confirmButton {
-        background-color: var(--button-background-color-blue);
-        color: var(--text-color-white);
-  
-        &:hover {
-          background-color: #003b66;
-          transform: translateY(-1px);
-        }
+        width: fit-content;
       }
     }
   }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./Payment.module.scss";
 import TopTabNavigation from "../../../components/TopTabNavigation/TopTabNavigation";
 import { useNavigate } from "react-router-dom";
+import Button from "../../../components/Button/Button";
 
 const unpaid = {
   title: "Danh sách các lớp chưa thanh toán học phí",
@@ -77,7 +78,9 @@ const Payment = () => {
                     ))}
                     {data.content.button && (
                       <td className={styles.buttonCell}>
-                        <button className={styles.button} onClick={() => navigate('../payment/gateway')}>Thanh toán</button>
+                        <div className={styles.button} onClick={() => navigate('../payment/gateway')}>
+                          <Button title='Thanh toán' type="danger" />
+                        </div>
                       </td>
                     )}
                   </tr>

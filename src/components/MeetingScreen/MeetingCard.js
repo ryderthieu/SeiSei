@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./MeetingCard.scss";
 import MeetingChatBox from "../MeetingChatBox/MeetingChatBox";
+import Button from "../Button/Button";
 
 const MeetingCard = ({
   meetingName,
@@ -68,7 +69,9 @@ const MeetingCard = ({
           >
             {showStartButton && (
               <div className="meeting-card__screen-button">
-                <Link to={linkTo}>Bắt đầu học</Link>
+                <Link to={linkTo}>
+                  <Button title='Bắt đầu học' type="danger"/>
+                </Link>
               </div>
             )}
             {showFullScreen && (
@@ -126,7 +129,9 @@ const MeetingCard = ({
               )}
               {showEndMeeting && (
                 <div className="meeting-card__control meeting-card__control--end">
-                  <Link to="/student-dashboard/online-class/">Kết thúc</Link>
+                  <Link to="/student-dashboard/online-class/">
+                    <Button title='Kết thúc' type="danger" />
+                  </Link>
                   <span className="meeting-card__label">Kết thúc cuộc gọi</span>
                 </div>
               )}

@@ -5,6 +5,7 @@ import mathImage from '../../assets/images/chemistry.png';
 import artImage from '../../assets/images/english.png';
 import chemistryImage from '../../assets/images/japanese.png';
 import englishImage from '../../assets/images/english.png';
+import Button from "../Button/Button";
 
 const ClassList = () => {
   const classes = [
@@ -85,7 +86,9 @@ const ClassList = () => {
                   to="classdetail"
                   state={classItem}
                 >
-                  <button className={style["detail-button"]}>Chi tiết</button>
+                  <div className={style["detail-button"]}>
+                    <Button title='Chi tiết' />
+                  </div>
                 </Link>
               </td>
             </tr>

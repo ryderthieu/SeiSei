@@ -73,17 +73,7 @@
     position: relative;
 
     &-button{
-      margin: auto;
-      width: 200px;
-      height: 50px;
-      background: #EB5757;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 2em;
-      font-weight: bold;
-      color: #fff;
-      cursor: pointer;
+      width: fit-content;
     }
 
     .meeting-card--fullscreen & {
@@ -176,17 +166,7 @@
 
     &--end {
       position: absolute;
-      background: #EB5757;;
-      color: white;
       right: 3em;
-      width: 120px;
-      border-radius: 24px;
-      color: #fff;
-      font-size: 0.8em;
-
-      &:hover{
-        opacity: 1;
-      }
     }
 
 

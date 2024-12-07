@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./TestSubmission.module.scss"; // Đảm bảo rằng bạn đã tạo một file SCSS tương ứng
+import Button from "../Button/Button";
 
 const TestSubmission = ({ tests, handleConfirm }) => {
   return (
@@ -21,13 +22,15 @@ const TestSubmission = ({ tests, handleConfirm }) => {
         <input type="file" />
       </div>
       <div className={styles.buttons}>
-        <button className={styles.cancelButton}>Hủy</button>
-        <button
+        <div className={styles.cancelButton}>
+          <Button title = 'Hủy' type = 'secondary'/>
+        </div>
+        <div
           className={styles.confirmButton}
           onClick={handleConfirm}
         >
-          Xác nhận
-        </button>
+          <Button title='Xác nhận' />
+        </div>
       </div>
     </div>
   );

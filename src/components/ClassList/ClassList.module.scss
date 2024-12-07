@@ -25,7 +25,7 @@
   .class-list-table td {
     padding: 12px;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     border-bottom: 1px solid #ddd; 
     color: #333;
@@ -70,17 +70,6 @@
   }
   
   .detail-button {
-    padding: 6px 12px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: #218838;
-    }
+    width: fit-content;
   }
   

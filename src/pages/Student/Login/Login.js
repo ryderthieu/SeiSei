@@ -9,7 +9,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/student-dashboard');
+        navigate('/dashboard');
     };
 
     return (
@@ -43,7 +43,7 @@ const Login = () => {
                     <div className="register">
                         <p>
                             Chưa có tài khoản?
-                            <Link to={'/register-option'}> Register</Link>
+                            <Link to={'/register'}> Register</Link>
                         </p>
                     </div>
                 </form>

@@ -37,11 +37,11 @@ const Header = ({ activeSection }) => {
             </div>
 
             <div className='header-items'>
-                <Link to = '/login-option' className='login'>
+                <Link to = '/login' className='login'>
                     Đăng nhập
                 </Link>
 
-                <Link to='/register-option' className='register'>
+                <Link to='/register' className='register'>
                     Đăng ký
                 </Link>
             </div>
