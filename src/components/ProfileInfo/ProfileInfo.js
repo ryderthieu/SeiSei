@@ -1,38 +1,99 @@
-import React from "react";
+import React, { useState } from "react";
+import TextInput from "../TextInput/TextInput"
+import TextAreaInput from "../TextAreaInput/TextAreaInput";
 import "./ProfileInfo.scss";
 
 const ProfileInfo = () => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [profile, setProfile] = useState({
+    gender: "Nam",
+    email: "22521038@gm.uit.edu.vn",
+    hometown: "Phú Yên",
+    phone: "+84 375022156",
+    introduction: `• Thân em như tấm lụa đào. Đã đông nơi chuộng lại nhiều nơi ưa\n• Cuối cùng thì, tình yêu bền vững nhất vẫn là tình yêu nước. Con đường đúng đắn nhất vẫn là con đường cách mạng`,
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProfile((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const toggleEdit = () => setIsEditing(!isEditing);
+
+  const cancelEdit = () => {
+    setIsEditing(false);
+  };
+
   return (
     <div className="profile-info">
       <div className="profile-info__form-row">
-        <div className="profile-info__form">
-          <label className="profile-info__label">Giới tính</label>
-          <input className="profile-info__input" type="text" value="Nam" readOnly />
-        </div>
-        <div className="profile-info__form">
-          <label className="profile-info__label">Email</label>
-          <input className="profile-info__input" type="email" value="22521038@gm.uit.edu.vn" readOnly />
-        </div>
-      </div>
-      <div className="profile-info__form-row">
-        <div className="profile-info__form">
-          <label className="profile-info__label">Quê quán</label>
-          <input className="profile-info__input" type="text" value="Phú Yên" readOnly />
-        </div>
-        <div className="profile-info__form">
-          <label className="profile-info__label">Số điện thoại</label>
-          <input className="profile-info__input" type="text" value="+84 375022156" readOnly />
-        </div>
-      </div>
-      <div className="profile-info__form">
-        <label className="profile-info__label">Giới thiệu chung</label>
-        <textarea
-          className="profile-info__textarea"
-          readOnly
-          value={`• Thân em như tấm lụa đào. Đã đông nơi chuộng lại nhiều nơi ưa\n• Cuối cùng thì, tình yêu bền vững nhất vẫn là tình yêu nước. Con đường đúng đắn nhất vẫn là con đường cách mạng`}
+        <TextInput
+          label="Giới tính"
+          name="gender"
+          value={profile.gender}
+          readOnly={!isEditing}
+          onChange={handleInputChange}
+        />
+        <TextInput
+          label="Email"
+          type="email"
+          name="email"
+          value={profile.email}
+          readOnly={!isEditing}
+          onChange={handleInputChange}
         />
       </div>
-      <button className="profile-info__button profile-info__button--edit">Chỉnh sửa</button>
+      <div className="profile-info__form-row">
+        <TextInput
+          label="Quê quán"
+          name="hometown"
+          value={profile.hometown}
+          readOnly={!isEditing}
+          onChange={handleInputChange}
+        />
+        <TextInput
+          label="Số điện thoại"
+          name="phone"
+          value={profile.phone}
+          readOnly={!isEditing}
+          onChange={handleInputChange}
+        />
+      </div>
+      <TextAreaInput
+        label="Giới thiệu chung"
+        name="introduction"
+        value={profile.introduction}
+        readOnly={!isEditing}
+        onChange={handleInputChange}
+      />
+      <div className="profile-info__buttons">
+        {isEditing ? (
+          <>
+            <button
+              className="profile-info__button profile-info__button--cancel"
+              onClick={cancelEdit}
+            >
+              Hủy
+            </button>
+            <button
+              className="profile-info__button profile-info__button--save"
+              onClick={toggleEdit}
+            >
+              Lưu
+            </button>
+          </>
+        ) : (
+          <button
+            className="profile-info__button profile-info__button--edit"
+            onClick={toggleEdit}
+          >
+            Chỉnh sửa
+          </button>
+        )}
+      </div>
     </div>
   );
 };

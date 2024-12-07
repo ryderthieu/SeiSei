@@ -1,0 +1,21 @@
+.text-area-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+  
+    &__textarea {
+      padding: 1em 2em;
+      border: 1px solid #ccc;
+      border-radius: 0.5em;
+      background-color: #f9f9f9;
+      color: #333;
+      outline: none;
+      resize: none;
+      font-size: 1em;
+      font-family: "Nunito";
+      height: 7.5em;
+      line-height: 1.8em;
+  
+    }
+  }
+  
