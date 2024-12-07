@@ -29,7 +29,9 @@
             border-radius: 10px;
             font-size: var(--text-font-normal);
             overflow: hidden;
-
+            &:hover {
+                opacity: 0.8;
+            }
             .btnIcon {
                 font-size: 20px;
                 display: flex;
@@ -49,9 +51,17 @@
             .courseItem {
                 height: 100px;
                 width: 300px;
+                &:hover {
+                    cursor: pointer;
+                    opacity: 0.8;
+                }
             }
             .disable {
                 filter: grayscale(100%);
+                &:hover {
+                    cursor: default;
+                    opacity: 1;
+                }
             }
         }
     }
