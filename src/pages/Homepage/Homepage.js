@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { useEffect, useRef } from "react";
 import './Homepage.scss'
 import Header from '../../components/Header/Header'
 import Footer from "../../components/Footer/Footer";
@@ -20,15 +20,43 @@ import Slider from "../../components/Slider/Slider";
 
 
 const Homepage = () => {
+        const sectionsRef = useRef([]);
+    
+        useEffect(() => {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("animate-visible");
+                        } else {
+                            entry.target.classList.remove("animate-visible");
+                        }
+                    });
+                },
+                { threshold: 0.2 }
+            );
+    
+            sectionsRef.current.forEach((section) => {
+                if (section) observer.observe(section);
+            });
+    
+            return () => {
+                sectionsRef.current.forEach((section) => {
+                    if (section) observer.unobserve(section);
+                });
+            };
+        }, []);
+    
     return (
     <div className='homepage-container'>
         <Header />
-        <div id = 'TrangChu' className='section'>
-            <div className='home-imgs'>
+        <div id = 'TrangChu' className='section animate-fade-in'
+                    ref={(el) => sectionsRef.current.push(el)}>
+            <div className="home-imgs">
                 <img src={homeImg} className='home-img'/>
             </div>
 
-            <div className='home-content'>
+            <div className="home-content">
                 <h1 className = 'home-title'>
                     TRUNG TÂM GIA SƯ
                 </h1>
@@ -50,8 +78,10 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
-        <div id="GioiThieu" className="section">
-            <div className="slide-container">
+        <div id="GioiThieu" className='section animate-fade-in'
+                    ref={(el) => sectionsRef.current.push(el)}>
+            <div className="slide-container  animate-left"
+                    ref={(el) => sectionsRef.current.push(el)}>
                 <div className="slide-imgs">
                     <img src={slideImg} className="slide-img"/>
                 </div>
@@ -62,46 +92,60 @@ const Homepage = () => {
                     Đăng ký tìm gia sư ngay
                 </Link>
             </div>
-            <div>
+            <div className=" animate-right"
+                    ref={(el) => sectionsRef.current.push(el)}>
                 <img src={IntroduceImg} className="introduce-img"/>
             </div>
         </div>
-        <div id='LopHoc' className="section">
-            <div className="lh-title">
+        <div id='LopHoc' className='section'>
+            <div className='lh-title animate-fade-in'
+                    ref={(el) => sectionsRef.current.push(el)}>
                 <TextShadow 
                     text={'Các lớp học'}
                     tColor={'#fff'}
                     sColor={'#75C1F2'}
                 />
             </div>
+            <div className = 'lh-item animate-right'
+                ref={(el) => sectionsRef.current.push(el)}>
                 <BoxContent 
-                    className = 'lh-item'
                     title={'LỚP HỌC PHỔ THÔNG'}
                     img={imgMath}
                     content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
                     backgroundColor={'#F8FBFF'}
                 />
+            </div>
+            <div className = 'lh-item animate-left'
+                ref={(el) => sectionsRef.current.push(el)}>
                 <BoxContent 
                     title={'LỚP HỌC PHỔ THÔNG'}
                     img={imgMath}
                     content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
-                    backgroundColor={'#E5F4FF'}
+                    backgroundColor={'#F8FBFF'}
                 />
+            </div>
+            <div className = 'lh-item animate-right'
+                ref={(el) => sectionsRef.current.push(el)}>
                 <BoxContent 
                     title={'LỚP HỌC PHỔ THÔNG'}
                     img={imgMath}
                     content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
-                    backgroundColor={'#E8F0FA'}
+                    backgroundColor={'#F8FBFF'}
                 />
+            </div>
         </div>
         <div id='DangKyLop' className="section">
             <div className="dkl-imgs">
-                <img src={imgQuyTrinh} className="dkl-img1"/>
-                <img src={imgQuyTrinh2} className="dkl-img2"/>
-                <img src={imgQuyTrinh3} className="dkl-img3"/>
+                <img src={imgQuyTrinh} className='dkl-img1 animate-fade-in'
+                ref={(el) => sectionsRef.current.push(el)}/>
+                <img src={imgQuyTrinh2} className='dkl-img2 animate-zoom-in'
+                ref={(el) => sectionsRef.current.push(el)}/>
+                <img src={imgQuyTrinh3} className='dkl-img3 animate-zoom-in'
+                ref={(el) => sectionsRef.current.push(el)}/>
             </div>
             <div className="dkl-content-container">
-                <div className="dkl-title">
+                <div className='dkl-title animate-left'
+                ref={(el) => sectionsRef.current.push(el)}>
                     <TextShadow 
                         text={'Quy trình'}
                         tColor={'#3E91C7'}
@@ -109,7 +153,8 @@ const Homepage = () => {
                         fontWeight={900}
                     />
                 </div>
-                <div className="dkl-content">
+                <div className='dkl-content animate-zoom-in'
+                ref={(el) => sectionsRef.current.push(el)}>
                     <ListStyle 
                         stt={'01'}
                         content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
@@ -141,11 +186,13 @@ const Homepage = () => {
             </div>
         </div>
         <div id='LuuY' className="section">
-            <div className="LY-imgs">
+            <div className='LY-imgs animate-fade-in'
+                ref={(el) => sectionsRef.current.push(el)}>
                 <img id="LY-img1" src={LYImg1} />
                 <img id="LY-img2" src={LYImg2} />
             </div>
-            <div className="LY-content-container">
+            <div className='LY-content-container animate-zoom-in'
+                ref={(el) => sectionsRef.current.push(el)}>
                 <div className = 'LY-content-title'>
                     <TextShadow 
                         text={'Lưu ý'}

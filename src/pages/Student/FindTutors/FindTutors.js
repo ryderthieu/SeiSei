@@ -4,7 +4,8 @@ import style from './FindTutors.module.scss'
 import Toan from '../../../assets/images/math1.png'
 import Anh from '../../../assets/images/english.png'
 import { CourseCard } from '../../../components/Card/Card';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import AcceptedOverlay from '../../../components/Overlay/Overlay';
 const data = [
   {
     id: 0,
@@ -59,9 +60,32 @@ const data = [
   }
 ]
 const TopTab = ['Yêu cầu đang mở', 'Học thử', 'Yêu cầu đã đóng']
+const overlayData = {
+  title: 'THÔNG TIN BUỔI HỌC THỬ',
+  content: [
+    {
+      label: 'Ngày học',
+      value: '20/11/2024'
+    },
+    {
+      label: 'Thời gian',
+      value: '19h00 - 21h00'
+    },
+    {
+      label: 'Hình thức',
+      value: 'Online'
+    },
+    {
+      label: 'Tình trạng',
+      value: 'Chưa hoàn thành'
+    },
+  ],
+  color: '#005A96'
+}
 const ClassRegister = () => {
   const [tab, setTab] = useState(0)
-
+  const [overlay, setOverlay] = useState(false)
+  const navigate = useNavigate()
   return (
     <div className={style.container}>
       <div className={style.header}>
@@ -82,12 +106,23 @@ const ClassRegister = () => {
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab}/>
         <div className={style.tabContent}>
           {data[tab]?.content?.map((v) => (
-            <Link className={[style.courseItem, tab===2&&style.disable].join(' ')} to='choose-tutors'>
-              <CourseCard data={v}/>
-            </Link>
+            <div
+            className={[style.courseItem, tab === 2 && style.disable].join(' ')}
+            onClick={() => {
+              if (tab === 1) {
+                setOverlay(true);
+              }
+              else if (tab ===0) {
+                navigate('choose-tutors');
+              }
+            }}
+          >
+            <CourseCard data={v} />
+          </div>
           ))}
         </div>
       </div>
+      {overlay && <AcceptedOverlay data={overlayData} yes = {() => setOverlay(false)}/>}
     </div>
   );
 };

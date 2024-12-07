@@ -6,6 +6,9 @@
     align-items: center;
     
     padding-bottom: 20px;
+    &:hover {
+        transform: scale(1.05);
+    }
     .title {
         color: var(--tColor);
         text-align: center;
