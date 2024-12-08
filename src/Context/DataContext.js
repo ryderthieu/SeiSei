@@ -43,7 +43,7 @@ const DataProvider = ({ children }) => {
       price: '250.000 /buổi',
       date: ['Thứ Ba', 'Thứ Năm'],
       time: ['08:00 - 10:00', '12:00 - 14:00'],
-      teacher: {
+      tutor: {
         name: 'Lê Thiện Nhi',
         image: avt1,
         gender: 'Nữ',
@@ -68,9 +68,10 @@ const DataProvider = ({ children }) => {
       price: '250.000 /buổi',
       date: ['Thứ Tư', 'Thứ Sáu'],
       time: ['08:00 - 10:00', '12:00 - 14:00'],
-      teacher: {
+      tutor: {
         name: 'Lê Thiện Nhi',
         image: avt1,
+        gender: 'Nữ',
         describe: 'Có kinh nghiệm dạy tiếng Anh nhiều năm',
         certificate: 'IELTS 7.0'
       },
@@ -92,9 +93,10 @@ const DataProvider = ({ children }) => {
       price: '200.000 /buổi',
       date: ['Thứ Hai', 'Thứ Năm'],
       time: ['08:00 - 10:00', '14:00 - 16:00'],
-      teacher: {
+      tutor: {
         name: 'Huỳnh Văn Thiệu',
         image: avt1,
+        gender: 'Nam',
         describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
         certificate: 'N2'
       },
@@ -116,9 +118,10 @@ const DataProvider = ({ children }) => {
       price: '300.000 /buổi',
       date: ['Thứ Hai', 'Thứ Bảy'],
       time: ['19:00 - 21:00', '19:00 - 21:00'],
-      teacher: {
+      tutor: {
         name: 'Huỳnh Văn Thiệu',
         image: avt1,
+        gender: 'Nam',
         describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
         certificate: 'N2'
       },
