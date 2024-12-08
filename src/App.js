@@ -7,6 +7,7 @@ import Homepage from './pages/Homepage/Homepage';
 import StudentLogin from './pages/Student/Login/Login';
 import StudentRegister from './pages/Student/Register/Register';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import VerificationCode from './pages/ForgotPassword/VerificationCode/VerificationCode';
 
 // Student Pages
 import StudentLayout from './pages/Student/Layout/Layout';
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/login" element={<StudentLogin />} />
         <Route path="/register" element={<StudentRegister />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="forgot-password/verification-code" element={<VerificationCode />} />
         <Route path="/dashboard" element={<StudentLayout />}>
           <Route index element={<StudentDashboard />} />
           <Route path="find-tutors" element={<StudentFindTutors />} />

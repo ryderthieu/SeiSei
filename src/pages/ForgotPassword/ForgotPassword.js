@@ -9,7 +9,7 @@ const ForgotPassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/verification-code");
+    navigate("./verification-code");
   };
 
   return (
