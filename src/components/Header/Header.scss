@@ -33,8 +33,9 @@
     list-style: none;
 }
 .active {
-    border-bottom: 2px #f9f96c solid;
-    color: #f9f96c !important;
+    border-bottom: 2px #FFDA5F solid;
+    padding-bottom: 10px;
+    color: #FFDA5F !important;
 }
 
 .header-menu__item-link {
@@ -44,7 +45,8 @@
     margin: 20px;
     color: #fff;
     &:hover {
-        color: #f9f96c;
+        color: #FFDA5F;
+        padding-bottom: 10px;
     }
 }
 
@@ -59,7 +61,7 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background: #f9f96c;
+    background: #FFDA5F;
     border-radius: 5px;
     transform: scaleX(0);
     transition: all 0.6s ease;
