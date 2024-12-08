@@ -45,10 +45,10 @@ const App = () => {
         <Route path="/dashboard" element={<StudentLayout />}>
           <Route index element={<StudentDashboard />} />
           <Route path="find-tutors" element={<StudentFindTutors />} />
-            <Route path="find-tutors/choose-tutors" element = {<ChooseTutors />} />
+            <Route path="find-tutors/choose-tutors/:id" element = {<ChooseTutors />} />
             <Route path="find-tutors/new-request" element = {<NewRequest />} />
-            <Route path="find-tutors/trial" element = {<Trial />} />
-            <Route path="find-tutors/confirm" element = {<CourseConfirm />} />
+            <Route path="find-tutors/trial/:id" element = {<Trial />} />
+            <Route path="find-tutors/confirm/:id" element = {<CourseConfirm />} />
           <Route path="courses" element={<StudentCourses />} />
             <Route path="courses/course-item/:id" element={<CourseItem />} />
           <Route path="schedule" element={<StudentCalender />} />

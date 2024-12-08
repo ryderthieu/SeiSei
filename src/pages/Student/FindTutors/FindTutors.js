@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import TopTabNavigation from '../../../components/TopTabNavigation/TopTabNavigation';
 import style from './FindTutors.module.scss'
 import Toan from '../../../assets/images/math1.png'
@@ -6,78 +6,7 @@ import Anh from '../../../assets/images/english.png'
 import { CourseCard } from '../../../components/Card/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import AcceptedOverlay from '../../../components/Overlay/Overlay';
-
-const data = [
-  {
-    id: 0,
-    content: [
-      {
-        img: Toan,
-        title: "MA010 - TOÁN 10",
-        content: [
-          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#AD8BC8",
-      },
-      {
-        img: Anh,
-        title: "ENG010 - ANH 10",
-        content: [
-          { value: ["Offline - Vũng Tàu"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#05A344",
-      },
-      {
-        img: Anh,
-        title: "ENG010 - ANH 10",
-        content: [
-          { value: ["Offline - Vũng Tàu"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#05A344",
-      },
-      {
-        img: Anh,
-        title: "ENG010 - ANH 10",
-        content: [
-          { value: ["Offline - Vũng Tàu"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#05A344",
-      },
-    ],
-  },
-  {
-    id: 1,
-    content: [
-      {
-        img: Toan,
-        title: "MA010 - TOÁN 10",
-        content: [
-          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#AD8BC8",
-      },
-    ],
-  },
-  {
-    id: 2,
-    content: [
-      {
-        img: Toan,
-        title: "MA010 - TOÁN 10",
-        content: [
-          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#AD8BC8",
-      },
-    ],
-  },
-];
+import { DataContext } from '../../../Context/DataContext';
 
 const TopTab = ['Yêu cầu đang mở', 'Học thử', 'Yêu cầu đã đóng']
 
@@ -106,7 +35,26 @@ const overlayData = {
 const ClassRegister = () => {
   const [tab, setTab] = useState(0)
   const [overlay, setOverlay] = useState(false)
-
+  const {request} = useContext(DataContext)
+  const [data, setData] = useState([])
+  const [id, setId] = useState(null)
+  useEffect(()=> {
+    const updatedData = request.map((v) => {
+      return {
+        id: v.id,
+        img: v.image,
+        title: v.name,
+        content: [
+          { value: [v.method] },
+          { value: v.date } 
+        ],
+        status: v.status,
+        color: v.color
+      };
+    });
+    console.log(updatedData)
+    setData(updatedData);
+  }, [])
   const navigate = useNavigate()
   return (
     <div className={style.container}>
@@ -127,24 +75,43 @@ const ClassRegister = () => {
       <div className={style.content}>
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab}/>
         <div className={style.tabContent}>
-          {data[tab]?.content?.map((v) => (
-            <div
-            className={[style.courseItem, tab === 2 && style.disable].join(' ')}
-            onClick={() => {
-              if (tab === 1) {
-                setOverlay(true);
-              }
-              else if (tab ===0) {
-                navigate('choose-tutors');
-              }
-            }}
-          >
-            <CourseCard data={v} />
-          </div>
-          ))}
+        {
+            tab === 0 && data.filter((value) => value.status === 'Đang mở').map((item, index) => (
+              <Link 
+                key={index}
+                className={style.courseItem}
+                to={`choose-tutors/${item.id}`}
+              >
+                <CourseCard data = {item} />
+              </Link>
+
+            ))
+          }
+          {
+            tab === 1 && data.filter((value) => value.status === 'Học thử').map((item, index) => (
+              <Link 
+                key={index}
+                className={style.courseItem}
+                onClick={() => {setOverlay(true); setId(item.id)}}
+              >
+                <CourseCard data = {item} />
+              </Link>
+
+            ))
+          }
+          {
+            tab === 2 && data.filter((value) => value.status === 'Đã đóng').map((item, index) => (
+              <div 
+                key={index}
+                className={[style.courseItem, style.disable].join(' ')}
+              >
+                <CourseCard data = {item} />
+              </div>
+            ))
+          }
         </div>
       </div>
-      {overlay && <AcceptedOverlay data={overlayData} no = {() => setOverlay(false)} yes = {() => navigate('confirm')} type='confirm'/> }
+      {overlay && <AcceptedOverlay data={overlayData} no = {() => setOverlay(false)} yes = {() => navigate(`confirm/${id}`)} type='confirm'/> }
 
     </div>
   );

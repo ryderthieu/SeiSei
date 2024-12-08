@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./NewRequest.module.scss";
 import RequestStep from "../../../../components/RequestStep/RequestStep";
 import { SelectInput } from "../../../../components/Input/Input";
@@ -6,6 +6,7 @@ import Button from "../../../../components/Button/Button";
 import AcceptedOverlay from "../../../../components/Overlay/Overlay";
 import { useNavigate } from "react-router-dom";
 import successIcon from "../../../../assets/icon/success.gif"
+import { DataContext } from "../../../../Context/DataContext";
 
 const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
 
@@ -23,7 +24,7 @@ const FormSection = ({ title, children }) => {
 const NewRequest = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
-  const [request, setRequest] = useState("");
+  const [irequest, setIrequest] = useState("");
   const [budget, setBudget] = useState("");
   const [free, setFree] = useState([]);
   const [subject, setSubject] = useState("");
@@ -34,6 +35,9 @@ const NewRequest = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [overlayData, setOverlayData] = useState({});
   const [success, setSuccess] = useState(false)
+  const {request, addRequest} = useContext(DataContext)
+
+
   const successData = {
     title: 'ĐĂNG YÊU CẦU THÀNH CÔNG',
     img: successIcon,
@@ -42,7 +46,7 @@ const NewRequest = () => {
   const handleConfirm = () => {
     const formData = {
       name,
-      request,
+      irequest,
       budget,
       free,
       subject,
@@ -50,14 +54,21 @@ const NewRequest = () => {
       sessions,
       method,
     };
-    console.log("Dữ liệu gửi đi:", formData);
-
+    addRequest({
+      name : name,
+      request : irequest,
+      subject : subject,
+      level : level,
+      method : method,
+      price : budget,
+      date : free,
+    })
     setOverlayData({
       title: "XÁC NHẬN THÔNG TIN YÊU CẦU",
       color: "#005A96",
       content: [
         { label: "Tên học viên", value: name },
-        { label: "Mong muốn", value: request },
+        { label: "Mong muốn", value: irequest },
         { label: "Ngân sách", value: `${budget} VNĐ` },
         { label: "Thời gian rảnh", value: free.join(", ") },
         { label: "Môn học", value: subject },
@@ -70,7 +81,6 @@ const NewRequest = () => {
       ],
     });
 
-    // Hiển thị overlay
     setShowOverlay(true);
   };
 
@@ -110,8 +120,8 @@ const NewRequest = () => {
                   id="expectations"
                   className={styles.input}
                   placeholder="Nhập mong muốn của học viên với gia sư"
-                  value={request}
-                  onChange={(e) => setRequest(e.target.value)}
+                  value={irequest}
+                  onChange={(e) => setIrequest(e.target.value)}
                 />
               </div>
             </div>
