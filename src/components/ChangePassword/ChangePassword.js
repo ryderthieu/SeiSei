@@ -3,6 +3,7 @@ import "./ChangPassword.scss";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import AcceptedOverlay from "../Overlay/Overlay"
 import success from "../../assets/icon/success.gif"
+import Button from "../Button/Button";
 
 const ChangPassword = () => {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -45,7 +46,7 @@ const ChangPassword = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
         <button type="submit" className="change-password__submit">
-          Cập nhật
+          <Button title = 'Cập nhật' />
         </button>
       </form>
       {showOverlay && (
