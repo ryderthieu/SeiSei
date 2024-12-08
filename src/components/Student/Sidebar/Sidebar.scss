@@ -53,7 +53,10 @@ body {
 
                 &:nth-child(1) {
                     margin-bottom: 20px;
-                    pointer-events: none;
+                    &:hover {
+                        cursor: pointer;
+                        background-color: transparent;
+                    }
                 }
 
                 &:nth-child(9) {
