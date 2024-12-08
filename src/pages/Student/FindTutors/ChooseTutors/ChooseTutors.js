@@ -100,9 +100,14 @@ const Cancel = {
   title: 'XÁC NHẬN HỦY LỚP',
   img: warning,
 }
+const CancelSuccess = {
+  title: 'HỦY LỚP THÀNH CÔNG',
+  img: success,
+}
 const ChooseTutors = () => {
   const [isChoose, setIsChoose] = useState(false)
   const [isCancel, setIsCancel] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(false)
   const navigate = useNavigate()
   return (
     <div className={style.container}>
@@ -153,7 +158,8 @@ const ChooseTutors = () => {
         </div>
       </div>
      {isChoose && <AcceptedOverlay data={ConfirmNoti} yes={() => navigate('../find-tutors/trial')}/>}
-     {isCancel && <AcceptedOverlay data={Cancel} type={'confirm'} yes={() => navigate('../find-tutors')} no={() => setIsCancel(false)}/>}
+     {isCancel && <AcceptedOverlay data={Cancel} type={'confirm'} yes={() => setIsSuccess(true)} no={() => setIsCancel(false)}/>}
+     {isSuccess && <AcceptedOverlay data={CancelSuccess} yes={() => navigate('../find-tutors')}/>}
     </div>
   );
 };

@@ -7,20 +7,33 @@ import Avt from "../../../../assets/images/student.jpg";
 import Table from "../../../../components/Table/Table";
 import Button from "../../../../components/Button/Button";
 import AcceptedOverlay from "../../../../components/Overlay/Overlay";
-import success from "../../../../assets/icon/success.gif";
+import warning from "../../../../assets/icon/warning.gif"
+import successIcon from "../../../../assets/icon/success.gif";
 import { useNavigate } from "react-router-dom";
 const CourseConfirm = () => {
   const navigate = useNavigate()
   const [overlay, setOverlay] = useState(false)
+  const [cancel, setCancel] = useState(false)
+  const [success, setSuccess] = useState(false)
   const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
   const overlayData = {
     title: 'ĐĂNG KÝ LỚP THÀNH CÔNG',
-    img: success,
+    img: successIcon,
     content: [
       {
         value: ['Bạn đã đăng ký lớp thành công, chúc bạn học tập tốt!']
       }
     ],
+    color: '#005A96'
+  }
+  const warningData = {
+    title: "XÁC NHẬN HỦY LỚP",
+    img: warning,
+    color: '#005A96'
+  }
+  const successData = {
+    title: 'ĐÃ XÓA THÀNH CÔNG YÊU CẦU',
+    img: successIcon,
     color: '#005A96'
   }
   const data = {
@@ -106,12 +119,17 @@ const CourseConfirm = () => {
         </div>
 
         <div className={styles.buttonContainer}>
+        <div className={styles.button} onClick={() => setCancel(true)}>
+            <Button title='Hủy khóa học' type="danger"/>
+          </div>
           <div className={styles.button} onClick={() => setOverlay(true)}>
             <Button title='Xác nhận' />
           </div>
         </div>
       </div>
       {overlay && <AcceptedOverlay data={overlayData} yes={() => navigate('../courses')}/>}
+      {cancel && <AcceptedOverlay data={warningData} type={'confirm'} yes={() => setSuccess(true)} no={() => setCancel(false)} />}
+      {success && <AcceptedOverlay data = {successData} yes = {() => navigate('../find-tutors')} />}
     </div>
   );
 };

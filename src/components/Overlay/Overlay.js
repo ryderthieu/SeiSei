@@ -1,6 +1,6 @@
 import style from "./Overlay.module.scss";
 import Button from "../Button/Button";
-const AcceptedOverlay = ({ data, type, yes, no, buttonType }) => {
+const AcceptedOverlay = ({ data, type, yes, no, buttonType, titleYes = 'Xác nhận', titleNo = 'Hủy' }) => {
 
   return (
     <div className={style.container} style={{ color: data.color }} id="container">
@@ -23,14 +23,14 @@ const AcceptedOverlay = ({ data, type, yes, no, buttonType }) => {
             className={style.button}
             onClick={yes}
           >
-            <Button title = 'Xác nhận' type={buttonType}/>
+            <Button title = {titleYes} type={buttonType}/>
           </div>
           {type === "confirm" && (
             <div
               className={style.button}
               onClick={no}
             >
-              <Button title = 'Hủy' type='secondary' />
+              <Button title = {titleNo} type='secondary' />
             </div>
           )}
         </div>

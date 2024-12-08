@@ -20,11 +20,11 @@ const ClassDetail = () => {
   const navigate = useNavigate();
 
   const chartData = {
-    labels: ['Đầu khóa', 'Giữa khóa', 'Cuối khóa'],
+    labels: ['Đầu khóa', '', '', 'Giữa khóa', '', '', 'Cuối khóa'],
     datasets: [
       {
         label: 'Điểm',
-        data: [2, 4, 6, 7, 9],
+        data: [4, 6, 7, 8.5],
         borderColor: '#4caf50',
         backgroundColor: 'rgba(76, 175, 80, 0.2)',
         fill: true,
@@ -51,10 +51,10 @@ const ClassDetail = () => {
   ];
 
   const tests = [
-    { name: 'Kiểm tra thường xuyên 45p', score: '8.5/10' },
-    { name: 'Kiểm tra 15 phút lần 1', score: '6.0/10' },
-    { name: 'Kiểm tra 15 phút lần 2', score: '9.0/10' },
-    { name: 'Kiểm tra chất lượng đầu vào', score: '7.7/10' },
+    { name: 'Kiểm tra thường xuyên 45p', score: '8.5/10', time : '10/10/2024' },
+    { name: 'Kiểm tra 15 phút lần 2', score: '7.0/10', time : '05/10/2024' },
+    { name: 'Kiểm tra 15 phút lần 1', score: '6.0/10', time : '01/11/2024' },
+    { name: 'Kiểm tra chất lượng đầu vào', score: '4.0/10', time: '01/10/2024'},
   ];
 
   const tutorFeedback = {
@@ -67,7 +67,7 @@ const ClassDetail = () => {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <div className={style.headerTitle}>CHI TIẾT LỚP HỌC</div>
+        <div className={style.headerTitle}>CHI TIẾT ĐIỂM SỐ</div>
       </div>
   
       <div className={style.content}>

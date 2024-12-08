@@ -6,6 +6,7 @@ import Anh from '../../../assets/images/english.png'
 import { CourseCard } from '../../../components/Card/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import AcceptedOverlay from '../../../components/Overlay/Overlay';
+
 const data = [
   {
     id: 0,
@@ -79,6 +80,7 @@ const data = [
 ];
 
 const TopTab = ['Yêu cầu đang mở', 'Học thử', 'Yêu cầu đã đóng']
+
 const overlayData = {
   title: 'THÔNG TIN BUỔI HỌC THỬ',
   content: [
@@ -104,6 +106,7 @@ const overlayData = {
 const ClassRegister = () => {
   const [tab, setTab] = useState(0)
   const [overlay, setOverlay] = useState(false)
+
   const navigate = useNavigate()
   return (
     <div className={style.container}>
@@ -141,7 +144,8 @@ const ClassRegister = () => {
           ))}
         </div>
       </div>
-      {overlay && <AcceptedOverlay data={overlayData} yes = {() => setOverlay(false)} type='confirm'/>}
+      {overlay && <AcceptedOverlay data={overlayData} no = {() => setOverlay(false)} yes = {() => navigate('confirm')} type='confirm'/> }
+
     </div>
   );
 };

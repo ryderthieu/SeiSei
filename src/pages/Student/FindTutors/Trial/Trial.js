@@ -11,8 +11,8 @@ const Trial = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [confirm, setConfirm] = useState(false);
   const [cancel, setCancel] = useState(false)
-  const [overlayData, setOverlayData] = useState({});
   const [success, setSuccess] = useState(false)
+  const [overlayData, setOverlayData] = useState({});
   const navigate = useNavigate();
 
   const tutorInfo = {
@@ -30,6 +30,11 @@ const Trial = () => {
     img: warning,
     color: '#005A96'
   }
+  const successData = {
+    title: 'ĐÃ XÓA THÀNH CÔNG YÊU CẦU',
+    img: successIcon,
+    color: '#005A96'
+  }
   const courseInfo = [
     { label: "Môn học yêu cầu", value: ["Toán"] },
     { label: "Trình độ", value: ["Lớp 10"] },
@@ -40,11 +45,7 @@ const Trial = () => {
     { label: "Thông tin học viên", value: ["Nữ, 16 tuổi"] },
     { label: "Yêu cầu gia sư", value: ["Nữ, có khả năng dạy tốt"] },
   ];
-  const successData = {
-    title: 'ĐÃ XÓA THÀNH CÔNG YÊU CẦU',
-    img: successIcon,
-    color: '#005A96'
-  }
+
   const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
 
   const handleSelectTime = (time, dayIndex) => {
