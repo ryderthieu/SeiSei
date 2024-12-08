@@ -23,7 +23,7 @@ const VerificationCode = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/reset-password");
+    navigate("/forgot-password/reset-password");
   };
 
   return (
