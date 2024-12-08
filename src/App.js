@@ -8,6 +8,8 @@ import StudentLogin from './pages/Student/Login/Login';
 import StudentRegister from './pages/Student/Register/Register';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import VerificationCode from './pages/ForgotPassword/VerificationCode/VerificationCode';
+import ResetPassword from './pages/ForgotPassword/ResetPassword/ResetPassword';
+import SuccessResetPassword from './pages/ForgotPassword/SuccessResetPassword/SuccessResetPassword';
 
 // Student Pages
 import StudentLayout from './pages/Student/Layout/Layout';
@@ -40,6 +42,8 @@ const App = () => {
         <Route path="/register" element={<StudentRegister />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="forgot-password/verification-code" element={<VerificationCode />} />
+          <Route path="forgot-password/reset-password" element={<ResetPassword />}/>
+          <Route path="forgot-password/success-reset-password" element={<SuccessResetPassword/>}/>
         <Route path="/dashboard" element={<StudentLayout />}>
           <Route index element={<StudentDashboard />} />
           <Route path="find-tutors" element={<StudentFindTutors />} />
