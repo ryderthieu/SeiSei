@@ -26,11 +26,11 @@ const Login = () => {
 
                     <div className="input-field">
                         <input type="text" required />
-                        <label>Nhập email....</label>
+                        <label>Nhập email</label>
                     </div>
                     <div className="input-field">
                         <input type="password" required />
-                        <label>Nhập mật khẩu...</label>
+                        <label>Nhập mật khẩu</label>
                     </div>
                     <div className="forget">
                         <label htmlFor="remember">
