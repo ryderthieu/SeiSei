@@ -170,11 +170,11 @@ const Homepage = () => {
         <div id='DangKyLop' className="section" ref={(el) => sectionsRef.current.push(el)}>
             <div className="dkl-imgs">
                 <img src={imgQuyTrinh} className='dkl-img1 animate-fade-in'
-                ref={(el) => animationRef.current.push(el)}/>
+                ref={(el) => animationRef.current.push(el)} alt=""/>
                 <img src={imgQuyTrinh2} className='dkl-img2 animate-zoom-in'
-                ref={(el) => animationRef.current.push(el)}/>
+                ref={(el) => animationRef.current.push(el)} alt=""/>
                 <img src={imgQuyTrinh3} className='dkl-img3 animate-zoom-in'
-                ref={(el) => animationRef.current.push(el)}/>
+                ref={(el) => animationRef.current.push(el)} alt=""/>
             </div>
             <div className="dkl-content-container">
                 <div className='dkl-title animate-left'
