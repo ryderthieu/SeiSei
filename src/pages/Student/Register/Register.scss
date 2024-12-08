@@ -31,6 +31,24 @@
         }
     }
 
+    .register {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        cursor: pointer;
+
+        p {
+            color: #666666;
+            a {
+                color: #004B7D;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+        }
+    }
+
     .register-content {
         overflow: auto;
         width: 40%;
@@ -187,7 +205,6 @@
         .button-container {
             display: flex;
             justify-content: space-between;
-            margin-top: 10px;
 
             .back {
                 background-color: #f0f0f0;
@@ -235,6 +252,7 @@
                 }
             }
         }
+        
         .accept {
             font-size: 1.6rem;
             color: #666666;

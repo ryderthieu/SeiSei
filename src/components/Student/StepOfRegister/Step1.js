@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import loginImg from '../../../assets/images/Login/login.png';
 import '../../../pages/Student/Register/Register.scss';
 
@@ -42,7 +43,12 @@ const Step1 = ({ formData, setFormData, nextStep }) => {
             <input type="password" name="confirmPassword" required value={formData.confirmPassword} onChange={handleChange} />
             <label>Xác nhận mật khẩu</label>
           </div>
-
+          <div className="register">
+            <p>
+                Đã có tài khoản?
+                <Link to={'/login'}> Đăng nhập ngay</Link>
+            </p>
+          </div>
           <div className="button-container">
             <button type="submit" className="next">
               Tiếp theo <RightArrowIcon />
