@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ForgotPassword.scss";
 import loginImg from "../../assets/images/cuate.png";
+import AuthInput from "../../components/AuthInput/AuthInput";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -27,19 +28,14 @@ const ForgotPassword = () => {
           Vui lòng nhập Email bạn đã đăng ký
         </p>
         <form onSubmit={handleSubmit} className="forgot-password__form">
-          <div className="forgot-password__wrapper">
-            <label className="forgot-password__label" htmlFor="email">
-              Email
-            </label>
-            <input
-              id="email"
-              className="forgot-password__input"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
+          <AuthInput 
+            id="email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            label="Email"
+            required
+          />
           <button type="submit" className="forgot-password__submit">
             Tiếp tục
           </button>

@@ -2,10 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ResetPassword.scss";
 import loginImg from "../../..//assets/images/cuate.png";
-import PasswordInput from "../../../components/PasswordInput/PasswordInput";
+import AuthInput from "../../../components/AuthInput/AuthInput";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,11 +26,21 @@ const ResetPassword = () => {
         <h3 className="reset-password__title">TẠO MẬT KHẨU MỚI</h3>
         <form onSubmit={handleSubmit} className="reset-password__form">
           <div className="reset-password__wrapper">
-            <PasswordInput
+            <AuthInput
+                type="password"
                 label="Nhập mật khẩu"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
             />
-            <PasswordInput 
+            <AuthInput
+                type="password"
                 label="Nhập lại mật khẩu"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
             />
           </div>
           <button type="submit" className="reset-password__submit">
