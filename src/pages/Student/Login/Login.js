@@ -26,24 +26,24 @@ const Login = () => {
 
                     <div className="input-field">
                         <input type="text" required />
-                        <label>Enter your email</label>
+                        <label>Nhập email....</label>
                     </div>
                     <div className="input-field">
                         <input type="password" required />
-                        <label>Enter your password</label>
+                        <label>Nhập mật khẩu...</label>
                     </div>
                     <div className="forget">
                         <label htmlFor="remember">
                             <input type="checkbox" id="remember" />
-                            <p>Remember me</p>
+                            <p>Ghi nhớ tài khoản</p>
                         </label>
-                        <Link to={'/forgot-password'}>Forgot password?</Link>
+                        <Link to={'/forgot-password'}>Quên mật khẩu?</Link>
                     </div>
                     <button type="submit">Đăng nhập</button>
                     <div className="register">
                         <p>
                             Chưa có tài khoản?
-                            <Link to={'/register'}> Register</Link>
+                            <Link to={'/register'}> Đăng ký ngay</Link>
                         </p>
                     </div>
                 </form>
