@@ -41,7 +41,7 @@ const CourseCard = ({data}) => {
                 {data.content.map((v, i) => {
                     return (
                         <div className='card-content' key={i}>
-                           <b>{v.label}</b> {v.label ? ':' : ''}  {Array.isArray(v.value) && v.value.join(' ')}
+                           <b>{v.label}</b> {v.label ? ':' : ''}  {Array.isArray(v.value) && v.value.join(', ')}
                         </div>
                     )
                 })}

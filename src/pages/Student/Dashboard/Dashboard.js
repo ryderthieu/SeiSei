@@ -4,22 +4,39 @@ import Calendar from "../../../components/Calendar/Calendar";
 import Table from "../../../components/Table/Table";
 import { Link } from "react-router-dom";
 import {CourseCard} from "../../../components/Card/Card";
-import Toan from '../../../assets/images/math1.png'
 import Anh from '../../../assets/images/english.png'
 import Button from "../../../components/Button/Button";
+import { useContext } from "react";
+import { DataContext } from "../../../Context/DataContext";
 const Dashboard = () => {
+  const {coursesData} = useContext(DataContext)
+
   const courses = [
     {
-      img: Toan,
-      title: 'MA010 - TOÁN 10',
-      content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-      color: '#AD8BC8',
+      title: coursesData[0].name,
+      color: coursesData[0].color,
+      img: coursesData[0].image,
+      content: [
+        {
+          value: [coursesData[0].method]
+        },
+        {
+          value: coursesData[0].date  
+        }
+      ]
     },
     {
-      img: Anh,
-      title: 'ENG010 - ANH 10',
-      content: ['Offline - TP. Hồ Chí Minh', '2 buổi / 1 tuần'],
-      color: '#05A344',
+      title: coursesData[1].name,
+      color: coursesData[1].color,
+      img: coursesData[1].image,
+      content: [
+        {
+          value: [coursesData[1].method]
+        },
+        {
+          value: coursesData[1].date  
+        }
+      ]
     }
   ]
   const data = [

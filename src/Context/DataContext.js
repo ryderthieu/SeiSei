@@ -1,38 +1,137 @@
 import React, { createContext, useState } from 'react';
 import Toan from "../assets/images/math1.png";
 import Anh from "../assets/images/english.png";
-
+import Nhat from "../assets/images/japanese1.png"
+import avt1 from "../assets/images/giasu.jpg"
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-  // Dữ liệu các lớp
+  // Dữ liệu các khóa học
   const [coursesData, setCoursesData] = useState([
     {
-      id: 0,
-      content: [
-        {
-          img: Toan,
-          title: "MA010 - TOÁN 10",
-          content: [
-            { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-            { value: ["2 buổi / 1 tuần"] },
-          ],
-          color: "#AD8BC8",
-        },
-        {
-          img: Anh,
-          title: "ENG010 - ANH 10",
-          content: [
-            { value: ["Offline - Vũng Tàu"] },
-            { value: ["2 buổi / 1 tuần"] },
-          ],
-          color: "#05A344",
-        },
-      ],
+      id: 'MA001',
+      name: 'TOÁN 10',
+      subject: 'Toán',
+      level: 'Lớp 10',
+      image: Toan,
+      method: 'Online',
+      price: '200.000 /buổi',
+      date: ['Thứ Hai', 'Thứ Năm'],
+      time: ['08:00 - 10:00', '14:00 - 16:00'],
+      tutor: {
+        name: 'Huỳnh Văn Thiệu',
+        image: avt1,
+        gender: 'Nam',
+        describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
+        certificate: 'N2'
+      },
+      student : {
+        name: 'Nguyễn Văn A',
+        age: 16,
+        gender: 'Nam',
+      },
+      status: 'Đang học',
+      color: '#AD8BC8',
+    },
+    {
+      id: 'EN001',
+      name: 'TIẾNG ANH 10',
+      subject: 'Tiếng Anh',
+      level: 'Lớp 10',
+      image: Anh,
+      method: 'Online',
+      price: '250.000 /buổi',
+      date: ['Thứ Ba', 'Thứ Năm'],
+      time: ['08:00 - 10:00', '12:00 - 14:00'],
+      teacher: {
+        name: 'Lê Thiện Nhi',
+        image: avt1,
+        gender: 'Nữ',
+        describe: 'Có kinh nghiệm dạy tiếng Anh nhiều năm',
+        certificate: 'IELTS 7.0'
+      },
+      student : {
+        name: 'Nguyễn Văn B',
+        age: 16,
+        gender: 'Nam',
+      },
+      status: 'Đang học',
+      color: '#05A344',
+    },
+    {
+      id: 'EN002',
+      name: 'TIẾNG ANH 9',
+      subject: 'Tiếng Anh',
+      level: 'Lớp 9',
+      image: Anh,
+      method: 'Online',
+      price: '250.000 /buổi',
+      date: ['Thứ Tư', 'Thứ Sáu'],
+      time: ['08:00 - 10:00', '12:00 - 14:00'],
+      teacher: {
+        name: 'Lê Thiện Nhi',
+        image: avt1,
+        describe: 'Có kinh nghiệm dạy tiếng Anh nhiều năm',
+        certificate: 'IELTS 7.0'
+      },
+      student : {
+        name: 'Nguyễn Văn B',
+        age: 16,
+        gender: 'Nam',
+      },
+      status: 'Đã hoàn thành',
+      color: '#05A344',
+    },
+    {
+      id: 'MA002',
+      name: 'TOÁN 9',
+      subject: 'Toán',
+      level: 'Lớp 9',
+      image: Toan,
+      method: 'Online',
+      price: '200.000 /buổi',
+      date: ['Thứ Hai', 'Thứ Năm'],
+      time: ['08:00 - 10:00', '14:00 - 16:00'],
+      teacher: {
+        name: 'Huỳnh Văn Thiệu',
+        image: avt1,
+        describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
+        certificate: 'N2'
+      },
+      student : {
+        name: 'Nguyễn Văn A',
+        age: 16,
+        gender: 'Nam',
+      },
+      status: 'Đã hoàn thành',
+      color: '#AD8BC8',
+    },
+    {
+      id: 'JA001',
+      name: 'JLPT N3',
+      subject: 'Tiếng Nhật',
+      level: 'N3',
+      image: Nhat,
+      method: 'Online',
+      price: '300.000 /buổi',
+      date: ['Thứ Hai', 'Thứ Bảy'],
+      time: ['19:00 - 21:00', '19:00 - 21:00'],
+      teacher: {
+        name: 'Huỳnh Văn Thiệu',
+        image: avt1,
+        describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
+        certificate: 'N2'
+      },
+      student : {
+        name: 'Nguyễn Văn A',
+        age: 16,
+        gender: 'Nam',
+      },
+      status: 'Đang học',
+      color: '#dc635b',
     },
   ]);
-
-  // Dữ liệu đề xuất
+  // Dữ liệu các đề nghị
   const [suggest, setSuggest] = useState([
     {
       img: Anh,

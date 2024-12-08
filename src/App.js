@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 
 import Homepage from './pages/Homepage/Homepage';
 
-// Auth Pages
 import StudentLogin from './pages/Student/Login/Login';
 import StudentRegister from './pages/Student/Register/Register';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
@@ -11,7 +10,6 @@ import VerificationCode from './pages/ForgotPassword/VerificationCode/Verificati
 import ResetPassword from './pages/ForgotPassword/ResetPassword/ResetPassword';
 import SuccessResetPassword from './pages/ForgotPassword/SuccessResetPassword/SuccessResetPassword';
 
-// Student Pages
 import StudentLayout from './pages/Student/Layout/Layout';
 import StudentFindTutors from './pages/Student/FindTutors/FindTutors';
 import StudentDashboard from './pages/Student/Dashboard/Dashboard';
@@ -52,7 +50,7 @@ const App = () => {
             <Route path="find-tutors/trial" element = {<Trial />} />
             <Route path="find-tutors/confirm" element = {<CourseConfirm />} />
           <Route path="courses" element={<StudentCourses />} />
-            <Route path="courses/course-item" element={<CourseItem />} />
+            <Route path="courses/course-item/:id" element={<CourseItem />} />
           <Route path="schedule" element={<StudentCalender />} />
 
           <Route path="online-class" element={<OnlineClass />} />

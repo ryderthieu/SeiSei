@@ -1,36 +1,38 @@
 import style from './CourseItem.module.scss';
 import Rating from 'react-rating-stars-component';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FullContentCard } from '../../../../components/Card/Card';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import TopTabNavigation from '../../../../components/TopTabNavigation/TopTabNavigation';
 import img from '../../../../assets/images/art.png';
 import tutorAvatar from '../../../../assets/images/tutor.jpg';
 import TestTable from '../../../../components/Table/TestTable';
 import TestSubmission from "../../../../components/TestSubmission/TestSubmission";
 import Button from '../../../../components/Button/Button';
+import { DataContext } from '../../../../Context/DataContext';
 
 const TopTab = ['Lớp học', 'Thông tin gia sư', 'Hỗ trợ học viên'];
 
-const requestData = [
-  {
-    img: img,
-    title: [{ label: 'Lớp', value: 'Toán 10' }],
-    content: {
-      title: 'Thông tin chi tiết',
-      content: [
-        { label: 'Mã lớp', value: 'MA010' },
-        { label: 'Hình thức', value: ['Online'] },
-        { label: 'Bằng cấp', value: ['Sinh viên - Ielts 7.0'] },
-        { label: 'Số buổi', value: ['2 buổi / 1 tuần'] },
-        { label: 'Mô tả', value: 'Lớp học Toán cho học sinh lớp 10' },
-        { label: 'Thời gian học', value: '8h sáng thứ 2, 4, 6' },
-      ],
-    },
-  },
-];
+// const requestData = [
+//   {
+//     img: img,
+//     title: [{ label: 'Lớp', value: 'Toán 10' }],
+//     content: {
+//       title: 'Thông tin chi tiết',
+//       content: [
+//         { label: 'Mã lớp', value: 'MA010' },
+//         { label: 'Hình thức', value: ['Online'] },
+//         { label: 'Bằng cấp', value: ['Sinh viên - Ielts 7.0'] },
+//         { label: 'Số buổi', value: ['2 buổi / 1 tuần'] },
+//         { label: 'Mô tả', value: 'Lớp học Toán cho học sinh lớp 10' },
+//         { label: 'Thời gian học', value: '8h sáng thứ 2, 4, 6' },
+//       ],
+//     },
+//   },
+// ];
 
 const CourseItem = () => {
+
   const [tab, setTab] = useState(0);
   const [tests, setTests] = useState([
     { id: 1, name: 'Định kỳ lần 1', time: '15h, 19/04/2024', status: 'Đã hoàn thành' },
@@ -40,9 +42,33 @@ const CourseItem = () => {
   ]);
   const [showSubmissionForm, setShowSubmissionForm] = useState(true);
   const [showEditButton, setShowEditButton] = useState(false);
+  const [requestData, setRequestData] = useState({ img: '', title: [], content: { title: '', content: [] } });
+  const {coursesData} = useContext(DataContext)
+  const { id } = useParams(); 
+  const tutor = coursesData.filter((v) => v.id === id)[0].tutor
   const navigate = useNavigate();
 
-
+  useEffect(() => {
+    const updatedData = coursesData.filter((value) => value.id === id).map((v) => {
+      return {
+        img: v.image,
+        title: [
+          { label: 'Lớp', value: v.id },
+        ],
+        content: {
+          title: 'Thông tin khóa học', 
+          content: [
+            { label: 'Môn học', value: v.subject },
+            { label: 'Trình độ', value: v.level },
+            { label: 'Lịch học', value: v.date.map((value, i) => (value + ' ' + v.time[i] + ' ')) },
+            { label: 'Hình thức', value: v.method },
+          ]
+        }
+      };
+    });
+  
+    setRequestData(updatedData[0]);
+  }, []);
   const handleConfirm = () => {
     setShowSubmissionForm(false);
     setShowEditButton(true);
@@ -66,7 +92,8 @@ const CourseItem = () => {
         {tab === 0 && (
           <div>
             <div className={style.requestCard}>
-              <FullContentCard data={requestData[0]} />
+              {console.log(requestData)}
+              <FullContentCard data={requestData} />
             </div>
 
             <div className={style.headerAndButton}>
@@ -89,17 +116,17 @@ const CourseItem = () => {
         {tab === 1 && (
           <div>
             <div className={style.tutorInfo}>
-              <img className={style.tutorAvatar} src={tutorAvatar} alt="Avatar của gia sư" />
+              <img className={style.tutorAvatar} src={tutor.image} alt="Avatar của gia sư" />
               <div className={style.tutorDetails}>
-                <h2>Nguyễn Văn A</h2>
+                <h2>{tutor.name}</h2>
                 <p>
-                  <strong>Giới tính:</strong> Nam
+                  <strong>Giới tính:</strong> {tutor.gender}
                 </p>
                 <p>
-                  <strong>Bằng cấp:</strong> Ielts 7.0
+                  <strong>Bằng cấp:</strong> {tutor.certificate}
                 </p>
                 <p>
-                  <strong>Giới thiệu:</strong> Sinh viên năm 4 trường Đại học Khoa học Xã hội & Nhân văn, chuyên ngành Ngôn ngữ Anh.
+                  <strong>Giới thiệu:</strong> {tutor.describe}
                 </p>
               </div>
             </div>

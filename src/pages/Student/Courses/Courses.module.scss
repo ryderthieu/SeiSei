@@ -40,10 +40,10 @@
 
     .content {
         .tabContent {
-            justify-content: space-between;
+            margin-left: 50px;
             display: flex;
             flex-direction: row;
-            gap: 30px;
+            gap: 60px;
             flex-wrap: wrap;
             margin-top: 20px;
             .courseItem {

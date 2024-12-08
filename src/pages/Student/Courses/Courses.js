@@ -1,87 +1,35 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TopTabNavigation from "../../../components/TopTabNavigation/TopTabNavigation";
 import style from "./Courses.module.scss";
-import Toan from "../../../assets/images/math1.png";
-import Anh from "../../../assets/images/english.png";
 import { CourseCard } from "../../../components/Card/Card";
-
-const data = [
-  {
-    id: 0,
-    content: [
-      {
-        img: Toan,
-        title: "MA010 - TOÁN 10",
-        content: [
-          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#AD8BC8",
-      },
-      {
-        img: Anh,
-        title: "ENG010 - ANH 10",
-        content: [
-          { value: ["Offline - Vũng Tàu"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#05A344",
-      },
-      {
-        img: Anh,
-        title: "ENG010 - ANH 10",
-        content: [
-          { value: ["Offline - Vũng Tàu"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#05A344",
-      },
-      {
-        img: Anh,
-        title: "ENG010 - ANH 10",
-        content: [
-          { value: ["Offline - Vũng Tàu"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#05A344",
-      },
-    ],
-  },
-  {
-    id: 1,
-    content: [
-      {
-        img: Toan,
-        title: "MA010 - TOÁN 10",
-        content: [
-          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#AD8BC8",
-      },
-    ],
-  },
-  {
-    id: 2,
-    content: [
-      {
-        img: Toan,
-        title: "MA010 - TOÁN 10",
-        content: [
-          { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-          { value: ["2 buổi / 1 tuần"] },
-        ],
-        color: "#AD8BC8",
-      },
-    ],
-  },
-];
+import { DataContext } from "../../../Context/DataContext";
 
 const TopTab = ["Tất cả", "Đang diễn ra", "Đã hoàn thành"];
 
-function Courses() {
+const Courses = () => {
   const [tab, setTab] = useState(0);
+  const [data, setData] = useState([])
+  const {coursesData} = useContext(DataContext)
+
+   useEffect(() => {
+    const updatedData = coursesData.map((v) => {
+      return {
+        id: v.id,
+        img: v.image,
+        title: v.name,
+        content: [
+          { value: [v.method] },
+          { value: v.date } 
+        ],
+        status: v.status,
+        color: v.color
+      };
+    });
+
+    setData(updatedData);
+  }, [coursesData]);
+
 
   return (
     <div className={style.container}>
@@ -92,17 +40,41 @@ function Courses() {
       <div className={style.content}>
         <TopTabNavigation data={TopTab} activeTab={tab} onTabChange={setTab} />
         <div className={style.tabContent}>
-          {data[tab]?.content.map((v, i) => (
-            <Link
-            key={i}
-              className={[style.courseItem, tab === 2 && style.disable].join(
-                " "
-              )}
-              to="course-item"
-            >
-              <CourseCard data={v} />
-            </Link>
-          ))}
+          {
+            tab === 0 && data.map((item, index) => (
+              <Link 
+                key={index}
+                className={[style.courseItem, item.status === 'Đã hoàn thành' ? style.disable : ''].join(' ')}
+                to={`course-item/${item.id}`}
+              >
+                <CourseCard data = {item} />
+              </Link>
+
+            ))
+          }
+          {
+            tab === 1 && data.filter((value) => value.status === 'Đang học').map((item, index) => (
+              <Link 
+                key={index}
+                className={style.courseItem}
+                to={`course-item/${item.id}`}
+              >
+                <CourseCard data = {item} />
+              </Link>
+
+            ))
+          }
+          {
+            tab === 2 && data.filter((value) => value.status === 'Đã hoàn thành').map((item, index) => (
+              <Link 
+                key={index}
+                className={[style.courseItem, style.disable].join(' ')}
+                to={`course-item/${item.id}`}
+              >
+                <CourseCard data = {item} />
+              </Link>
+            ))
+          }
         </div>
       </div>
     </div>
