@@ -1,38 +1,73 @@
 .boxContent-container {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     background-color: var(--bColor);
     width: 60%;
     border-radius: 20px;
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.1);
     margin-top: 60px;
+    border: 4px solid var(--mainColor);
+    overflow: hidden;
+
+    &.left {
+        flex-direction: row;
+    }
+
+    &.right {
+        flex-direction: row-reverse;
+        text-align: right;
+    }
+
     .boxContent-imgs {
         margin: 10px;
-        .boxContent-img {
-            width: 200px;
-        }
     }
+
+    .boxContent-img {
+        width: 200px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
     .boxContent-content {
         margin: 10px;
-        
+        flex: 1;
+
         .bcContent-title {
             font-size: 20px;
-            color: #5E93BB;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: var(--mainColor); 
+        }
+
+        .bcContent-desc {
+            margin-bottom: 10px;
             font-weight: bold;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--mainColor);
         }
-        .bcContent-content {
-            margin-bottom: 40px;
-        }
+
         .boxContent-btn {
-            background-color: #83BBE1;
+            background-color: var(--mainColor); 
             text-decoration: none;
             color: #fff;
-            padding: 5px 20px;
+            padding: 10px 20px;
             border-radius: 10px;
-            
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+            border: 2px solid var(--mainColor);
+            transition: background-color 0.3s, color 0.3s;
+            width: fit-content;
+            &:hover {
+                background-color: #fff; 
+                color: var(--mainColor); 
+            }
         }
     }
 }
+
 
 .card-container {
     padding: 10px;

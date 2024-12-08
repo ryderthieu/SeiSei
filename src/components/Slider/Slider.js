@@ -36,7 +36,7 @@ const data = [
   },
   {
     titleStyles: {
-      text: "Lý do chọn gia sư SeiSei",
+      text: "Dịch vụ gia sư uy tín",
       tColor: "#0D6AA6",
       fontSize: "40px",
       fontWeight: "900",
