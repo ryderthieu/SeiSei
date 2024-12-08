@@ -6,7 +6,7 @@ function StudyResults() {
     <div className={style.container}>
       <div className={style.header}>
         <div className={style.headerTitle}>
-          DANH SÁCH LỚP ĐANG HỌC
+          KẾT QUẢ HỌC TẬP
         </div>
       </div>
 
