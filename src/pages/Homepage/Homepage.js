@@ -8,7 +8,7 @@ import homeImg from '../../assets/images/Learning-amico.png'
 import slideImg from '../../assets/images/line-bottom-bg.png'
 import IntroduceImg from '../../assets/images/Questions-rafiki.png'
 import {BoxContent} from "../../components/Card/Card";
-import imgMath from "../../assets/images/chemistry.png"
+import imgMath from "../../assets/images/chemistry1.png"
 import imgJapan from "../../assets/images/japanese.png"
 import imgArt from "../../assets/images/art.png"
 import imgQuyTrinh from "../../assets/images/leadership-cuate.png"
@@ -34,7 +34,7 @@ const Homepage = () => {
                 });
               };
             const observer = new IntersectionObserver(handleIntersection, {
-                threshold: 0.5, 
+                threshold: 0.5,  
             });
         
             sectionsRef.current.forEach((section) => {
@@ -142,7 +142,7 @@ const Homepage = () => {
                     img={imgMath}
                     content={'Các lớp học phổ thông bao gồm tất cả các môn học từ lớp 1 đến lớp 12 ở trường. Các gia sư sẽ được đào tạo và đảm bảo chất lượng dạy đúng chuẩn theo sách giáo khoa.'}
                     backgroundColor={'#fff'}
-                    color="#FF8DBD"
+                    color="#F4BE6A"
                 />
             </div>
             <div className = 'lh-item animate-left'
@@ -153,7 +153,7 @@ const Homepage = () => {
                     content={'Các lớp học ngoại ngữ bao gồm các lớp luyện thi IELTS, TOIEC, TOFEL, JLPT và  nhiều cuộc thi quốc tế khác. Các gia sư được tuyển chọn kỹ càng và có bằng cấp đủ để hướng dẫn học viên. Chúng tôi cam kết mang đến cho các bạn những kiến thức sát với đề thi nhất.'}
                     backgroundColor={'#fff'}
                     type='right'
-                    color="#f26868"
+                    color="#f1b2d1"
                 />
             </div>
             <div className = 'lh-item animate-right'
