@@ -27,8 +27,6 @@ import NewRequest from './pages/Student/FindTutors/NewRequest/NewRequest';
 import Trial from './pages/Student/FindTutors/Trial/Trial';
 import CourseConfirm from './pages/Student/FindTutors/CourseConfirm/CourseConfirm';
 import Profile from './pages/Student/Profile/Profile';
-
-// Tutor Pages
 import PaymentGateway from './pages/Student/Payment/PaymentGateway/PaymentGateway';
 
 

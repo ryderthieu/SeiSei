@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import "./WaitingRoom.scss";
-import BackButton from '../../../../components/BackButton/BackButton'
 import MeetingCard from "../../../../components/MeetingScreen/MeetingCard";
 
 const WaitingRoom = () => {

@@ -1,12 +1,10 @@
 import React, {useState} from "react";
 import "./TryLearning.scss";
-import BackButton from '../../../../components/BackButton/BackButton'
 import MeetingCard from "../../../../components/MeetingScreen/MeetingCard";
 
 const TryLearning = () => {
   return (
     <div className="try-learning__container">
-      <BackButton />
       <div className="try-learning__header">
         <div className="try-learning__header-title">HỌC THỬ</div>
       </div>

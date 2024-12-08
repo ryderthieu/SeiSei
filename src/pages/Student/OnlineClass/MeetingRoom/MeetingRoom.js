@@ -1,9 +1,7 @@
 import React, {useState} from "react";
 import "./MeetingRoom.scss";
-import BackButton from '../../../../components/BackButton/BackButton'
 import MeetingCard from "../../../../components/MeetingScreen/MeetingCard";
 import MeetingImage from "../../../../assets/images/Meeting.png";
-import ChatBox from "../../../../components/MeetingChatBox/MeetingChatBox";
 
 const MeetingRoom = () => {
   const [isChatVisible, setIsChatVisible] = useState(false);

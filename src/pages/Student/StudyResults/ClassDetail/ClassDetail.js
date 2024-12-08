@@ -19,10 +19,6 @@ const ClassDetail = () => {
   const [tab, setTab] = useState(0);
   const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate('/student-dashboard/study-results');
-  };
-
   const chartData = {
     labels: ['Đầu khóa', 'Giữa khóa', 'Cuối khóa'],
     datasets: [
@@ -71,7 +67,6 @@ const ClassDetail = () => {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <ion-icon name="arrow-back-outline" onClick={handleBackClick}></ion-icon>
         <div className={style.headerTitle}>CHI TIẾT LỚP HỌC</div>
       </div>
   
@@ -85,7 +80,6 @@ const ClassDetail = () => {
             </div>
   
             <div className={style.detailsSection}>
-              {/* Table for lessons */}
               <div className={style.card}>
                 <h3>Các buổi đã học</h3>
                 <table className={style.table}>
@@ -108,7 +102,6 @@ const ClassDetail = () => {
                 </table>
               </div>
   
-              {/* Table for tests */}
               <div className={style.card}>
                 <h3>Điểm bài kiểm tra</h3>
                 <table className={style.table}>

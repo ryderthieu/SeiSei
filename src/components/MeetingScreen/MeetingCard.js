@@ -129,7 +129,7 @@ const MeetingCard = ({
               )}
               {showEndMeeting && (
                 <div className="meeting-card__control meeting-card__control--end">
-                  <Link to="/student-dashboard/online-class/">
+                  <Link to="/dashboard/online-class">
                     <Button title='Kết thúc' type="danger" />
                   </Link>
                   <span className="meeting-card__label">Kết thúc cuộc gọi</span>
@@ -139,7 +139,6 @@ const MeetingCard = ({
           </div>
         </div>
 
-        {/* Chat Box */}
         {showMessages && (
           <div className="meeting-card__chatbox">
             <MeetingChatBox isOpen={isMessages} onClose={() => setIsMessages(false)} />

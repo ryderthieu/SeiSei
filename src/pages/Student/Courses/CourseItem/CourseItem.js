@@ -42,9 +42,6 @@ const CourseItem = () => {
   const [showEditButton, setShowEditButton] = useState(false);
   const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate('/student-dashboard/courses');
-  };
 
   const handleConfirm = () => {
     setShowSubmissionForm(false);
@@ -60,7 +57,6 @@ const CourseItem = () => {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <ion-icon name="arrow-back-outline" onClick={handleBackClick}></ion-icon>
         <div className={style.headerTitle}>THÔNG TIN LỚP HỌC</div>
       </div>
 

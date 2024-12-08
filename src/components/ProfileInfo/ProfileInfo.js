@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TextInput from "../TextInput/TextInput"
+import TextInput from "../TextInput/TextInput";
 import TextAreaInput from "../TextAreaInput/TextAreaInput";
 import "./ProfileInfo.scss";
 
@@ -13,6 +13,8 @@ const ProfileInfo = () => {
     introduction: `• Thân em như tấm lụa đào. Đã đông nơi chuộng lại nhiều nơi ưa\n• Cuối cùng thì, tình yêu bền vững nhất vẫn là tình yêu nước. Con đường đúng đắn nhất vẫn là con đường cách mạng`,
   });
 
+  const [initialProfile, setInitialProfile] = useState(profile); // Lưu lại thông tin ban đầu
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setProfile((prev) => ({
@@ -21,9 +23,15 @@ const ProfileInfo = () => {
     }));
   };
 
-  const toggleEdit = () => setIsEditing(!isEditing);
+  const toggleEdit = () => {
+    if (isEditing) {
+      setInitialProfile(profile); // Nếu lưu, cập nhật lại giá trị ban đầu
+    }
+    setIsEditing(!isEditing);
+  };
 
   const cancelEdit = () => {
+    setProfile(initialProfile); // Trở lại thông tin ban đầu khi hủy
     setIsEditing(false);
   };
 

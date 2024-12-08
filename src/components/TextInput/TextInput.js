@@ -6,7 +6,7 @@ const TextInput = ({ label, type, name, value, readOnly, onChange }) => {
     <div className="text-input">
       <label className="text-input__label">{label}</label>
       <input
-        className="text-input__input"
+        className={readOnly ? "text-input__input" : "text-input__input text-input__input--active"}
         type={type}
         name={name}
         value={value}

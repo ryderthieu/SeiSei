@@ -77,9 +77,9 @@
 
             label {
                 position: absolute;
-                top: 50%;
+                top: -10px;
                 left: 0;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
                 color: #666666;
                 pointer-events: none;
                 transition: 0.15s ease;
@@ -93,7 +93,7 @@
                 border: 2px solid #d9d9d9;
                 border-radius: 4px;
                 background: transparent;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
                 color: #666666;
 
                 &:focus {
@@ -107,21 +107,6 @@
                 }
             }
 
-            .accept {
-                font-size: 1.4rem;
-                color: #666666;
-                cursor: pointer;
-    
-                label {
-                    display: flex;
-                    align-items: flex-start;
-                }
-    
-                label span {
-                    margin-left: 20px;
-                }
-            }
-
             input {
                 padding: 10px 0;
                 width: 100%;
@@ -129,7 +114,7 @@
                 border: none;
                 outline: none;
                 background: transparent;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
                 color: #666666;
                 border-bottom: 2px solid #d9d9d9;
 
@@ -144,8 +129,7 @@
                 height: 20px;
                 border: none;
                 background: transparent;
-                font-size: 1.4rem;
-                color: transparent;
+                font-size: 1.6rem;
                 border-bottom: 2px solid #d9d9d9;
 
                 &:focus {
@@ -161,13 +145,13 @@
             input[type="file"] {
                 padding: 10px 0;
                 width: 100%;
-                height: 40px; /* Match the height of other input fields */
+                height: 40px;
                 border: 2px solid #d9d9d9;
                 border-radius: 4px;
                 background: transparent;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
                 color: #666666;
-                margin-top: 10px; /* Space between label and input */
+                margin-top: 10px; 
 
                 &:focus {
                     border-color: #076DB2;
@@ -209,7 +193,9 @@
                 background-color: #f0f0f0;
                 color: #333;
                 border: 2px solid #333;
-
+                display: flex;
+                align-items: center;
+                gap: 10px;
                 &:hover {
                     background-color: #e0e0e0;
                     cursor: pointer;
@@ -221,7 +207,9 @@
             .final {
                 background-color: #076DB2;
                 color: #fff;
-
+                display: flex;
+                align-items: center;
+                gap: 10px;
                 &:hover {
                     background-color: #005c99;
                     cursor: pointer;
@@ -245,6 +233,22 @@
                 svg {
                     margin: 0 auto;
                 }
+            }
+        }
+        .accept {
+            font-size: 1.6rem;
+            color: #666666;
+
+            label {
+                display: flex;
+                align-items: flex-start;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+            }
+
+            label span {
+                margin-left: 10px;
             }
         }
     }

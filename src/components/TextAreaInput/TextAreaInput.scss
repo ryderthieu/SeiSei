@@ -15,7 +15,11 @@
       font-family: "Nunito";
       height: 7.5em;
       line-height: 1.8em;
-  
+      cursor: default;
+    }
+    &__textarea--active {
+      background-color: #fff;
+      cursor: text;
     }
   }
   

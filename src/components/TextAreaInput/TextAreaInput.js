@@ -6,7 +6,7 @@ const TextAreaInput = ({ label, name, value, readOnly, onChange }) => {
     <div className="text-area-input">
       <label className="text-area-input__label">{label}</label>
       <textarea
-        className="text-area-input__textarea"
+        className={readOnly ? "text-area-input__textarea" : "text-area-input__textarea text-area-input__textarea--active"}
         name={name}
         value={value}
         readOnly={readOnly}
