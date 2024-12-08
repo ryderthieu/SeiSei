@@ -22,8 +22,27 @@ import Slider from "../../components/Slider/Slider";
 
 
 const Homepage = () => {
+        const animationRef = useRef([]);
         const sectionsRef = useRef([]);
         const [activeSection, setActiveSection] = useState('');
+        useEffect(() => {
+            const handleIntersection = (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                  }
+                });
+              };
+            const observer = new IntersectionObserver(handleIntersection, {
+                threshold: 0.5, 
+            });
+        
+            sectionsRef.current.forEach((section) => {
+                observer.observe(section);
+            });
+        
+            return () => observer.disconnect();
+        },[])
         useEffect(() => {
             const observer = new IntersectionObserver(
                 (entries) => {
@@ -40,12 +59,12 @@ const Homepage = () => {
                 { threshold: 0.5 }
             );
     
-            sectionsRef.current.forEach((section) => {
+            animationRef.current.forEach((section) => {
                 if (section) observer.observe(section);
             });
     
             return () => {
-                sectionsRef.current.forEach((section) => {
+                animationRef.current.forEach((section) => {
                     if (section) observer.unobserve(section);
                 });
             };
@@ -55,7 +74,9 @@ const Homepage = () => {
     <div className='homepage-container'>
         <Header activeSection={activeSection}/>
         <div id = 'TrangChu' className='section animate-fade-in'
-                    ref={(el) => sectionsRef.current.push(el)}>
+                    ref={(el) => {animationRef.current.push(el)
+                        sectionsRef.current.push(el)
+                    }}>
             <div className="home-imgs">
                 <img src={homeImg} className='home-img'/>
             </div>
@@ -83,9 +104,11 @@ const Homepage = () => {
             </div>
         </div>
         <div id="GioiThieu" className='section animate-fade-in'
-                    ref={(el) => sectionsRef.current.push(el)}>
+                    ref={(el) => {animationRef.current.push(el);
+                        sectionsRef.current.push(el)
+                    }}>
             <div className="slide-container  animate-left"
-                    ref={(el) => sectionsRef.current.push(el)}>
+                    ref={(el) => animationRef.current.push(el)}>
                 <div className="slide-imgs">
                     <img src={slideImg} className="slide-img"/>
                 </div>
@@ -97,13 +120,13 @@ const Homepage = () => {
                 </Link>
             </div>
             <div className=" animate-right"
-                    ref={(el) => sectionsRef.current.push(el)}>
+                    ref={(el) => animationRef.current.push(el)}>
                 <img src={IntroduceImg} className="introduce-img"/>
             </div>
         </div>
-        <div id='LopHoc' className='section'>
+        <div id='LopHoc' className='section' ref={(el) => sectionsRef.current.push(el)}>
             <div className='lh-title animate-fade-in'
-                    ref={(el) => sectionsRef.current.push(el)}>
+                    ref={(el) => animationRef.current.push(el)}>
                 <TextShadow 
                     text={'Các lớp học'}
                     tColor={'#fff'}
@@ -113,7 +136,7 @@ const Homepage = () => {
                 />
             </div>
             <div className = 'lh-item animate-right'
-                ref={(el) => sectionsRef.current.push(el)}>
+                ref={(el) => animationRef.current.push(el)}>
                 <BoxContent 
                     title={'LỚP HỌC PHỔ THÔNG'}
                     img={imgMath}
@@ -123,7 +146,7 @@ const Homepage = () => {
                 />
             </div>
             <div className = 'lh-item animate-left'
-                ref={(el) => sectionsRef.current.push(el)}>
+                ref={(el) => animationRef.current.push(el)}>
                 <BoxContent 
                     title={'LỚP HỌC NGOẠI NGỮ'}
                     img={imgJapan}
@@ -134,7 +157,7 @@ const Homepage = () => {
                 />
             </div>
             <div className = 'lh-item animate-right'
-                ref={(el) => sectionsRef.current.push(el)}>
+                ref={(el) => animationRef.current.push(el)}>
                 <BoxContent 
                     title={'LỚP HỌC NĂNG KHIẾU'}
                     img={imgArt}
@@ -144,18 +167,18 @@ const Homepage = () => {
                 />
             </div>
         </div>
-        <div id='DangKyLop' className="section">
+        <div id='DangKyLop' className="section" ref={(el) => sectionsRef.current.push(el)}>
             <div className="dkl-imgs">
                 <img src={imgQuyTrinh} className='dkl-img1 animate-fade-in'
-                ref={(el) => sectionsRef.current.push(el)}/>
+                ref={(el) => animationRef.current.push(el)}/>
                 <img src={imgQuyTrinh2} className='dkl-img2 animate-zoom-in'
-                ref={(el) => sectionsRef.current.push(el)}/>
+                ref={(el) => animationRef.current.push(el)}/>
                 <img src={imgQuyTrinh3} className='dkl-img3 animate-zoom-in'
-                ref={(el) => sectionsRef.current.push(el)}/>
+                ref={(el) => animationRef.current.push(el)}/>
             </div>
             <div className="dkl-content-container">
                 <div className='dkl-title animate-left'
-                ref={(el) => sectionsRef.current.push(el)}>
+                ref={(el) => animationRef.current.push(el)}>
                     <TextShadow 
                         text={'Quy trình'}
                         tColor={'#3E91C7'}
@@ -164,7 +187,7 @@ const Homepage = () => {
                     />
                 </div>
                 <div className='dkl-content animate-zoom-in'
-                ref={(el) => sectionsRef.current.push(el)}>
+                ref={(el) => animationRef.current.push(el)}>
                     <ListStyle 
                         stt={'01'}
                         content={'Đăng ký yêu cầu tìm gia sư'}
@@ -195,14 +218,14 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
-        <div id='LuuY' className="section">
+        <div id='LuuY' className="section" ref={(el) => sectionsRef.current.push(el)}>
             <div className='LY-imgs animate-fade-in'
-                ref={(el) => sectionsRef.current.push(el)}>
+                ref={(el) => animationRef.current.push(el)}>
                 <img id="LY-img1" src={LYImg1} />
                 <img id="LY-img2" src={LYImg2} />
             </div>
             <div className='LY-content-container animate-zoom-in'
-                ref={(el) => sectionsRef.current.push(el)}>
+                ref={(el) => animationRef.current.push(el)}>
                 <div className = 'LY-content-title'>
                     <TextShadow 
                         text={'Lưu ý'}
@@ -242,7 +265,7 @@ const Homepage = () => {
                 </div>
             </div>
         </div>
-        <div id='LienHe'>
+        <div id='LienHe' ref={(el) => sectionsRef.current.push(el)}>
             <Footer/>
         </div>
     </div>
