@@ -2,26 +2,30 @@ import { useState } from 'react'
 import './Card.scss'
 import { Link } from 'react-router-dom'
 import Button from '../Button/Button'
-const BoxContent = ({title, img, content, type, backgroundColor}) => {
+const BoxContent = ({ title, img, content, type = 'left', backgroundColor = '#ffffff', color = '#5e93bb' }) => {
+    const isLeft = type === 'left';
+    console.log(isLeft);
+
     return (
-        <div className="boxContent-container" style={{'--bColor': backgroundColor}}>
+        <div
+            className={`boxContent-container ${isLeft ? 'left' : 'right'}`}
+            style={{ '--bColor': backgroundColor, '--mainColor': color }}
+        >
             <div className="boxContent-imgs">
-                <img className = 'boxContent-img' src={img}/>
+                <img className="boxContent-img" src={img} alt={title || 'Image'} />
             </div>
-            <div className = 'boxContent-content'>
-                <div className="bcContent-title">
-                    {title}
-                </div>
-                <div className="bcContent-content">
-                    {content}
-                </div>
-                <Link className='boxContent-btn' to = '/register'>
+
+            <div className="boxContent-content">
+                <div className="bcContent-title">{title}</div>
+                <div className="bcContent-desc">{content}</div>
+                <Link className="boxContent-btn" to="/register">
                     Đăng ký ngay
                 </Link>
             </div>
         </div>
-    )
-}
+    );
+};
+
 
 const CourseCard = ({data}) => {
 

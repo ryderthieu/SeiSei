@@ -5,6 +5,7 @@ import momo_qr from "../../../../assets/icon/momo_qr.png";
 import AcceptedOverlay from "../../../../components/Overlay/Overlay";
 import success from "../../../../assets/icon/transaction_success.gif";
 import { useNavigate } from "react-router-dom";
+import Button from "../../../../components/Button/Button";
 
 const billData = [
   {
@@ -216,10 +217,12 @@ const PaymentGateway = () => {
                   </div>
                 </div>
                 <div className={styles.buttonContainer}>
-                  <div className={[styles.button, styles.cancel].join(" ")} onClick={() => navigate('../payment')}>
-                    Hủy
+                  <div className={styles.button} onClick={() => navigate('../payment')}>
+                    <Button title='Hủy' type='secondary'/>
                   </div>
-                  <div className={styles.button} onClick={() => setOverlay(true)}>Xác nhận</div>
+                  <div className={styles.button} onClick={() => setOverlay(true)}>
+                    <Button title='Xác nhận' />
+                  </div>
                 </div>
               </>
             )}

@@ -8,7 +8,9 @@ import homeImg from '../../assets/images/Learning-amico.png'
 import slideImg from '../../assets/images/line-bottom-bg.png'
 import IntroduceImg from '../../assets/images/Questions-rafiki.png'
 import {BoxContent} from "../../components/Card/Card";
-import imgMath from "../../assets/images/math.png"
+import imgMath from "../../assets/images/chemistry.png"
+import imgJapan from "../../assets/images/japanese.png"
+import imgArt from "../../assets/images/art.png"
 import imgQuyTrinh from "../../assets/images/leadership-cuate.png"
 import imgQuyTrinh2 from "../../assets/images/blue-hat-star1.png"
 import imgQuyTrinh3 from "../../assets/images/method-star-bg.png"
@@ -105,6 +107,8 @@ const Homepage = () => {
                 <TextShadow 
                     text={'Các lớp học'}
                     tColor={'#fff'}
+                    fontSize="50px"
+                    fontWeight="900"
                     sColor={'#75C1F2'}
                 />
             </div>
@@ -113,26 +117,30 @@ const Homepage = () => {
                 <BoxContent 
                     title={'LỚP HỌC PHỔ THÔNG'}
                     img={imgMath}
-                    content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
-                    backgroundColor={'#F8FBFF'}
+                    content={'Các lớp học phổ thông bao gồm tất cả các môn học từ lớp 1 đến lớp 12 ở trường. Các gia sư sẽ được đào tạo và đảm bảo chất lượng dạy đúng chuẩn theo sách giáo khoa.'}
+                    backgroundColor={'#fff'}
+                    color="#FF8DBD"
+                />
+            </div>
+            <div className = 'lh-item animate-left'
+                ref={(el) => sectionsRef.current.push(el)}>
+                <BoxContent 
+                    title={'LỚP HỌC NGOẠI NGỮ'}
+                    img={imgJapan}
+                    content={'Các lớp học ngoại ngữ bao gồm các lớp luyện thi IELTS, TOIEC, TOFEL, JLPT và  nhiều cuộc thi quốc tế khác. Các gia sư được tuyển chọn kỹ càng và có bằng cấp đủ để hướng dẫn học viên. Chúng tôi cam kết mang đến cho các bạn những kiến thức sát với đề thi nhất.'}
+                    backgroundColor={'#fff'}
+                    type='right'
+                    color="#f26868"
                 />
             </div>
             <div className = 'lh-item animate-right'
                 ref={(el) => sectionsRef.current.push(el)}>
                 <BoxContent 
-                    title={'LỚP HỌC PHỔ THÔNG'}
-                    img={imgMath}
-                    content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
-                    backgroundColor={'#F8FBFF'}
-                />
-            </div>
-            <div className = 'lh-item animate-right'
-                ref={(el) => sectionsRef.current.push(el)}>
-                <BoxContent 
-                    title={'LỚP HỌC PHỔ THÔNG'}
-                    img={imgMath}
-                    content={'Không tự ý chuyển nhượng lớp cho người khác, tăng học phí, số buổi dạy, không gộp số buổi dạy nếu chưa có sự đồng ý của Trung tâm. Gia sư cần nghiên cứu kỹ đường đi trước khi nhận lớp, không giải quyết các trường hợp nhận lớp rồi không dạy do đường xa.'}
-                    backgroundColor={'#F8FBFF'}
+                    title={'LỚP HỌC NĂNG KHIẾU'}
+                    img={imgArt}
+                    content={'Lớp học năng khiếu bao gồm các môn như Vẽ, Piano và nhiều loại hình nghệ thuật khác. Với chi phí vừa phải, chúng tôi mang đến cho các bạn những gia sư chất lượng tốt để phát huy tài năng bên trong của mình.'}
+                    backgroundColor={'#fff'}
+                    color="#86bce2"
                 />
             </div>
         </div>
@@ -159,29 +167,29 @@ const Homepage = () => {
                 ref={(el) => sectionsRef.current.push(el)}>
                     <ListStyle 
                         stt={'01'}
-                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        content={'Đăng ký yêu cầu tìm gia sư'}
                         color={'#000'}
                     />
                     <ListStyle 
                         stt={'02'}
-                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        content={'Lựa chọn gia sư phù hợp dựa trên các đơn yêu cầu'}
                         color={'#83BBE1'}
                         direction="right"
                     />
                     <ListStyle 
                         stt={'03'}
-                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        content={'Tiến hành học thử trước khi ra quyết định'}
                         color={'#000'}
                     />
                     <ListStyle 
                         stt={'04'}
-                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        content={'Thống nhất lịch học chính thức với gia sư'}
                         color={'#83BBE1'}
                         direction="right"
                     />
                     <ListStyle 
                         stt={'05'}
-                        content={'Tìm kiếm lớp phù hợp, đăng ký lớp Tìm kiếm lớp phù hợp, đăng ký lớp'}
+                        content={'Trong quá trình học nếu có bất kì sự cố nào sẽ liên lạc với trung tâm để xử lý'}
                         color={'#000'}
                     />
                 </div>
