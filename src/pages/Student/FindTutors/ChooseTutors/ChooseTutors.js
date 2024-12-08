@@ -64,7 +64,7 @@ const ChooseTutors = () => {
             },
             {
               label: "Lịch rảnh",
-              value: [item.date],
+              value: item.free,
             },
             {
               label: "Bằng cấp",
@@ -72,7 +72,7 @@ const ChooseTutors = () => {
             },
             {
               label: "Thời gian có thể dạy thử",
-              value: [item.date], 
+              value: item.date, 
             },
           ],
         },
@@ -80,7 +80,6 @@ const ChooseTutors = () => {
           title: "Chấp nhận",
         },
       }));
-      console.log(formattedData)
       setRequestData(formattedData);
   }, []);
 

@@ -160,9 +160,8 @@
         }
         .text {
             margin-top: 10px;
-            display: grid;
+            display: flex;
             grid-template-columns: 1fr 1fr;
-            row-gap: 10px;
         }
         .button {
             margin-top: 10px;
