@@ -6,6 +6,16 @@ import avt1 from "../assets/images/giasu.jpg"
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
+  //Dữ liệu môn học
+  const subjectConfig = {
+    Toán: {id:'MA00', color: "#AD8BC8", image: Toan },
+    Văn: {id:'LE00', color: "#F4A261", image: Toan },
+    Anh: {id:'EN00', color: "#05A344", image: Anh },
+    Lý: {id: 'PH00', color: "#E76F51", image: Toan },
+    Hóa: {id: 'CH00', color: "#264653", image: Toan },
+    Sinh: {id: 'BI00', color: "#E9C46A", image: Toan },
+    // Thêm các môn học khác nếu cần
+  };
   // Dữ liệu các khóa học
   const [coursesData, setCoursesData] = useState([
     {
@@ -135,147 +145,197 @@ const DataProvider = ({ children }) => {
     },
   ]);
   // Dữ liệu các đề nghị
-  const [suggest, setSuggest] = useState([
-    {
-      img: Anh,
-      title: [
-        {
-          label: "Gia sư",
-          value: "Nguyễn Văn A",
-        },
-        {
-          label: "Giới tính",
-          value: "Nam",
-        },
-      ],
-      content: {
-        title: "ĐỀ NGHỊ DẠY",
-        content: [
-          {
-            label: "Ngày sinh",
-            value: ["21/11/2001"],
-          },
-          {
-            label: "Lịch rảnh",
-            value: ["Thứ Hai", "Thứ Tư"],
-            tag: ["#D00000", "#359508"],
-          },
-          {
-            label: "Bằng cấp",
-            value: ["Sinh viên - Ielts 7.0"],
-          },
-          {
-            label: "Thời gian có thể dạy thử",
-            value: ["Thứ Năm"],
-            tag: ["#D00000"],
-          },
-        ],
-      },
-      button: {
-        title: "Chấp nhận",
-      },
-    },
-  ]);
-
-  // Dữ liệu yêu cầu
   const [request, setRequest] = useState([
-    {
-      id: 0,
-      content: [
-        {
-          img: Toan,
-          title: "MA010 - TOÁN 10",
-          content: [
-            { label: "", value: ["Offline - TP. Hồ Chí Minh"] },
-            { value: ["2 buổi / 1 tuần"] },
-          ],
-          color: "#AD8BC8",
+      {
+        id: 'MA003',
+        name: 'TOÁN 10',
+        subject: 'Toán',
+        level: 'Lớp 10',
+        image: Toan,
+        method: 'Online',
+        price: '200.000 /buổi',
+        date: ['Thứ Hai', 'Thứ Năm'],
+        time: ['08:00 - 10:00', '14:00 - 16:00'],
+        tutors: [
+          {
+            name: 'Huỳnh Văn Thiệu',
+            image: avt1,
+            gender: 'Nam',
+            birthday: '06/06/2004',
+            describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
+            certificate: 'N2',
+            free: ['Thứ hai', 'Thứ Năm'],
+            date: ['12/11/2024', '13/11/2024', '15/11/2024'],
+            time: [['07h00 - 09h00', '09h00 - 11h00', '14h00 - 16h00'],
+                   ['07h00 - 09h00', '13h00 - 15h00', '19h00 - 21h00'],
+                   ['13h00 - 15h00', '17h00 - 19h00']]
+          },
+          {
+            name: 'Lê Thiện Nhi',
+            image: avt1,
+            gender: 'Nữ',
+            birthday: '06/06/2004',
+            describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
+            certificate: 'N2',
+            free: ['Thứ hai', 'Thứ Năm'],
+            date: ['12/11/2024', '13/11/2024', '15/11/2024'],
+            time: [['07h00 - 09h00', '09h00 - 11h00', '14h00 - 16h00'],
+                   ['07h00 - 09h00', '13h00 - 15h00', '19h00 - 21h00'],
+                   ['13h00 - 15h00', '17h00 - 19h00']]
+          },
+          {
+            name: 'Trịnh Thị Phương Quỳnh',
+            image: avt1,
+            gender: 'Nữ',
+            birthday: '06/06/2004',
+            describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
+            certificate: 'N2',
+            free: ['Thứ hai', 'Thứ Năm'],
+            date: ['12/11/2024', '13/11/2024', '15/11/2024'],
+            time: [['07h00 - 09h00', '09h00 - 11h00', '14h00 - 16h00'],
+                   ['07h00 - 09h00', '13h00 - 15h00', '19h00 - 21h00'],
+                   ['13h00 - 15h00', '17h00 - 19h00']]
+          }
+        ],
+        student : {
+          name: 'Nguyễn Văn A',
+          age: 16,
+          gender: 'Nam',
+          request: 'Yêu cầu gia sư nữ, có kinh nghiệm dạy 2 năm trở lên',
         },
-        {
-          img: Anh,
-          title: "ENG010 - ANH 10",
-          content: [
-            { value: ["Offline - Vũng Tàu"] },
-            { value: ["2 buổi / 1 tuần"] },
-          ],
-          color: "#05A344",
+        status: 'Đang mở',
+        color: '#AD8BC8',
+      },
+      {
+        id: 'MA004',
+        name: 'TOÁN 10',
+        subject: 'Toán',
+        level: 'Lớp 10',
+        image: Toan,
+        method: 'Online',
+        price: '200.000 /buổi',
+        date: ['Thứ Hai', 'Thứ Năm'],
+        time: ['08:00 - 10:00', '14:00 - 16:00'],
+        tutors: [
+          {
+            name: 'Huỳnh Văn Thiệu',
+            image: avt1,
+            gender: 'Nam',
+            describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
+            certificate: 'N2'
+          },
+          {
+            name: 'Lê Thiện Nhi',
+            image: avt1,
+            gender: 'Nữ',
+            describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
+            certificate: 'N2'
+          },
+          {
+            name: 'Trịnh Thị Phương Quỳnh',
+            image: avt1,
+            gender: 'Nữ',
+            describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
+            certificate: 'N2'
+          }
+        ],
+        student : {
+          name: 'Nguyễn Văn A',
+          age: 16,
+          gender: 'Nam',
         },
-      ],
-    },
-  ]);
+        status: 'Học thử',
+        color: '#AD8BC8',
+      },
+      {
+        id: 'MA005',
+        name: 'TOÁN 10',
+        subject: 'Toán',
+        level: 'Lớp 10',
+        image: Toan,
+        method: 'Online',
+        price: '200.000 /buổi',
+        date: ['Thứ Hai', 'Thứ Năm'],
+        time: ['08:00 - 10:00', '14:00 - 16:00'],
+        tutors: [
+          {
+            name: 'Huỳnh Văn Thiệu',
+            image: avt1,
+            gender: 'Nam',
+            describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
+            certificate: 'N2'
+          },
+          {
+            name: 'Lê Thiện Nhi',
+            image: avt1,
+            gender: 'Nữ',
+            describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
+            certificate: 'N2'
+          },
+          {
+            name: 'Trịnh Thị Phương Quỳnh',
+            image: avt1,
+            gender: 'Nữ',
+            describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
+            certificate: 'N2'
+          }
+        ],
+        student : {
+          name: 'Nguyễn Văn A',
+          age: 16,
+          gender: 'Nam',
+        },
+        status: 'Đã đóng',
+        color: '#AD8BC8',
+      },
+    ]);
 
-  // Hàm thêm khóa học
-  const addCourse = (newCourse) => {
-    setCoursesData([...coursesData, newCourse]);
-  };
+  const addRequest = ({subject, level, price, date, request, method, name }) => {
+      const { code, color, image } = subjectConfig[subject] || { code: "DEFAULT", color: "#000", image: Toan };
+    
+      const newId = `${code}${request.length + 1}`;
+      const newName = subject + ' ' + level
+      const newRequest = {
+        id: newId,  
+        name: newName,
+        subject: subject,
+        level: level,
+        image: image,
+        method: method,
+        price: price,
+        date: date,
+        tutors: [],
+        student: {
+          name: name,
+          // age: request.age,
+          // gender: request.gender,
+          request: request,
+        },
+        status: 'Đang mở',
+        color: color, 
+      };
+    
+      setRequest((prevRequest) => [...prevRequest, newRequest]);
+  }
 
-  // Hàm xóa khóa học
-  const deleteCourse = (courseId) => {
-    setCoursesData(coursesData.filter((course) => course.id !== courseId));
-  };
-
-  // Hàm sửa khóa học
-  const editCourse = (updatedCourse) => {
-    setCoursesData(
-      coursesData.map((course) =>
-        course.id === updatedCourse.id ? updatedCourse : course
+  const cancelRequest = (id) => {
+    setRequest((prevRequest) =>
+      prevRequest.map((item) =>
+        item.id === id ? { ...item, status: "Đã đóng" } : item
       )
     );
   };
+  
 
-  // Hàm thêm đề xuất
-  const addSuggest = (newSuggest) => {
-    setSuggest([...suggest, newSuggest]);
-  };
 
-  // Hàm xóa đề xuất
-  const deleteSuggest = (suggestIndex) => {
-    setSuggest(suggest.filter((_, index) => index !== suggestIndex));
-  };
-
-  // Hàm sửa đề xuất
-  const editSuggest = (suggestIndex, updatedSuggest) => {
-    setSuggest(
-      suggest.map((item, index) =>
-        index === suggestIndex ? updatedSuggest : item
-      )
-    );
-  };
-
-  // Hàm thêm yêu cầu
-  const addRequest = (newRequest) => {
-    setRequest([...request, newRequest]);
-  };
-
-  // Hàm xóa yêu cầu
-  const deleteRequest = (requestId) => {
-    setRequest(request.filter((req) => req.id !== requestId));
-  };
-
-  // Hàm sửa yêu cầu
-  const editRequest = (updatedRequest) => {
-    setRequest(
-      request.map((req) =>
-        req.id === updatedRequest.id ? updatedRequest : req
-      )
-    );
-  };
 
   return (
     <DataContext.Provider
       value={{
         coursesData,
-        addCourse,
-        deleteCourse,
-        editCourse,
-        suggest,
-        addSuggest,
-        deleteSuggest,
-        editSuggest,
         request,
-        addRequest,
-        deleteRequest,
-        editRequest,
+        cancelRequest,
+        addRequest
       }}
     >
       {children}

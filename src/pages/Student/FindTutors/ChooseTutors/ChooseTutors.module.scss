@@ -46,17 +46,27 @@
                 padding-bottom: 20px;
                 border: 1px #D9D9D9 solid;
                 border-radius: 20px;
+                gap: 20px;
                 .courseInfoTitle {
                     font-weight: bold;
+                }
+                .courseInfoContent {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
                 }
                 .lineContent {
                     display: flex;
                     flex-direction: row;
                     width: 100%;
                     gap: 10px;
-                    align-items: center;
+                    align-items: flex-start;
                     .label {
                         font-weight: bold;
+                    }
+                    .value {
+                        text-wrap: wrap;
+                        max-width: 200px;
                     }
                 }
                 .button {
