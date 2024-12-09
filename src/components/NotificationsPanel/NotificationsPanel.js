@@ -11,16 +11,16 @@ const NotificationsPanel = () => {
 
     return (
         <div className="notifications-panel">
-            <div className="panel-header">Thông báo</div>
+            <div className="notifications-panel__header">Thông báo</div>
             {notifications.map(notification => (
-                <div key={notification.id} className="notification-item">
-                    <div className="notification-content-wrapper">
-                        <div className="notification-icon-wrapper">
-                            <ion-icon name={notification.icon} className="notification-icon"></ion-icon>
+                <div key={notification.id} className="notifications-panel__item">
+                    <div className="notifications-panel__content-wrapper">
+                        <div className="notifications-panel__icon-wrapper">
+                            <ion-icon name={notification.icon} className="notifications-panel__icon"></ion-icon>
                         </div>
-                        <div className="notification-content">{notification.content}</div>
+                        <div className="notifications-panel__text">{notification.content}</div>
                     </div>
-                    <div className="notification-time">{notification.time}</div>
+                    <div className="notifications-panel__time">{notification.time}</div>
                 </div>
             ))}
         </div>

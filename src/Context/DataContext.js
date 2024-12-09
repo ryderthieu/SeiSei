@@ -218,10 +218,10 @@ const DataProvider = ({ children }) => {
       },
       {
         id: 'MA004',
-        name: 'TOÁN 10',
-        subject: 'Toán',
+        name: 'Hóa 10',
+        subject: 'Hóa',
         level: 'Lớp 10',
-        image: Toan,
+        image: Hoa,
         method: 'Online',
         price: '200.000 /buổi',
         date: ['Thứ Hai', 'Thứ Năm'],
@@ -249,13 +249,20 @@ const DataProvider = ({ children }) => {
             certificate: 'N2'
           }
         ],
+        tutor: {
+            name: 'Huỳnh Văn Thiệu',
+            image: avt1,
+            gender: 'Nam',
+            describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
+            certificate: 'N2'
+          },
         student : {
           name: 'Nguyễn Văn A',
           age: 16,
           gender: 'Nam',
         },
         status: 'Học thử',
-        color: '#AD8BC8',
+        color: "#f6b2cb",
       },
       {
         id: 'MA005',

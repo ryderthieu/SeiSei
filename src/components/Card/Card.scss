@@ -78,6 +78,8 @@
     .card-imgs {
         height:100%;
         margin-left: 10px;
+        display: flex;
+        align-items: center;
         .card-img {
             max-height: 80px;
             border-radius: 10px;

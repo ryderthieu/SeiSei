@@ -4,7 +4,7 @@
     justify-content: flex-end;
     margin-right: var(--margin-left-dashboard);
 
-    .icon-wrapper{
+    &__icon-container{
         position: relative;
         margin-right: 2rem;
         display: flex;
@@ -16,52 +16,58 @@
         background: #bcd0e19d;
         cursor: pointer;
 
-        ion-icon {
-            color: var(--color-icon-dashboard-header);
-            padding: 0.8rem;
-            font-size: 2.5rem;
-            border-radius: 50%;
-        }
-
-        .icon-badge{
-            position: absolute;
-            top: -0.5rem;
-            right: -0.8rem;
-            width: 2rem;
-            font-size: 1.3rem;
-            color: #fff;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-icon-notification);
-            border-radius: 1rem;
-        }
-
-        .icon-label {
-            display: none;
-            position: absolute;
-            width: 6em;
-            font-size: 1.4rem;
-            background-color: var(--color-icon-dashboard-label);
-            text-align: center;
-            bottom: -5rem;
-            left: -2rem;
-            border-radius: 6px;
-            padding: 5px;
-            color: var(--color-icon-dashboard-header);
-            z-index: 1000;
-        }
-
-        &:hover .icon-label {
+        &:hover .dashboard-header__label {
             display: block;
         }
-
-        &:hover ion-icon {
+    
+        &:hover .dashboard-header__icon {
             background-color: var(--color-icon-dashboard-label);           
             color: #0c477b;
-        } 
+        }
+    }
 
+    &__label {
+        display: none;
+        position: absolute;
+        width: 6em;
+        font-size: 1.4rem;
+        background-color: var(--color-icon-dashboard-label);
+        text-align: center;
+        bottom: -4rem;
+        left: -2rem;
+        border-radius: 6px;
+        padding: 5px;
+        color: var(--color-icon-dashboard-header);
+        z-index: 1000;
+
+
+    }
+
+    &__badge{
+        position: absolute;
+        top: -0.5rem;
+        right: -0.8rem;
+        width: 2rem;
+        font-size: 1.3rem;
+        color: #fff;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--color-icon-notification);
+        border-radius: 1rem;
+    }
+
+    ion-icon {
+        color: var(--color-icon-dashboard-header);
+        padding: 0.8rem;
+        font-size: 2.5rem;
+        border-radius: 50%;
+
+        &:hover{
+            background-color: var(--color-icon-dashboard-label);           
+            color: #0c477b;
+        }
     }
 
     &__user{
