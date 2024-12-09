@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./CourseConfirm.module.scss";
 import RequestStep from "../../../../components/RequestStep/RequestStep";
 import { CourseCard } from "../../../../components/Card/Card";
@@ -9,13 +9,11 @@ import Button from "../../../../components/Button/Button";
 import AcceptedOverlay from "../../../../components/Overlay/Overlay";
 import warning from "../../../../assets/icon/warning.gif"
 import successIcon from "../../../../assets/icon/success.gif";
-import { useNavigate } from "react-router-dom";
-const CourseConfirm = () => {
-  const navigate = useNavigate()
-  const [overlay, setOverlay] = useState(false)
-  const [cancel, setCancel] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
+import { useNavigate, useParams } from "react-router-dom";
+import { DataContext } from "../../../../Context/DataContext";
+
+
+const stepperData = ["Yêu cầu", "Lựa chọn", "Học thử", "Thống nhất"];
   const overlayData = {
     title: 'ĐĂNG KÝ LỚP THÀNH CÔNG',
     img: successIcon,
@@ -36,46 +34,6 @@ const CourseConfirm = () => {
     img: successIcon,
     color: '#005A96'
   }
-  const data = {
-    img: Anh,
-    content: [
-      {
-        label: 'Mã lớp',
-        value: ['ENG112']
-      },
-      {
-        label: 'Môn',
-        value: ['Tiếng Anh']
-      },
-      {
-        label: 'Hình thức',
-        value: ['Offline - Tp. Hồ Chí Minh']
-      }
-    ],
-    color: "#05A344",
-  };
-  const tutor = {
-    img: Avt,
-    content: [
-      {
-        label: 'Tên gia sư',
-        value: ['Nguyễn Văn A']
-      },
-      {
-        label: 'Giới tính',
-        value: ['Nam']
-      },
-      {
-        label: 'Chuyên môn',
-        value: ['Tiếng anh các cấp']
-      },
-      {
-        label: '',
-        value: ['Sinh viên năm 2 ở UIT']
-      },
-    ],
-    color: "#000",
-  };
   const schedule = [
     {
       'STT': '1',
@@ -90,6 +48,48 @@ const CourseConfirm = () => {
       'Kết thúc': '21h'
     },
   ]
+const CourseConfirm = () => {
+  const navigate = useNavigate()
+  const [overlay, setOverlay] = useState(false)
+  const [cancel, setCancel] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [data, setData] = useState({img: '', content:[], color: ''})
+  const [tutor, setTutor] = useState({img: '', content: []})
+  const {request, addCourse, cancelRequest} = useContext(DataContext)
+  const {id} = useParams()
+  const currentRequest = request.filter((v) => v.id === id)[0]
+  useEffect(() =>{
+    const newData = {
+      img: currentRequest.image,
+      content: [
+        {
+          label: 'Mã lớp',
+          value: [currentRequest.id],
+        },
+        {
+          label: 'Môn',
+          value: [currentRequest.subject]
+        },
+        {
+          label: 'Hình thức',
+          value: [currentRequest.method]
+        }
+      ]
+    }
+    console.log('confirm',currentRequest)
+    const selectedTutor = {
+      img: currentRequest.tutor.image,
+      content: [
+        {label: "Tên gia sư", value: [currentRequest.tutor.name]},
+        {label: "Giới tính", value: [currentRequest.tutor.gender]},
+        {label: "Bằng cấp", value: [currentRequest.tutor.certificate]},
+        {label: "Giới thiệu", value: [currentRequest.tutor.describe]},
+      ]
+    }
+    console.log('comfirm',selectedTutor)
+    setTutor(selectedTutor)
+    setData(newData)
+  }, [])
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -127,8 +127,8 @@ const CourseConfirm = () => {
           </div>
         </div>
       </div>
-      {overlay && <AcceptedOverlay data={overlayData} yes={() => navigate('../courses')}/>}
-      {cancel && <AcceptedOverlay data={warningData} type={'confirm'} yes={() => setSuccess(true)} no={() => setCancel(false)} />}
+      {overlay && <AcceptedOverlay data={overlayData} yes={() =>{ navigate('../courses') ; addCourse(id); cancelRequest(id)}}/>}
+      {cancel && <AcceptedOverlay data={warningData} type={'confirm'} yes={() =>{cancelRequest(id); setSuccess(true)} } no={() => setCancel(false)} />}
       {success && <AcceptedOverlay data = {successData} yes = {() => navigate('../find-tutors')} />}
     </div>
   );

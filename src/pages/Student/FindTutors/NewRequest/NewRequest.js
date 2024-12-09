@@ -76,7 +76,7 @@ const NewRequest = () => {
         { label: "Số buổi học", value: `${sessions} buổi/tuần` },
         {
           label: "Hình thức học",
-          value: method === "online" ? "Online" : "Offline",
+          value: method === "Online" ? "Online" : "Offline",
         },
       ],
     });
@@ -177,14 +177,11 @@ const NewRequest = () => {
                   label="Chọn môn học"
                   placeholder="Chọn môn học"
                   options={[
-                    "Toán học",
-                    "Vật lý",
-                    "Hóa học",
-                    "Lịch sử",
-                    "Văn học",
+                    "Toán",
+                    "Lý",
+                    "Hóa",
                     "Tiếng Anh",
-                    "Sinh học",
-                    "Tin học",
+                    "Sinh",
                     "Tiếng Nhật",
                     "Vẽ",
                   ]}
@@ -247,8 +244,8 @@ const NewRequest = () => {
                     <input
                       type="radio"
                       name="method"
-                      value="online"
-                      checked={method === "online"}
+                      value="Online"
+                      checked={method === "Online"}
                       onChange={(e) => setMethod(e.target.value)}
                     />
                     <span>Online</span>
@@ -257,8 +254,8 @@ const NewRequest = () => {
                     <input
                       type="radio"
                       name="method"
-                      value="offline"
-                      checked={method === "offline"}
+                      value="Offline"
+                      checked={method === "Offline"}
                       onChange={(e) => setMethod(e.target.value)}
                     />
                     <span>Offline</span>
