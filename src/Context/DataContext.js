@@ -5,7 +5,7 @@ import Nhat from "../assets/images/japanese1.png"
 import Ve from "../assets/images/art.png"
 import Hoa from "../assets/images/chemistry.png"
 import Sinh from "../assets/images/biology.png"
-import avt1 from "../assets/images/giasu.jpg"
+import avt1 from "../assets/images/thieu.png"
 import ltn from "../assets/images/ltnhi.png"
 import pg from "../assets/images/pg.png"
 const DataContext = createContext();
@@ -20,7 +20,6 @@ const DataProvider = ({ children }) => {
     'Sinh': {id: 'BI00', color: "#52819d", image: Sinh },
     'Tiếng Nhật': {id: 'JA00', color :"#f56968", image: Nhat},
     'Vẽ': {id: 'AR00', color: "#80bee7", image: Ve}
-    // Thêm các môn học khác nếu cần
   };
   // Dữ liệu các khóa học
   const [coursesData, setCoursesData] = useState([
@@ -306,7 +305,76 @@ const DataProvider = ({ children }) => {
         color: '#AD8BC8',
       },
     ]);
-
+  const [payment, setPayment] = useState([
+    {
+      paymentId: 'HD001',
+      id: 'MA001',
+      price: '250.000 /buổi',
+      time: '11/2024',
+      sessions: '6 buổi',
+      total: '1.500.000 VND',
+      color: "rgba(237, 102, 158, 1)",
+      backgroundColor: "rgba(237, 102, 158, 0.2)",
+      status: 'Chưa thanh toán'
+    },
+    {
+      paymentId: 'HD002',
+      id: 'EN001',
+      price: '300.000 /buổi',
+      time: '11/2024',
+      sessions: '8 buổi',
+      total: '2.400.000 VND',
+      color: "rgba(255, 193, 7, 1)",
+      backgroundColor: "rgba(255, 193, 7, 0.2)",
+      status: 'Chưa thanh toán'
+    },
+    {
+      paymentId: 'HD003',
+      id: 'JA001',
+      price: '240.000 /buổi',
+      time: '11/2024',
+      sessions: '10 buổi',
+      total: '2.400.000 VND',
+      color: "rgba(99, 218, 93, 1)",
+      backgroundColor: "rgba(99, 218, 93, 0.2)",
+      status: 'Chưa thanh toán'
+    },
+    {
+      paymentId: 'HD004',
+      id: 'MA001',
+      price: '250.000 /buổi',
+      time: '11/2024',
+      sessions: '6 buổi',
+      total: '1.500.000 VND',
+      color: "rgba(99, 183, 255, 1)",
+      backgroundColor: "rgba(99, 183, 255, 0.2)",
+      status: 'Chưa thanh toán'
+    },
+    {
+      paymentId: 'HD005',
+      id: 'JA001',
+      price: '240.000 /buổi',
+      time: '10/2024',
+      sessions: '10 buổi',
+      total: '2.400.000 VND',
+      color: "rgba(99, 218, 93, 1)",
+      backgroundColor: "rgba(99, 218, 93, 0.2)",
+      status: 'Đã thanh toán',
+      datePaid: '01/11/2024'
+    },
+    {
+      paymentId: 'HD006',
+      id: 'MA001',
+      price: '250.000 /buổi',
+      time: '10/2024',
+      sessions: '6 buổi',
+      total: '1.500.000 VND',
+      color: "rgba(99, 183, 255, 1)",
+      backgroundColor: "rgba(99, 183, 255, 0.2)",
+      status: 'Đã thanh toán',
+      datePaid: '31/10/2024'
+    },
+  ])
   const addRequest = ({subject, level, price, date, request, method, name, time }) => {
       const { id, color, image } = subjectConfig[subject] || { id: "DEFAULT", color: "#000", image: Toan };
     
@@ -325,8 +393,7 @@ const DataProvider = ({ children }) => {
         tutors: [],
         student: {
           name: name,
-          // age: request.age,
-          // gender: request.gender,
+
           request: request,
         },
         status: 'Đang mở',
@@ -369,7 +436,6 @@ const DataProvider = ({ children }) => {
       color: selectRequest.color,
     };
   
-    // Thêm khóa học mới vào mảng coursesData
     setCoursesData((prevCourses) => [...prevCourses, newCourse]);
   };
   const chooseTutor = ({requestId, tutorId}) => {
@@ -378,11 +444,17 @@ const DataProvider = ({ children }) => {
     const updatedRequests = request.map((v) =>
       v.id === requestId ? { ...v, tutor: selectTutor } : v
   );
-  console.log(updatedRequests)
     setRequest(updatedRequests)
   }
 
-  
+  const pay = (id) => {
+    const today = new Date().toLocaleDateString('vi-VN')
+    setPayment((prev) =>
+      prev.map((item) =>
+        item.paymentId === id ? { ...item, status: "Đã thanh toán", datePaid: today } : item
+      )
+    );
+  };
   return (
     <DataContext.Provider
       value={{
@@ -392,7 +464,9 @@ const DataProvider = ({ children }) => {
         trialRequest,
         addRequest,
         addCourse,
-        chooseTutor
+        chooseTutor,
+        payment,
+        pay
       }}
     >
       {children}

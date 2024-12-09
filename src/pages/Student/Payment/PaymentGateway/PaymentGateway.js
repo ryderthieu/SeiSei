@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./PaymentGateway.module.scss";
 import atm_qr from "../../../../assets/icon/atm_qr.png";
 import momo_qr from "../../../../assets/icon/momo_qr.png";
 import AcceptedOverlay from "../../../../components/Overlay/Overlay";
 import success from "../../../../assets/icon/transaction_success.gif";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../../../components/Button/Button";
+import { DataContext } from "../../../../Context/DataContext";
 
 const billData = [
   {
@@ -115,6 +116,8 @@ const PaymentGateway = () => {
   const [timeLeft, setTimeLeft] = useState(300);
   const navigate = useNavigate()
   const [overlay, setOverlay] = useState(false)
+  const {pay} = useContext(DataContext)
+  const {id} = useParams()
   useEffect(() => {
     setTimeLeft(300);
     const timer = setInterval(() => {
@@ -253,7 +256,7 @@ const PaymentGateway = () => {
         </div>
       </div>
 
-      {overlay && <AcceptedOverlay data={overlayData} yes={() => navigate('../payment')} buttonType='success'/>}
+      {overlay && <AcceptedOverlay data={overlayData} yes={() => {pay(id); navigate('../payment')}} buttonType='success'/>}
     </div>
   );
 };

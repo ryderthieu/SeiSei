@@ -1,15 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
-
-
 import Homepage from './pages/Homepage/Homepage';
-
 import StudentLogin from './pages/Student/Login/Login';
 import StudentRegister from './pages/Student/Register/Register';
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import VerificationCode from './pages/ForgotPassword/VerificationCode/VerificationCode';
 import ResetPassword from './pages/ForgotPassword/ResetPassword/ResetPassword';
 import SuccessResetPassword from './pages/ForgotPassword/SuccessResetPassword/SuccessResetPassword';
-
 import StudentLayout from './pages/Student/Layout/Layout';
 import StudentFindTutors from './pages/Student/FindTutors/FindTutors';
 import StudentDashboard from './pages/Student/Dashboard/Dashboard';
@@ -42,25 +38,34 @@ const App = () => {
           <Route path="forgot-password/verification-code" element={<VerificationCode />} />
           <Route path="forgot-password/reset-password" element={<ResetPassword />}/>
           <Route path="forgot-password/success-reset-password" element={<SuccessResetPassword/>}/>
+
         <Route path="/dashboard" element={<StudentLayout />}>
+
           <Route index element={<StudentDashboard />} />
+
           <Route path="find-tutors" element={<StudentFindTutors />} />
+
             <Route path="find-tutors/choose-tutors/:id" element = {<ChooseTutors />} />
             <Route path="find-tutors/new-request" element = {<NewRequest />} />
             <Route path="find-tutors/trial/:id" element = {<Trial />} />
             <Route path="find-tutors/confirm/:id" element = {<CourseConfirm />} />
+
           <Route path="courses" element={<StudentCourses />} />
             <Route path="courses/course-item/:id" element={<CourseItem />} />
+
           <Route path="schedule" element={<StudentCalender />} />
 
           <Route path="online-class" element={<OnlineClass />} />
             <Route path="online-class/meeting-room" element={<MeetingRoom />} />
             <Route path="online-class/waiting-room" element={<WaitingRoom />} />
             <Route path="online-class/try-learning" element={<TryLearning />} />
+
           <Route path="study-results" element={<StudentStudyResults />} />
             <Route path="study-results/classdetail" element={<ClassDetail />} />
+
           <Route path="payment" element={<StudentPayment />} />
-            <Route path='payment/gateway' element ={<PaymentGateway />} />
+            <Route path='payment/gateway/:id' element ={<PaymentGateway />} />
+            
           <Route path="profile" element={<Profile />}/>
         </Route>
       </Routes>
