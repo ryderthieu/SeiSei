@@ -12,6 +12,7 @@
     border-radius: 8px 8px 0 0;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    z-index: 1000;
   
     &__header {
         display: flex;
@@ -23,7 +24,7 @@
         font-weight: bold;
         font-size: 16px;
   
-        .chat-box__avatar {
+        &__avatar {
             font-size: 24px;
             margin-right: 10px;
             background: #f1f1f1;
@@ -62,7 +63,7 @@
         .chat-box__message {
             margin-bottom: 10px;
             display: flex;
-            align-items: flex-start; /* Align the avatar and message content */
+            align-items: flex-start; 
 
             &-avatar {
                 font-size: 18px;
@@ -71,7 +72,7 @@
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;
-                flex-shrink: 0; /* Prevent shrinking */
+                flex-shrink: 0; 
                 display: flex;
                 align-items: center;
                 justify-content: center;
