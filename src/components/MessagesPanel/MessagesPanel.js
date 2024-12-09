@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import './MessagesPanel.scss';
 import ChatBox from '../ChatBox/BoxChat';
 
-const MessagesPanel = ({onClose}) => {
+const MessagesPanel = forwardRef(({ onClose }, ref) => {
     const [messages] = useState([
         { id: 1, sender: 'SeiSei', avatar: '👩', preview: 'Chào mừng bạn đến với SeiSei...', content: 'Chào mừng bạn đến với SeiSei, nếu có thắc mắc xin vui lòng phản hồi', timestamp: '2023-10-01 10:00' },
         { id: 2, sender: 'GS - Trịnh Thị Phương Quỳnh', avatar: '👩‍🏫', preview: 'Ngày mai học bù được hong em...', content: 'Ngày mai học bù được hong em, vào khoảng 15h-17h. Có gì nhắn lại nha', timestamp: '2023-10-02 14:30' },
@@ -24,7 +24,7 @@ const MessagesPanel = ({onClose}) => {
     };
 
     return (
-        <div className="messages">
+        <div className="messages" ref={ref}>
             {!showChatBox ? (
                 <div className="messages__panel">
                     <h3 className="messages__header">Tin nhắn</h3>
@@ -54,6 +54,6 @@ const MessagesPanel = ({onClose}) => {
             )}
         </div>
     );
-};
+});
 
 export default MessagesPanel;
