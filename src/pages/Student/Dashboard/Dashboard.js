@@ -13,6 +13,7 @@ const Dashboard = () => {
 
   const courses = [
     {
+      id : coursesData[0].id,
       title: coursesData[0].name,
       color: coursesData[0].color,
       img: coursesData[0].image,
@@ -26,6 +27,7 @@ const Dashboard = () => {
       ]
     },
     {
+      id : coursesData[1].id,
       title: coursesData[1].name,
       color: coursesData[1].color,
       img: coursesData[1].image,
@@ -96,12 +98,12 @@ const Dashboard = () => {
               </Link>
             </div>
             <div className="content-left__content_items">
-              <div className="content-left__content_item">
+              <Link className="content-left__content_item" to={`courses/course-item/${courses[0].id}`}>
                 <CourseCard data={courses[0]}/>
-              </div>
-              <div className="content-left__content_item">
+              </Link>
+              <Link className="content-left__content_item" to={`courses/course-item/${courses[1].id}`}>
                 <CourseCard data={courses[1]}/>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
