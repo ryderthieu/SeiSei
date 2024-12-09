@@ -52,7 +52,6 @@ const ClassRegister = () => {
         color: v.color
       };
     });
-    console.log(updatedData)
     setData(updatedData);
   }, [])
   const navigate = useNavigate()

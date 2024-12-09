@@ -29,7 +29,7 @@ const CancelSuccess = {
   img: success,
 }
 const ChooseTutors = () => {
-  const [isChoose, setIsChoose] = useState(false)
+  const [choose, setChoose] = useState('')
   const [isCancel, setIsCancel] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [requestData, setRequestData] = useState([{
@@ -43,13 +43,14 @@ const ChooseTutors = () => {
       title: '',
     },
   },])
-  const {request, cancelRequest} = useContext(DataContext)
+  const {request, cancelRequest, chooseTutor} = useContext(DataContext)
   const navigate = useNavigate()
   const {id} = useParams()
-  const data = request.filter((v) => v.id === id)[0]
+  const data = request.find((v) => v.id === id)
 
   useEffect(() => {
       const formattedData = data.tutors.map((item) => ({
+        id: item.id,
         img: item.image,
         title: [
           { label: "Gia sư", value: item.name },
@@ -92,8 +93,8 @@ const ChooseTutors = () => {
         <RequestStep data={stepperData} active={1} />
         <div className={style.content}>
           <div className={style.requestCard}>
-            {requestData.map((v, i) => (
-              <ExtendableCard data={v} onChoose = {setIsChoose} key={i}/>
+            {requestData.map((v) => (
+              <ExtendableCard data={v} onChoose = {() => setChoose(v.id)} key={v.id}/>
             ))}
             
           </div>
@@ -171,7 +172,7 @@ const ChooseTutors = () => {
           </div>
         </div>
       </div>
-     {isChoose && <AcceptedOverlay data={ConfirmNoti} yes={() => navigate('../find-tutors/trial')}/>}
+     {choose && <AcceptedOverlay data={ConfirmNoti} yes={() => {chooseTutor({requestId: id, tutorId: choose}); navigate(`../find-tutors/trial/${id}`)}}/>}
      {isCancel && <AcceptedOverlay data={Cancel} type={'confirm'} yes={() => {setIsSuccess(true); cancelRequest(id)}} no={() => setIsCancel(false)}/>}
      {isSuccess && <AcceptedOverlay data={CancelSuccess} yes={() => navigate('../find-tutors')}/>}
     </div>

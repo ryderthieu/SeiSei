@@ -2,18 +2,24 @@ import React, { createContext, useState } from 'react';
 import Toan from "../assets/images/math1.png";
 import Anh from "../assets/images/english.png";
 import Nhat from "../assets/images/japanese1.png"
+import Ve from "../assets/images/art.png"
+import Hoa from "../assets/images/chemistry.png"
+import Sinh from "../assets/images/biology.png"
 import avt1 from "../assets/images/giasu.jpg"
+import ltn from "../assets/images/ltnhi.png"
+import pg from "../assets/images/pg.png"
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   //Dữ liệu môn học
   const subjectConfig = {
-    Toán: {id:'MA00', color: "#AD8BC8", image: Toan },
-    Văn: {id:'LE00', color: "#F4A261", image: Toan },
-    Anh: {id:'EN00', color: "#05A344", image: Anh },
-    Lý: {id: 'PH00', color: "#E76F51", image: Toan },
-    Hóa: {id: 'CH00', color: "#264653", image: Toan },
-    Sinh: {id: 'BI00', color: "#E9C46A", image: Toan },
+    'Toán': {id:'MA00', color: "#AD8BC8", image: Toan },
+    'Tiếng Anh': {id:'EN00', color: "#05A344", image: Anh },
+    'Lý': {id: 'PH00', color: "#E76F51", image: Toan },
+    'Hóa': {id: 'CH00', color: "#f6b2cb", image: Hoa },
+    'Sinh': {id: 'BI00', color: "#52819d", image: Sinh },
+    'Tiếng Nhật': {id: 'JA00', color :"#f56968", image: Nhat},
+    'Vẽ': {id: 'AR00', color: "#80bee7", image: Ve}
     // Thêm các môn học khác nếu cần
   };
   // Dữ liệu các khóa học
@@ -55,7 +61,7 @@ const DataProvider = ({ children }) => {
       time: ['08:00 - 10:00', '12:00 - 14:00'],
       tutor: {
         name: 'Lê Thiện Nhi',
-        image: avt1,
+        image: ltn,
         gender: 'Nữ',
         describe: 'Có kinh nghiệm dạy tiếng Anh nhiều năm',
         certificate: 'IELTS 7.0'
@@ -156,8 +162,10 @@ const DataProvider = ({ children }) => {
         price: '200.000 /buổi',
         date: ['Thứ Hai', 'Thứ Năm'],
         time: ['08:00 - 10:00', '14:00 - 16:00'],
+        tutor: {},
         tutors: [
           {
+            id: 'GS001',
             name: 'Huỳnh Văn Thiệu',
             image: avt1,
             gender: 'Nam',
@@ -171,8 +179,9 @@ const DataProvider = ({ children }) => {
                    ['13h00 - 15h00', '17h00 - 19h00']]
           },
           {
+            id: 'GS002',
             name: 'Lê Thiện Nhi',
-            image: avt1,
+            image: ltn,
             gender: 'Nữ',
             birthday: '06/06/2004',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
@@ -184,8 +193,9 @@ const DataProvider = ({ children }) => {
                    ['13h00 - 15h00', '17h00 - 19h00']]
           },
           {
+            id: 'GS003',
             name: 'Trịnh Thị Phương Quỳnh',
-            image: avt1,
+            image: pg,
             gender: 'Nữ',
             birthday: '06/06/2004',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
@@ -226,14 +236,14 @@ const DataProvider = ({ children }) => {
           },
           {
             name: 'Lê Thiện Nhi',
-            image: avt1,
+            image: ltn,
             gender: 'Nữ',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
             certificate: 'N2'
           },
           {
             name: 'Trịnh Thị Phương Quỳnh',
-            image: avt1,
+            image: pg,
             gender: 'Nữ',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
             certificate: 'N2'
@@ -274,7 +284,7 @@ const DataProvider = ({ children }) => {
           },
           {
             name: 'Trịnh Thị Phương Quỳnh',
-            image: avt1,
+            image: pg,
             gender: 'Nữ',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
             certificate: 'N2'
@@ -290,10 +300,10 @@ const DataProvider = ({ children }) => {
       },
     ]);
 
-  const addRequest = ({subject, level, price, date, request, method, name }) => {
-      const { code, color, image } = subjectConfig[subject] || { code: "DEFAULT", color: "#000", image: Toan };
+  const addRequest = ({subject, level, price, date, request, method, name, time }) => {
+      const { id, color, image } = subjectConfig[subject] || { id: "DEFAULT", color: "#000", image: Toan };
     
-      const newId = `${code}${request.length + 1}`;
+      const newId = `${id}${request.length + 1}`;
       const newName = subject + ' ' + level
       const newRequest = {
         id: newId,  
@@ -304,6 +314,7 @@ const DataProvider = ({ children }) => {
         method: method,
         price: price,
         date: date,
+        time: time || ['19:00 - 21:00', '19:00 - 21:00'],
         tutors: [],
         student: {
           name: name,
@@ -325,17 +336,56 @@ const DataProvider = ({ children }) => {
       )
     );
   };
+  const trialRequest = (id) => {
+    setRequest((prevRequest) =>
+      prevRequest.map((item) =>
+        item.id === id ? { ...item, status: "Học thử" } : item
+      )
+    );
+  };
+  const addCourse = (requestId) => {
+    
+    const selectRequest = request.filter((v) => v.id === requestId)[0]
+    const newCourse = {
+      id: selectRequest.id,
+      name: selectRequest.name,
+      subject: selectRequest.subject,
+      level: selectRequest.level,
+      image: selectRequest.image,
+      method: selectRequest.method,
+      price: selectRequest.price,
+      date: selectRequest.date,
+      time: selectRequest.time,
+      student: selectRequest.student,
+      tutor: selectRequest.tutor,
+      status: "Đang học",
+      color: selectRequest.color,
+    };
   
+    // Thêm khóa học mới vào mảng coursesData
+    setCoursesData((prevCourses) => [...prevCourses, newCourse]);
+  };
+  const chooseTutor = ({requestId, tutorId}) => {
+    const selectRequest = request.find((v) => v.id === requestId)
+    const selectTutor = selectRequest.tutors.find((v) => v.id === tutorId)
+    const updatedRequests = request.map((v) =>
+      v.id === requestId ? { ...v, tutor: selectTutor } : v
+  );
+  console.log(updatedRequests)
+    setRequest(updatedRequests)
+  }
 
-
-
+  
   return (
     <DataContext.Provider
       value={{
         coursesData,
         request,
         cancelRequest,
-        addRequest
+        trialRequest,
+        addRequest,
+        addCourse,
+        chooseTutor
       }}
     >
       {children}
