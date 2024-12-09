@@ -68,9 +68,6 @@ const DashboardHeader = () => {
                     <span className="dashboard-header__badge">4</span>
                     <div className="dashboard-header__label">Thông báo</div>
                 </div>
-                <div className="dashboard-header__user">
-                    <div className="dashboard-header__user-avatar"></div>
-                </div>
             </div>
             {showMessages && (
                 <MessagesPanel
