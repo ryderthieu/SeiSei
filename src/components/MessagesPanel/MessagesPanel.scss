@@ -1,4 +1,5 @@
-.messages-panel {
+.messages {
+  &__panel {
     position: absolute;
     top: 5em;
     right: 4rem;
@@ -8,83 +9,82 @@
     overflow: hidden;
     width: 400px;
     z-index: 1000;
-  
-    .panel-header {
-        font-size: 1.2em;
-        border-bottom: 1px solid #333;
-        padding-bottom: 0.5em;
-        margin-bottom: 0.5em;
-        font-weight: bolder;
-        background-color: var(--color-header-container);
-        color: #fff;
-        padding: 12px;
+  }
+
+  &__header {
+    font-size: 1.2em;
+    border-bottom: 1px solid #333;
+    padding: 12px;
+    margin-bottom: 0.5em;
+    font-weight: bolder;
+    background-color: var(--color-header-container);
+    color: #fff;
+  }
+
+  &__content {
+    max-height: 500px;
+  }
+
+  &__item {
+    display: flex;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background-color 0.3s ease;
+
+    &:last-child {
+      border-bottom: none;
     }
-  
-    .panel-content {
-      max-height: 500px;
-    }
-  
-    .message-item {
-      display: flex;
-      padding: 12px 16px;
-      border-bottom: 1px solid #f1f1f1;
-      transition: background-color 0.3s ease;
-  
-      &:last-child {
-        border-bottom: none;
-      }
-  
-      &:hover {
-        background-color: #f9f9f9;
-        cursor: pointer;
-      }
-  
-      .message-icon-wrapper {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background:  #bcd0e19d;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 12px;
-      }
-  
-      .message-icon {
-        font-size: 2em;
-        color:  #bcd0e19d;
-        font-weight: bold;
-      }
-  
-      .message-content-wrapper {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-  
-        .message-content {
-          display: flex;
-          flex-direction: column;
-  
-          .message-sender {
-            font-size: 14px;
-            font-weight: bold;
-            color: #333;
-          }
-  
-          .message-preview {
-            font-size: 13px;
-            color: #666;
-            margin-top: 4px;
-          }
-        }
-  
-        .message-time {
-          font-size: 12px;
-          color: #999;
-          align-self: flex-end;
-          margin-top: 8px;
-        }
-      }
+
+    &:hover {
+      background-color: #f9f9f9;
+      cursor: pointer;
     }
   }
-  
+
+  &__icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #bcd0e19d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+  }
+
+  &__icon {
+    font-size: 2em;
+    color: #bcd0e19d;
+    font-weight: bold;
+  }
+
+  &__details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  &__message {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sender {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  &__preview {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  &__time {
+    font-size: 12px;
+    color: #999;
+    align-self: flex-end;
+    margin-top: 8px;
+  }
+}

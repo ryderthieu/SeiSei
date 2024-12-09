@@ -17,6 +17,11 @@ const DashboardHeader = () => {
         setShowMessages(false);
     }
 
+    const closeMessagesPanel = () => {
+        setShowMessages(false);
+    }
+
+
     return (
         <>
             <div className="dashboard-header">
@@ -32,10 +37,9 @@ const DashboardHeader = () => {
                 </div>
                 <div className="dashboard-header__user">
                     <div className="dashboard-header__user-avatar"></div>
-                    <div className="avatar-label">Tài khoản</div>
                 </div>
             </div>
-            {showMessages && <MessagesPanel />}
+            {showMessages && <MessagesPanel onClose={closeMessagesPanel}/>}
             {showNotifications && <NotificationsPanel />}
         </>
     )
