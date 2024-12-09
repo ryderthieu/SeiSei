@@ -7,7 +7,7 @@ import Hoa from "../assets/images/chemistry.png"
 import Sinh from "../assets/images/biology.png"
 import avt1 from "../assets/images/thieu.png"
 import ltn from "../assets/images/ltnhi.png"
-import pg from "../assets/images/pg.png"
+import pq from "../assets/images/pq.png"
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
@@ -109,9 +109,9 @@ const DataProvider = ({ children }) => {
       date: ['Thứ Hai', 'Thứ Năm'],
       time: ['08:00 - 10:00', '14:00 - 16:00'],
       tutor: {
-        name: 'Huỳnh Văn Thiệu',
-        image: avt1,
-        gender: 'Nam',
+        name: 'Trịnh Thị Phương Quỳnh',
+        image: pq,
+        gender: 'Nữ',
         describe: 'Sinh viên năm 2 đại học Công nghệ Thông tin',
         certificate: 'N2'
       },
@@ -194,7 +194,7 @@ const DataProvider = ({ children }) => {
           {
             id: 'GS003',
             name: 'Trịnh Thị Phương Quỳnh',
-            image: pg,
+            image: pq,
             gender: 'Nữ',
             birthday: '06/06/2004',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
@@ -242,7 +242,7 @@ const DataProvider = ({ children }) => {
           },
           {
             name: 'Trịnh Thị Phương Quỳnh',
-            image: pg,
+            image: pq,
             gender: 'Nữ',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
             certificate: 'N2'
@@ -290,7 +290,7 @@ const DataProvider = ({ children }) => {
           },
           {
             name: 'Trịnh Thị Phương Quỳnh',
-            image: pg,
+            image: pq,
             gender: 'Nữ',
             describe: 'Có kinh nghiệm dạy tiếng Nhật nhiều năm',
             certificate: 'N2'
