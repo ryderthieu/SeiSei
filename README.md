@@ -1,7 +1,10 @@
 <h1 align="center"> 🎓✨ SeiSei - Bridging Students and Tutors 🌐🤝</h1>
 
 SeiSei is a web application designed to seamlessly connect students with reliable and qualified tutors. The platform provides an accessible space for students and tutors to find each other, register for lessons, and facilitate secure payments, all within the app.
+## Demo
+**Live Demo**: [Link](https://ryderthieu.github.io/SeiSei)
 
+**This is just a interface, you can enter any password and email.**
 ## 🌟 Key Features:
 #### For Tutors 🧑‍🏫:
 
